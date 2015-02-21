@@ -137,7 +137,7 @@ Plot_testINC_SP =  strcat('Plot_testINC_SP');
 
 uipushtool(ht,'CData',icon.user,...
     'TooltipString','PS receiver function',...
-    'ClickedCallback', PSFunction);
+    'ClickedCallback', 'if config.issac; PS_RF_sac;else;PS_RF;end;');
 
 uipushtool(ht,'CData',icon.user1,...
     'TooltipString','SP receiver function',...
@@ -369,7 +369,7 @@ switch button
             try
                 pathstr = fileparts(mfilename('fullpath'));
                 [y,Fs,bits] = wavread(fullfile(pathstr, 'Papierkorb.wav'));
-                wavplay(y*2,Fs,'async' )
+                audioplayer(y*2,Fs,'async' )
             end
         end
 
@@ -426,6 +426,7 @@ set(gcbf,...
     'WindowButtonUpFcn',ud.up,...
     'WindowButtonMotionFcn',ud.motion,...
     'Pointer','crosshair')
+return
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function xzoomOutON(src,evt,seismo)

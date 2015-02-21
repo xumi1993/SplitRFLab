@@ -181,11 +181,9 @@ else
         case 'x'
             button=findobj('Tag','xzoom');
             if strcmp(get(button, 'State'),'off')
-                xzoomON(src,seis)
                 set(button, 'State','On')
             elseif strcmp(get(button, 'State'),'on')
-               xzoomOFF(src,seis)
-               set(button, 'State','off')
+                set(button, 'State','off')
             end
         case 'b'
             t   = get(seis(2),'xData');
