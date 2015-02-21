@@ -120,8 +120,8 @@ while 1
         end        
    end
     pos=pos*enf;
-    fillpos=pos+rayp(m);fillneg=neg+rayp(m);
-    yy = rayp(m)*ones(1,RFlength)+edgeColor*enf; 
+    fillpos=pos+s.rayp(m);fillneg=neg+s.rayp(m);
+    yy = s.rayp(m)*ones(1,RFlength)+edgeColor*enf; 
     hold on
     posX=[time,fliplr(time)];posY=[fillpos',fliplr(yy)];
     fill(posX,posY,[0 0.56 0.76],'EdgeColor','none','LineStyle','none');
@@ -136,7 +136,7 @@ while 1
     if m==EV_num+1
         break,end;
     receiver=datar(:,m);pos=zeros(RFlength,1);neg=zeros(RFlength,1);
-    receiver=receiver*enf+rayp(m);
+    receiver=receiver*enf+s.rayp(m);
    %plot lines:
      
     hold on;
@@ -204,7 +204,7 @@ xlabel(h3, 'Depth (km)', 'FontSize',15 )
 %% figure configurations
  
 set(h2,'position',[0.2 0.66 0.75 0.06])
-set(h2,'xtick',[0:2:80],'xlim',[0 config.timeafterp],'ylim',p2ylim,'ytick',[],'xticklabel',[],'yTickLabel',[]) 
+set(h2,'xtick',[0:2:80],'xlim',[0 26],'ylim',p2ylim,'ytick',[],'xticklabel',[],'yTickLabel',[]) 
 set(h2, 'XGrid','on','lineWidth',1);
 % ylabel(h2,'sum','FontSize',8);
 
@@ -216,7 +216,7 @@ set(h1,'position',[0.2 0.072 0.75 0.58])
     plot(h1,TPsPs, rayprange, '--','color', linecolor, 'linewidth',1.5)
 %     text(TPsPs(length(TPs))-1,0.084,'PpSs+PsPs');
     xlabel(h1,'Time after P (s)','FontSize',16);ylabel(h1,'Rayp (s/km)','FontSize',16);
-    set(h1,'xtick',[0:2:80],'xlim',[0 config.timeafterp],'ylim',[0.038 0.088],'xticklabel',[0:2:80],'FontSize',14,'ytick',[0.04:0.01:0.08],'tickdir','out');
+    set(h1,'xtick',[0:2:80],'xlim',[0 26],'ylim',[0.038 0.088],'xticklabel',[0:2:80],'FontSize',14,'ytick',[0.04:0.01:0.08],'tickdir','out');
     set(h1,'YMinorTick','on');
     set(h1, 'XGrid','on','lineWidth',1);
   %  plot(h1,[0,0],[0,s.rayp],'-','linewidth',1.0,'color','k');
