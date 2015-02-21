@@ -110,7 +110,7 @@ TPs = tPs(besth, eta_p, eta_s );
 TPpPs = tPpPs(besth, eta_p, eta_s );
 TPsPs = tPsPs(besth, eta_s );
 %% plot H-kappa stacking map
-figure(80);
+h=figure(81);
 subplot(2,2,1)
 imagesc(Moho, kappa, stack(:,:,1)); hold on;
 plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
@@ -164,8 +164,8 @@ title(['w1: ' num2str(weight(1)) ', w2: ' num2str(weight(2)) ', w3: ' num2str(we
      'Yes','No','Yes');
  if strcmp(button1, 'Yes') 
 
-print('-dpsc', [mapath '/' config.stnname 'hkmap.ps'])
- end
+print(h,'-dpdf', [mapath '/' config.stnname 'hkmap.pdf'])
+end
 %% Output results
 
 

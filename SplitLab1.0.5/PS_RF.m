@@ -23,9 +23,15 @@ fprintf(' %s -- analysing event  %s:%4.0f.%03.0f (%.0f/%.0f) --\n',...
 % so this is what we do here
 % extime_before    = 10 ; 
 % extime_after    = 120 ; 
+
 o         = thiseq.Amp.time(1);%common offset of all files after hypotime
-extbegin  = floor( (thiseq.a - config.extime_before - o) / thiseq.dt); %index of first element of amplitude verctor of the selected time window
-extfinish = floor( (thiseq.a + config.extime_after - o) / thiseq.dt); %index of last element
+if ~isfield(thiseq, 'a')
+    extbegin = floor( (thiseq.phase.ttimes(1) - config.extime_before - o) / thiseq.dt);
+    extfinish = floor( (thiseq.phase.ttimes(1) + config.extime_after - o) / thiseq.dt);
+else
+    extbegin  = floor( (thiseq.a - config.extime_before - o) / thiseq.dt); %index of first element of amplitude verctor of the selected time window
+    extfinish = floor( (thiseq.a + config.extime_after - o) / thiseq.dt); %index of last element
+end
 extIndex  = extbegin:extfinish;%create vector of indices to elements of extended selection window
 RFlength = length(extIndex);
 % now find indices of selected window, but this time 
