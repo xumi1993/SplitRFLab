@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><!-- request.URI=/support/solutions/data/1-VD2UO.html --><!-- request.docBase=/support/solutions/data/ --><!-- request.locale.language=en --><!-- request.locale.country= --><title>The
+MathWorks - 1-VD2UO: Why am I unable to select a directory in the
+"browse directory" dialog displayed by the UIGETDIR function?</title><!-- isIE=${useragent.isIE?string} --><!-- isIEandWindows=${useragent.isIEandWindows?string} --><!-- isNN4=${useragent.isNN4?string} -->
+
+
+
+
+
+
+
+            <div id="mainbody" class="fwidth"><a name="content"></a>
+              <h1>Technical Solutions</h1>
+<h2>Set splitab as alias</h2>
+<br>
+You may want to add the following lines to your .bashrc file:<br>
+<br>
+<code><font color="#800000">
+<ul>#SPLITLAB<br>
+alias splitlab='unset LANG; cd; matlab -nodesktop -r splitlab</ul>
+</font><br><br>
+</code>
+<br><br>
+<h2>Solution Number: 1-VD2UO</h2>
+<br>
+Date Last Modified: 17 Oct 2005
+<table class="datatable2" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><strong>Product:</strong></td>
+<td width="20">&nbsp;</td>
+<td>MATLAB®</td>
+</tr>
+<tr>
+<td><strong>Reported in Release:</strong></td>
+<td width="20">&nbsp;</td>
+<td>R14SP1</td>
+</tr>
+<tr>
+<td><strong>Fixed in Release:</strong></td>
+<td width="20">&nbsp;</td>
+<td>R14SP3</td>
+</tr>
+<tr>
+<td><strong>Platform:</strong></td>
+<td width="20">&nbsp;</td>
+<td>Linux</td>
+</tr>
+<tr>
+<td><strong>Operating System:</strong></td>
+<td width="20">&nbsp;</td>
+<td>Linux Any</td>
+</tr>
+</tbody></table>
+&nbsp;
+<!--subject_begin-->
+<h3>Subject:</h3>
+<p>
+Why am I unable to select a directory in the "browse directory" dialog displayed by the UIGETDIR function?
+</p>
+<!--subject_end-->
+<!--problem description begin-->
+<h3>Problem Description:</h3>
+<p>
+<!--prob_desc_begin-->
+On my Linux machine, I am unable to select any of the directories in
+the directory selection dialog displayed by the UIGETDIR function. When
+I click the 'OK' button, I receive the following error message:<br><samp class="error">
+File does not exist.<br>
+</samp>
+
+</p>
+<!--problem description end-->
+<p>
+<!--solution_begin-->
+</p><table><tbody><tr><td width="550"><div style="left: 0pt;"><h3>Solution:</h3>
+<p>
+This bug has been fixed in Release 14 Service Pack 3 (R14SP3). For
+previous product releases, read below for any possible workarounds: <br> <br>There is a bug in MATLAB 7.0 (R14) related to the system's locale, as specified by the LANG environment variable. <br><br>To
+workaround this issue you need to set the LANG environment variable. To
+do this, unset LANG by running the following command at the tcsh or csh
+shell prompt before launching MATLAB:<br><code>
+
+<br><font color="#800000">
+<ul>unsetenv LANG </ul>
+</font><br><br>
+</code>
+If using the bash shell, type the following command at the shell prompt before launching MATLAB:<br><code>
+
+<br><font color="#800000">
+<ul>unset LANG </ul>
+</font><br><br>
+</code>
+Note that you can also work around this issue either by typing the
+filename in the Selection field of the Open File dialog, or by
+double-clicking on files within the MATLAB Current Directory browser. </p>
+</div></td></tr></tbody></table><!--solution_end-->
+
+            </div>
+          </td>
+        </tr>
+       </tbody></table>
+          <table id="globalfooter" summary="layout" border="0" cellpadding="3" cellspacing="0" width="778">
+
+      <tbody><tr>
+        <td align="center">&nbsp;© 1994-2006 The MathWorks, Inc. &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="http://www.mathworks.com/help.html">Site Help</a>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="http://www.mathworks.com/company/aboutus/policies_statements/patents.html">Patents</a>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="http://www.mathworks.com/company/aboutus/policies_statements/trademarks.html">Trademarks</a>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="http://www.mathworks.com/company/aboutus/policies_statements/">Privacy Policy</a>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="http://www.mathworks.com/company/aboutus/policies_statements/piracy.html">Preventing Piracy</a>
+        </td>
+      </tr>
+    </tbody></table>
+</html>

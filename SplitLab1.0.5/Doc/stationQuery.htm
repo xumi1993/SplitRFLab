@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--last modified on Tue, Jul 14, 1998 1:15 PM-->
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+<SCRIPT LANGUAGE="JavaScript" SRC="/SeismiQuery/dates.js"> </SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="/SeismiQuery/wildcards_win.js"> </SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="/SeismiQuery/view_email_results.js"> </SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="/SeismiQuery/station.js"> </SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Begin 
+var MSIE=navigator.userAgent.indexOf("MSIE"); 
+var NETS=navigator.userAgent.indexOf("Netscape"); 
+var OPER=navigator.userAgent.indexOf("Opera"); 
+if((MSIE>-1) || (OPER>-1)) { 
+document.write("<LINK rel=STYLESHEET href=/styles.css TYPE=text/css>"); 
+} else { 
+document.write("<LINK rel=STYLESHEET href=/net_styles.css TYPE=text/css>"); 
+}  
+// End -->
+
+</SCRIPT> 
+
+	<TITLE>SeismiQuery - Station Inventories Query : IRIS</TITLE>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+</HEAD>
+
+<body BGCOLOR="#ffffff" LINK="#003366" VLINK="#006666" onLoad="MM_preloadImages('sqnavbar.05.04/sqnavbar.05.04_r1_c1_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r1_c2_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r1_c3_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r1_c4_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r1_c5_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r1_c7_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r1_c8_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r1_c9_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c2_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c3_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c4_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c5_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c6_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c7_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c8_f2.gif','sqnavbar.05.04/sqnavbar.05.04_r2_c9_f2.gif','/SeismiQuery/sqnavbar.05.04/sqnavbar.05.04_r1_c6_f2.gif')">
+<FORM ACTION="/SeismiQuery/bin/station.pl" METHOD="POST" ENCTYPE="application/x-www-form-urlencoded" NAME="station"
+TARGET="resultsFrame">
+  <TABLE WIDTH="661" height="322" BORDER="1" align="center">
+    <TR> 
+      <TD width="627" COLSPAN="5"> 
+
+<script language="JavaScript">
+<!--
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+ var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+   var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+   if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_nbGroup(event, grpName) { //v6.0  added by Russ so Excel button can work
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+
+
+//-->
+</script>
+
+<body bgcolor="#ffffff" 
+onLoad="MM_preloadImages(
+'sqnavbar.05.04/sqnavbar.05.04_r1_c1_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c2_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c3_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c4_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c5_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c7_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c8_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c9_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c2_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c3_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c4_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c5_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c6_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c7_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c8_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r2_c9_f2.gif',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c6_f2.gif',
+'excelBtn/ExcelBtn_f2.gif',
+'excelBtn/ExcelBtn_f4.gif',
+'excelBtn/ExcelBtn_f3.gif')">
+
+<table width="679" border="0" align="center" cellpadding="0" cellspacing="0">
+<!-- fwtable fwsrc="sq_navbar_05.04.png" fwbase="sqnavbar.05.04.gif" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+  <tr>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="40" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="85" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="73" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="87" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="96" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="87" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="72" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="81" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="58" height="1" border="0" alt=""></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+
+  <tr>
+   <td rowspan="2"><a href="#" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c1',
+'',
+'sqnavbar.05.04/sqnavbar.05.04_r1_c1_f2.gif',1);"><img name="sqnavbar0504_r1_c1" src="sqnavbar.05.04/sqnavbar.05.04_r1_c1.gif" width="40" height="45" border="0" alt="home"></a></td>
+   <td><a href="/SeismiQuery/summaries.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c2','','sqnavbar.05.04/sqnavbar.05.04_r1_c2_f2.gif',1);"><img name="sqnavbar0504_r1_c2" src="sqnavbar.05.04/sqnavbar.05.04_r1_c2.gif" width="85" height="22" border="0" alt="summaries"></a></td>
+   <td><a href="/SeismiQuery/day_f.html" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c3','','sqnavbar.05.04/sqnavbar.05.04_r1_c3_f2.gif',1);"><img name="sqnavbar0504_r1_c3" src="sqnavbar.05.04/sqnavbar.05.04_r1_c3.gif" width="73" height="22" border="0" alt="by station"></a></td>
+   <td><a href="/SeismiQuery/month_f2.html" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c4','','sqnavbar.05.04/sqnavbar.05.04_r1_c4_f2.gif',1);"><img name="sqnavbar0504_r1_c4" src="sqnavbar.05.04/sqnavbar.05.04_r1_c4.gif" width="87" height="22" border="0" alt="by network"></a></td>
+   <td><a href="/SeismiQuery/timeseries.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c5','','sqnavbar.05.04/sqnavbar.05.04_r1_c5_f2.gif',1);"><img name="sqnavbar0504_r1_c5" src="sqnavbar.05.04/sqnavbar.05.04_r1_c5.gif" width="96" height="22" border="0" alt="by timeseries"></a></td>
+   <td><a href="/SeismiQuery/virtual_net.htm" target="_top" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('sqnavbar0504_r1_c6','','/SeismiQuery/sqnavbar.05.04/sqnavbar.05.04_r1_c6_f2.gif',1)"><img name="sqnavbar0504_r1_c6" src="sqnavbar.05.04/sqnavbar.05.04_r1_c6.gif" width="87" height="22" border="0" alt="virtual networks"></a></td>
+   <td><a href="/SeismiQuery/breq_fast.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c7','','sqnavbar.05.04/sqnavbar.05.04_r1_c7_f2.gif',1);"><img name="sqnavbar0504_r1_c7" src="sqnavbar.05.04/sqnavbar.05.04_r1_c7.gif" width="72" height="22" border="0" alt="breq_fast"></a></td>
+   <td><a href="/SeismiQuery/weed.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c8','','sqnavbar.05.04/sqnavbar.05.04_r1_c8_f2.gif',1);"><img name="sqnavbar0504_r1_c8" src="sqnavbar.05.04/sqnavbar.05.04_r1_c8.gif" width="81" height="22" border="0" alt="weed"></a></td>
+   <td><a href="/SeismiQuery/help.html" target="resultsFrame" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r1_c9','','sqnavbar.05.04/sqnavbar.05.04_r1_c9_f2.gif',1);"><img name="sqnavbar0504_r1_c9" src="sqnavbar.05.04/sqnavbar.05.04_r1_c9.gif" width="58" height="22" border="0" alt="help"></a></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="1" height="22" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td><a href="/SeismiQuery/channel.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c2','','sqnavbar.05.04/sqnavbar.05.04_r2_c2_f2.gif',1);"><img name="sqnavbar0504_r2_c2" src="sqnavbar.05.04/sqnavbar.05.04_r2_c2.gif" width="85" height="23" border="0" alt="channels"></a></td>
+   <td><a href="/SeismiQuery/station.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c3','','sqnavbar.05.04/sqnavbar.05.04_r2_c3_f2.gif',1);"><img name="sqnavbar0504_r2_c3" src="sqnavbar.05.04/sqnavbar.05.04_r2_c3.gif" width="73" height="23" border="0" alt="stations"></a></td>
+   <td><a href="/SeismiQuery/responses.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c4','','sqnavbar.05.04/sqnavbar.05.04_r2_c4_f2.gif',1);"><img name="sqnavbar0504_r2_c4" src="sqnavbar.05.04/sqnavbar.05.04_r2_c4.gif" width="87" height="23" border="0" alt="responses"></a></td>
+   <td><a href="/SeismiQuery/tempNets.phtml" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c5','','sqnavbar.05.04/sqnavbar.05.04_r2_c5_f2.gif',1);"><img name="sqnavbar0504_r2_c5" src="sqnavbar.05.04/sqnavbar.05.04_r2_c5.gif" width="96" height="23" border="0" alt="emporary networks"></a></td>
+   <td><a href="/SeismiQuery/assembled.phtml" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c6','','sqnavbar.05.04/sqnavbar.05.04_r2_c6_f2.gif',1);"><img name="sqnavbar0504_r2_c6" src="sqnavbar.05.04/sqnavbar.05.04_r2_c6.gif" width="87" height="23" border="0" alt="assembled"></a></td>
+   <td><a href="/SeismiQuery/events.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c7','','sqnavbar.05.04/sqnavbar.05.04_r2_c7_f2.gif',1);"><img name="sqnavbar0504_r2_c7" src="sqnavbar.05.04/sqnavbar.05.04_r2_c7.gif" width="72" height="23" border="0" alt="events"></a></td>
+   <td><a href="/SeismiQuery/comments.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c8','','sqnavbar.05.04/sqnavbar.05.04_r2_c8_f2.gif',1);"><img name="sqnavbar0504_r2_c8" src="sqnavbar.05.04/sqnavbar.05.04_r2_c8.gif" width="81" height="23" border="0" alt="comments"></a></td>
+   <td><a href="/SeismiQuery/sql.htm" target="_top" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('sqnavbar0504_r2_c9','','sqnavbar.05.04/sqnavbar.05.04_r2_c9_f2.gif',1);"><img name="sqnavbar0504_r2_c9" src="sqnavbar.05.04/sqnavbar.05.04_r2_c9.gif" width="58" height="23" border="0" alt="SQL"></a></td>
+   <td><img src="sqnavbar.05.04/spacer.gif" width="1" height="23" border="0" alt=""></td>
+  </tr>
+</table>
+
+ 
+</TD>
+    </TR>
+    <TR> 
+      <TD COLSPAN="5" HEIGHT="18"> <p align="center"><strong><font COLOR="#000000" SIZE="3">View 
+          Station Inventories</font></strong> <br>
+           
+          <span class="red"><span class="small">This information reflects station run times but does 
+            NOT necessarily reflect data availability.</span></span>          </p>
+        <span align="center" class="small">To check for data availability, use 
+          the <a href="/SeismiQuery/day_f.html">by station</a>, <a href="/SeismiQuery/month_f2.html">by 
+          network</a> or <a href="/SeismiQuery/timeseries.htm">by timeseries</a> 
+          tools.</span></TD>
+    </TR>
+    <TR> 
+      <TD colspan="5"><table width="100%" border="0" cellspacing="0" cellpadding="2">
+          <tr> 
+            <td colspan="3"><span class="small">Click in the checkbox ( 
+                <input name="checkbox" type="checkbox" value="checkbox" checked>
+                ) of each element you want included in your query&nbsp;results 
+                (<a href="#help">help</a>) </span></td>
+            <td width="40%" rowspan="12" align="center" valign="top"> <table width="187" height="205" cellpadding="4">
+                <tr align="center" valign="middle" bgcolor="#FFFFFF"> 
+                  <td colspan="3"><input name="clat" type="CHECKBOX" id="clat" value="latitude">
+                    latitude and <br> <input name="clon" type="CHECKBOX" id="clon" value="longitude">
+                    longitude</td>
+                </tr>
+                <tr align="center"> 
+                  <td bgcolor="#FFFFFF">&nbsp;</td>
+                  <td valign="bottom" bgcolor="#CCCCCC"> NORTH<br> <input name="lat2" type="TEXT" id="lat2"
+			onFocus="this.select();" onChange="checklat(this)" value="" size="4" maxlength="4"> 
+                  </td>
+                  <td bgcolor="#FFFFFF">&nbsp;</td>
+                </tr>
+                <tr align="center" bgcolor="#CCCCCC"> 
+                  <td> WEST<br> <input name="lon1" type="TEXT" id="lon1"
+			onFocus="this.select();" onChange="checklon(this)" value="" size="4" maxlength="4"> 
+                  </td>
+                  <td valign="middle" bgcolor="#000000"><img src="/SeismiQuery/assem_ds/imgs/globe.gif" width="50" height="52"></td>
+                  <td> EAST <br> <input name="lon2" type="TEXT" id="lon2"
+			onFocus="this.select();" onChange="checklon(this)" value="" size="4" maxlength="4"> 
+                  </td>
+                </tr>
+                <tr align="center"> 
+                  <td bgcolor="#FFFFFF">&nbsp;</td>
+                  <td valign="top" bgcolor="#CCCCCC">SOUTH <br> <input name="lat1" type="TEXT" id="lat1"
+			onFocus="this.select();" onChange="checklat(this)" value="" size="4" maxlength="4"> 
+                  </td>
+                  <td bgcolor="#FFFFFF">&nbsp;</td>
+                </tr>
+              </table>
+              <p>&nbsp;</p></td>
+          </tr>
+	<tr>
+		<td width="261" align="right">virtual network</td>
+                <td width="25" align="left"><input type="CHECKBOX" name="cvnet"></td>
+                <td width="366"><input type="TEXT" name="vnet" size="20" maxlength="20"></td>
+	</tr>
+          <tr> 
+            <td width="22%" align="right"><font>network</font> </td>
+            <td width="4%" align="center"> <input name="cnet" type="CHECKBOX" id="cnet"
+			value="network"  checked></td>
+            <td width="34%"><input name="network" type="TEXT" id="network" size="18"></td>
+          </tr>
+          <tr> 
+            <td align="right"><font>station</font></td>
+            <td align="center"> <input name="csta" type="CHECKBOX" id="csta" value="station"  checked></td>
+            <td><input name="station" type="TEXT" id="station" size="12" maxlength="40"></td>
+          </tr>
+          <tr> 
+            <td align="right">elevation </td>
+            <td align="center"><input
+			name="cele" type="CHECKBOX" id="cele" value="elevation"></td>
+            <td>&gt;= 
+              <input name="elev1" type="TEXT" id="elev1" onFocus="this.select();" value="" size="4" maxlength="4"> 
+              &nbsp; &lt;= 
+              <input name="elev2" type="TEXT" id="elev2" onFocus="this.select();" value="" size="4" maxlength="4"></td>
+          </tr>
+          <tr> 
+            <td align="right"><font>start time</font></td>
+            <td align="center"> <input
+			name="cstm" type="CHECKBOX" id="cstm" value="starttime"></td>
+            <td><input name="year1" type="TEXT" id="year1"
+			onFocus="blank_year(this)" onChange="checkyear(this)" value="YYYY" size="6" maxlength="4"> 
+              <input name="month1" type="TEXT" id="month1" onFocus="blank_month(this)" onChange="checkmonth(this)"
+			value="MM" size="3" maxlength="2"> <input
+			name="day1" type="TEXT" id="day1" onFocus="blank_day(this)" onChange="checkday(this)" value="DD" size="3" maxlength="2"></td>
+          </tr>
+          <tr> 
+            <td align="right">end time </td>
+            <td align="center"> <input name="cetm" type="CHECKBOX" id="cetm"
+			value="endtime"></td>
+            <td><input name="year2" type="TEXT" id="year2"
+			onFocus="blank_year(this)" onChange="checkyear(this)" value="YYYY" size="6" maxlength="4"> 
+              <input name="month2" type="TEXT" id="month2" onFocus="blank_month(this)" onChange="checkmonth(this)"
+			value="MM" size="3" maxlength="2"> <input
+			name="day2" type="TEXT" id="day2" onFocus="blank_day(this)" onChange="checkday(this)" value="DD" size="3" maxlength="2"></td>
+          </tr>
+          <tr> 
+            <td align="right" valign="top">site like</td>
+            <td align="center" valign="top"><input type="CHECKBOX"
+			name="csite" value="site"></td>
+            <td valign="top"><input type="TEXT" name="site" size="20" maxlength="40"></td>
+          </tr>
+          <tr> 
+            <td align="right">network affiliation like</td>
+            <td align="center" valign="top"> <input type="CHECKBOX"
+			name="cnetaff" value="netaff"> </td>
+            <td valign="top"> <input type="TEXT" name="netaff" size="20" maxlength="40"> 
+            </td>
+          </tr>
+          <tr> 
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td rowspan="3"> <input type="button"
+    onClick="viewResults(this.form)"
+    name="View Results2"
+    value="View Results"> <br> <input type="button"
+    onClick="emailResults(this.form)"
+    name="Email Results2"
+    value="Email Results"> </td>
+          </tr>
+          <tr> 
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td colspan="3"><span class="small">Show lists of <a href="/stations/networks.txt" target="resultsFrame">permanent</a> 
+                and <a href="/stations/networks.portable.txt" target="resultsFrame">temporary</a> 
+                network codes</span></td>
+          </tr>
+        </table></TD>
+    </TR>
+  </TABLE>
+  <hr noshade>
+  <p><strong><a name="help" target="_top" id="help">How this query works</a></strong> 
+  </p>
+  <p> This is a very simple query of the station table. Some query rules: 
+  <ul>
+    <li><strong>You must click in the checkbox ( 
+      <input name="null" type="checkbox" id="null" value="null" checked>
+      ) of each element you want included in your query</strong>. Those fields 
+      not selected will not be included in the output report. (network and station 
+      are selected by default) 
+    <li>You must enter a value in at least one of your selected fields. 
+    <li>If you fill in either the site name or the network affiliation, you <strong>may 
+      not</strong> enter anything in the network code and/or station fields. 
+    <li>You may use <a href="javascript:openWin('wildcards.html')" target="_top">wildcards</a> 
+    <li>You may use multiple entries in one parameter box (example: you may enter 
+      IU,II,IC in the network code parameter box). Do not put spaces around the 
+      commas. 
+    <li>A comma is used to separate query entries so you may not search for a 
+      comma (example: %New Mexico, USA% will find all entries ending with New 
+      Mexico and all entries starting with " USA" . To find just New Mexico, USA 
+      use %New Mexico%USA%) 
+    <li>Start and end times : 
+      <ul>
+        <li>Time entries must contain a year, month and day. You may not enter 
+          a partial time like month and year. 
+        <li>If you do not enter any time parameters, the query will be for all 
+          time. 
+        <li>If you enter a start and end time, the query will be for that time 
+          period. 
+        <li>If you enter a start time but no end time, the query will be from 
+          that time to the present. 
+        <li>If you enter an end time but no start time, the query will be all 
+          entries before the specified end time. 
+      </ul>
+    <li>For those fields using >= and <= : 
+      <ul>
+        <li>values in both boxes will result in a between query 
+        <li>only value in the >= box will query for all values greater than or 
+          equal to that value 
+        <li>only value in the <= box will query for all values less than or equal 
+          to that value 
+      </ul>
+  </ul>
+  <BR>
+  <INPUT TYPE="HIDDEN" NAME="select" SIZE="-1" VALUE="select">
+  <INPUT TYPE="HIDDEN" NAME="parms" SIZE="-1" VALUE="none">
+  <INPUT TYPE="HIDDEN" NAME="starttime" SIZE="-1" VALUE="none">
+  <INPUT TYPE="HIDDEN" NAME="endtime" SIZE="-1" VALUE="none">
+  <INPUT TYPE="HIDDEN" NAME="email" SIZE="-1" VALUE="none">
+  <INPUT TYPE="HIDDEN" NAME="count" SIZE="-1" VALUE="0">
+</FORM>
+
+
+<hr noshade>
+<p align="center" class="small"><a href="/SeismiQuery/index.html" target="_top">SeismiQuery
+    home</a> | <a href="/SeismiQuery/summaries.htm" target="_top">summaries</a> | <a href="/SeismiQuery/day_f.html" target="_top">by
+    station</a> | <a href="/SeismiQuery/month_f2.html" target="_top">by network</a> | <a href="/SeismiQuery/timeseries.htm" target="_top">by
+    timeseries</a>  | <a href="/SeismiQuery/breq_fast.htm" target="_top">breq_fast</a> | <a href="/SeismiQuery/weed.htm" target="_top">WEED</a><br>
+    <a href="/SeismiQuery/channel.htm" target="_top">channels</a> | <a href="/SeismiQuery/station.htm" target="_top">stations</a> | <a href="/SeismiQuery/responses.htm" target="_top">responses</a> | <a href="/SeismiQuery/tempNets.phtml" target="_top">temp
+    networks</a> | <a href="/SeismiQuery/assembled.phtml" target="_top">assembled</a> | <a href="/SeismiQuery/events.htm" target="_top">events</a> |
+    <a href="/SeismiQuery/comments.htm" target="_top">comments</a> | <a href="/SeismiQuery/sql.htm" target="_top">write
+    SQL</a><br>
+help pages: <a href="/SeismiQuery/help.html" target="_top">general help</a> | <a href="/SeismiQuery/SQ_tables.html" target="_top">tables</a> | <a href="/SeismiQuery/SQ_defs.html" target="_top">definitions</a> | <a href="/SeismiQuery/SQ_syntax.html" target="_top">SQL
+sytax</a> | <a href="/index.htm" target="_top">IRIS Home</a></p>
+
+</BODY>
+
+</HTML>

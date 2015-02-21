@@ -1,0 +1,904 @@
+<HTML>
+
+<HEAD>
+<TITLE>SAC2000 User's Manual</TITLE>
+</HEAD>
+
+<BODY BACKGROUND="../SAC_pictures/blue_stc.jpg"  VLINK=7E3817>
+<div align="center"> 
+  <p><font size="-1"><a href="Introduction.html">Introduction</a> | <a href="NewUsers.html">New 
+    User</a> | <a href="Analysis.html">Analysis</a> | <a href="Graphics.html">Graphics</a> 
+    | <a href="SACMacros.html">Macros</a> | <a href="InlineFunctions.html">Inline 
+    Functions</a> | </font></p>
+  <p><font size="-1"><a href="BlackBoard.html">Blackboard</a> | <a href="InputOutput.html">Input-Output</a> 
+    |</font><font size="-1"><a href="FileFormatPt1.html">Data Format (part 1)</a> 
+    | </font><font size="-1"><a href="FileFormatPt2.html">Data Format (part 2)</a> 
+    | </font></p>
+  <p><font size="-1"><a href="Appendix.html">Appendix </a></font><font size="-1">| 
+    </font><font size="-1"><a href="external_interface.html">Application Programmer 
+    Interface (API)</a> | <a href="external_howto.html">API How To</a></font> 
+  </p>
+  </div>
+<B><A NAME="top">(CONTINUED)</A></B><BR>
+<P> <A HREF="FileFormatPt1.html"><IMG SRC="../SAC_pictures/arrow-7.gif"  BORDER=0><B>Back 
+  to Previous SAC Data File Format Page</B></A> 
+<P>
+<HR>
+<P>
+<A NAME="HV"><H3>Header Variables</H3></A><BR>
+<P>
+This table lists the header variables, their types, and descriptions.
+They are grouped by category: required fields, time fields,
+phase picks, instrument parameters,
+station parameters, event parameters, misc.
+The header types are defined in the second table.<BR>
+<BR>
+<BR>
+
+<P>
+<CENTER>
+  <TABLE   BORDER>
+    <TR> 
+      <TH>Name</TH>
+      <TH>Type</TH>
+      <TH>Description</TH>
+    </TR>
+    <tr> 
+      <td><font color=FFOOOO>NPTS</font> 
+      <td>N 
+      <td> Number of points per data component. [required] 
+    </tr>
+    <tr> 
+      <td><font color=FFOOOO>NVHDR</font> 
+      <td>N 
+      <td> 
+        <p>Header version number. Current value is the integer 6. Older version 
+          data (NVHDR &lt; 6) are automatically updated when read into sac. [required] 
+        </p>
+        
+    </tr>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO>B</FONT> 
+      <TD>F 
+      <TD> Beginning value of the independent variable. [required] 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> E</FONT> 
+      <TD> F 
+      <TD> Ending value of the independent variable. [required] 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> IFTYPE</FONT> 
+      <TD> I 
+      <TD> Type of file [required]:<BR>
+        = <FONT COLOR=FFOOOO>ITIME </FONT>{Time series file}<BR>
+        = <FONT COLOR=FFOOOO>IRLIM </FONT>{Spectral file---real and imaginary}<BR>
+        = <FONT COLOR=FFOOOO>IAMPH </FONT>{Spectral file---amplitude and phase}<BR>
+        = <FONT COLOR=FFOOOO>IXY</FONT> {General x versus y data}<BR>
+        = <FONT COLOR=FFOOOO>IXYZ</FONT> {General XYZ (3-D) file}<BR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> LEVEN</FONT> 
+      <TD> L 
+      <TD> <FONT COLOR=FFOOOO>TRUE</FONT> if data is evenly spaced. [required] 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> DELTA</FONT> 
+      <TD>F 
+      <TD> Increment between evenly spaced samples (nominal value). [required] 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> ODELTA</FONT> 
+      <TD>F 
+      <TD> Observed increment if different from nominal value. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> IDEP</FONT> 
+      <TD>I 
+      <TD> Type of dependent variable: <BR>
+        = <FONT COLOR=FFOOOO>IUNKN </FONT>(Unknown)<BR>
+        = <FONT COLOR=FFOOOO>IDISP </FONT>(Displacement in nm)<BR>
+        = <FONT COLOR=FFOOOO>IVEL</FONT> (Velocity in nm/sec)<BR>
+        = <FONT COLOR=FFOOOO>IVOLTS</FONT> (Velocity in volts)<BR>
+        = <FONT COLOR=FFOOOO>IACC</FONT> (Acceleration in nm/sec/sec)<BR>
+    </TR>
+    <TR> 
+      <TD> <FONT COLOR=FFOOOO>SCALE</FONT> 
+      <TD>F 
+      <TD> Multiplying scale factor for dependent variable [not currently used] 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> DEPMIN</FONT> 
+      <TD>F 
+      <TD> Minimum value of dependent variable. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> DEPMAX</FONT> 
+      <TD>F 
+      <TD> Maximum value of dependent variable. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> DEPMEN</FONT> 
+      <TD>F 
+      <TD> Mean value of dependent variable. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> NZYEAR</FONT> 
+      <TD>N 
+      <TD> <FONT COLOR=FFOOOO>GMT</FONT> year corresponding to reference (zero) 
+        time in file. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> NZJDAY</FONT> 
+      <TD>N 
+      <TD> <FONT COLOR=FFOOOO>GMT</FONT> julian day. 
+    </TR>
+    <TR> 
+      <TD> <FONT COLOR=FFOOOO>NZHOUR</FONT> 
+      <TD>N 
+      <TD> <FONT COLOR=FFOOOO>GMT</FONT> hour. 
+    </TR>
+    <TR> 
+      <TD> <FONT COLOR=FFOOOO>NZMIN</FONT> 
+      <TD>N 
+      <TD> <FONT COLOR=FFOOOO>GMT</FONT> minute. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> NZSEC</FONT> 
+      <TD>N 
+      <TD> <FONT COLOR=FFOOOO>GMT</FONT> second. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> NZMSEC</FONT> 
+      <TD>N 
+      <TD> <FONT COLOR=FFOOOO>GMT</FONT> millisecond. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> NZDTTM</FONT> 
+      <TD>N 
+      <TD> <FONT COLOR=FFOOOO>GMT</FONT> date-time array. Six element array equivalenced 
+        to <FONT COLOR=FFOOOO>NZYEAR</FONT>, <FONT COLOR=FFOOOO>NZJDAY</FONT>, 
+        <FONT COLOR=FFOOOO>NZHOUR</FONT>, <FONT COLOR=FFOOOO>NZMIN</FONT>, <FONT COLOR=FFOOOO>NZSEC</FONT>, 
+        and <FONT COLOR=FFOOOO>NZMSEC</FONT>. 
+    </TR>
+    <TR> 
+      <TD> <FONT COLOR=FFOOOO>KZDATE</FONT> 
+      <TD>A 
+      <TD> Alphanumeric form of <FONT COLOR=FFOOOO>GMT</FONT> reference date. 
+        Derived from <FONT COLOR=FFOOOO>NZYEAR</FONT> and <FONT COLOR=FFOOOO>NZJDAY</FONT>. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO> KZTIME</FONT> 
+      <TD>A 
+      <TD> Alphanumeric form of <FONT COLOR=FFOOOO>GMT</FONT> reference time. 
+        Derived from <FONT COLOR=FFOOOO>NZHOUR</FONT>, <FONT COLOR=FFOOOO>NZMIN</FONT>, 
+        <FONT COLOR=FFOOOO>NZSEC</FONT>, and <FONT COLOR=FFOOOO>NZMSEC</FONT>. 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO>IZTYPE</FONT> 
+      <TD>I 
+      <TD>Reference time equivalence:<BR>
+        = <FONT COLOR=FFOOOO>IUNKN</FONT> (Unknown)<BR>
+        = <FONT COLOR=FFOOOO>IB</FONT> (Begin time)<BR>
+        = <FONT COLOR=FFOOOO>IDAY</FONT> (Midnight of refernece GMT day)<BR>
+        = <FONT COLOR=FFOOOO>IO</FONT> (Event origin time)<BR>
+        = <FONT COLOR=FFOOOO>IA </FONT>(First arrival time)<BR>
+        = <FONT COLOR=FFOOOO>ITn</FONT> (User defined time pick n, n=0,9)<BR>
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO>O</FONT> 
+      <TD>F 
+      <TD> Event origin time (seconds relative to reference time.) 
+    </TR>
+    <TR> 
+      <TD><FONT COLOR=FFOOOO>KO</FONT> 
+      <TD>A 
+      <TD> Event origin time identification. 
+    </TR>
+  </TABLE>
+<P>
+<TABLE BORDER>
+<TR>
+	<TH  COLSPAN=3>Phase Picks</TH>
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>A</FONT>
+	<TD> F
+	<TD> First arrival time (seconds relative to reference time.)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>KA</FONT>
+	<TD>K
+	<TD> First arrival time identification.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>F</FONT>
+	<TD>F
+	<TD> Fini or end of event time (seconds relative to reference time.)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>KF</FONT>
+	<TD>A
+	<TD> Fini identification.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>T<I>n</I></FONT>
+	<TD>F
+	<TD> User defined time picks or markers, {\ai n}=0,9 (seconds relative to reference time).
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KT{\ai n} </FONT>
+	<TD>K
+	<TD> A User defined time pick identifications, {\ai n}=0,9.
+</TR>
+</TABLE>
+<P>
+<TABLE  ALIGN=CENTER  BORDER>
+<TR>
+	<TH>Instrument Fields</TH>
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KINST</FONT>
+	<TD>K
+	<TD> Generic name of recording instrument.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> IINST</FONT>
+	<TD>I
+	<TD> Type of recording instrument. [not currently used]
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> RESP<I>n</I></FONT>
+	<TD>F
+	<TD> Instrument response parameters, n=0,9. [not currently used]
+</TR>
+</TABLE>
+<P>
+<TABLE   ALIGN=CENTER  BORDER>
+<TR>
+	<TH>Station Fields</TH>
+</TR> 
+<TR>
+	<TD><FONT COLOR=FFOOOO> KNETWK</FONT>
+	<TD>K
+	<TD> Name of seismic network.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KSTNM</FONT>
+	<TD>K
+	<TD> Station name.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> ISTREG</FONT>
+	<TD>I
+	<TD> Station geographic region. [not currently used]
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>STLA</FONT>
+	<TD>F
+	<TD> Station latitude (degrees, north positive)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> STLO</FONT>
+	<TD>F
+	<TD> Station longitude (degrees, east positive).
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>STEL</FONT>
+	<TD>F
+	<TD> Station elevation (meters). [not currently used] 
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>STDP</FONT>
+	<TD>F
+	<TD> Station depth below surface (meters). [not currently used]
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> CMPAZ</FONT>
+	<TD>F
+	<TD> Component azimuth (degrees clockwise from north).
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> CMPINC</FONT>
+	<TD>F
+	<TD> Component incident angle (degrees from vertical).
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KCMPNM</FONT>
+	<TD>K
+	<TD> Component name.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KSTCMP</FONT>
+	<TD>A
+	<TD> Station component. Derived from <FONT COLOR=FFOOOO>KSTNM</FONT>, <FONT COLOR=FFOOOO>CMPAZ</FONT>, and <FONT COLOR=FFOOOO>CMPINC</FONT>.
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>LPSPOL</FONT>
+	<TD>L
+	<TD> <FONT COLOR=FFOOOO>TRUE</FONT> if station components have a positive polarity (left-hand
+rule).
+</TR> 
+</TABLE>
+<P>
+<TABLE  BORDER>
+<TR>
+	<TH>Event Fields</TH>
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KEVNM</FONT>
+	<TD>K
+	<TD> Event name.
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>IEVREG</FONT>
+	<TD>I
+	<TD> Event geographic region. [not currently used]
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>EVLA</FONT>
+	<TD>F
+	<TD> Event latitude (degrees, north positive).
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> EVLO</FONT>
+	<TD>F
+	<TD> Event longitude (degrees, east positive).
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>EVEL</FONT>
+	<TD>F
+	<TD> Event elevation (meters). [not currently used]
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> EVDP</FONT>
+	<TD>F
+	<TD> Event depth below surface (meters). [not currently used]
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> MAG</FONT>
+	<TD>F
+	<TD> Event magnitude.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> IMAGTYP</FONT>
+	<TD>I
+	<TD> Magnitude type:<BR>
+= <FONT COLOR=FFOOOO>IMB </FONT>(Bodywave Magnitude)<BR>
+= <FONT COLOR=FFOOOO>IMS</FONT> (Surfacewave Magnitude)<BR>
+= <FONT COLOR=FFOOOO>IML</FONT> (Local Magnitude)<BR>
+= <FONT COLOR=FFOOOO>IMW</FONT> (Moment Magnitude)<BR>
+= <FONT COLOR=FFOOOO>IMD</FONT> (Duration Magnitude)<BR>
+= <FONT COLOR=FFOOOO>IMX</FONT> (User Defined Magnitude)<BR>
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>IMAGSRC</FONT>
+	<TD>I
+	<TD>Source of magnitude information:<BR>
+= <FONT COLOR=FFOOOO>INEIC	</FONT>(National Earthquake Information Center)<BR>
+= <FONT COLOR=FFOOOO>IPDE</FONT>		(Preliminary Determination of Epicenter)<BR>
+= <FONT COLOR=FFOOOO>IISC</FONT>		(Internation Seismological Centre)<BR>
+= <FONT COLOR=FFOOOO>IREB</FONT>		(Reviewed Event Bulletin)<BR>
+= <FONT COLOR=FFOOOO>IUSGS</FONT>	(US Geological Survey)<BR>
+= <FONT COLOR=FFOOOO>IBRK</FONT>		(UC Berkeley)<BR>
+= <FONT COLOR=FFOOOO>ICALTECH</FONT>	(California Institute of Technology)<BR>
+= <FONT COLOR=FFOOOO>ILLNL</FONT>	(Lawrence Livermore National Laboratory)<BR>
+= <FONT COLOR=FFOOOO>IEVLOC</FONT>	(Event Location (computer program) )<BR>
+= <FONT COLOR=FFOOOO>IJSOP</FONT>	(Joint Seismic Observation Program)<BR>
+= <FONT COLOR=FFOOOO>IUSER</FONT>	(The individual using SAC2000)<BR>
+= <FONT COLOR=FFOOOO>IUNKNOWN</FONT>	(unknown)<BR>
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>IEVTYP</FONT>
+	<TD>I
+	<TD> Type of event: <BR>
+= <FONT COLOR=FFOOOO>IUNKN</FONT> (Unknown)<BR>
+= <FONT COLOR=FFOOOO>INUCL</FONT> (Nuclear event)<BR>
+= <FONT COLOR=FFOOOO>IPREN</FONT> (Nuclear pre-shot event)<BR>
+= <FONT COLOR=FFOOOO>IPOSTN</FONT> (Nuclear post-shot event)<BR>
+= <FONT COLOR=FFOOOO>IQUAKE </FONT>(Earthquake)<BR>
+= <FONT COLOR=FFOOOO>IPREQ </FONT>(Foreshock)<BR>
+= <FONT COLOR=FFOOOO>IPOSTQ </FONT>(Aftershock)<BR>
+= <FONT COLOR=FFOOOO>ICHEM </FONT>(Chemical explosion)<BR>
+= <FONT COLOR=FFOOOO>IQB</FONT> (Quarry or mine blast confirmed by quarry)<BR>
+= <FONT COLOR=FFOOOO>IQB1 </FONT>(Quarry/mine blast with designed shot info-ripple fired)<BR>
+= <FONT COLOR=FFOOOO>IQB2 </FONT>(Quarry/mine blast with observed shot info-ripple fired)<BR>
+= <FONT COLOR=FFOOOO>IQBX </FONT>(Quarry or mine blast - single shot)<BR>
+= <FONT COLOR=FFOOOO>IQMT </FONT>(Quarry/mining-induced events: tremors and rockbursts)<BR>
+= <FONT COLOR=FFOOOO>IEQ</FONT> (Earthquake)<BR>
+= <FONT COLOR=FFOOOO>IEQ1 </FONT>(Earthquakes in a swarm or aftershock sequence)<BR>
+= <FONT COLOR=FFOOOO>IEQ2 </FONT>(Felt earthquake)<BR>
+= <FONT COLOR=FFOOOO>IME </FONT>(Marine explosion)<BR>
+= <FONT COLOR=FFOOOO>IEX </FONT>(Other explosion)<BR>
+= <FONT COLOR=FFOOOO>INU</FONT> (Nuclear explosion)<BR>
+= <FONT COLOR=FFOOOO>INC</FONT> (Nuclear cavity collapse)<BR>
+= <FONT COLOR=FFOOOO>IO_</FONT> (Other source of known origin)<BR>
+= <FONT COLOR=FFOOOO>IL </FONT>(Local event of unknown origin)<BR>
+= <FONT COLOR=FFOOOO>IR </FONT>(Regional event of unknown origin)<BR>
+= <FONT COLOR=FFOOOO>IT </FONT>(Teleseismic event of unknown origin)<BR>
+= <FONT COLOR=FFOOOO>IU </FONT>(Undetermined or conflicting information)<BR>
+ = <FONT COLOR=FFOOOO>IOTHER (Other)<BR>
+</font></TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>NEVID</FONT>
+	<TD>N
+	<TD>Event ID (CSS 3.0)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>NORID</FONT>
+	<TD>N
+	<TD>Origin ID (CSS 3.0)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>NWFID</FONT>
+	<TD>N
+	<TD>Waveform ID (CSS 3.0)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KHOLE</FONT>
+	<TD>k
+	<TD> Hole identification if nuclear event.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> DIST</FONT>
+	<TD>F
+	<TD> Station to event distance (km).
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>AZ</FONT>
+	<TD>F
+	<TD> Event to station azimuth (degrees).
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>BAZ</FONT>
+	<TD>F
+	<TD> Station to event azimuth (degrees).
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> GCARC</FONT>
+	<TD>F
+	<TD> Station to event great circle arc length (degrees).
+</TR>
+</TABLE>
+<P>
+<TABLE   ALIGN=CENTER  BORDER>
+<TR>
+	<TH>Miscellaneous Fields</TH>
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> LCALDA</FONT>
+	<TD>L
+	<TD> <FONT COLOR=FFOOOO>TRUE</FONT> if <FONT COLOR=FFOOOO>DIST</FONT>, <FONT COLOR=FFOOOO>AZ</FONT>, <FONT COLOR=FFOOOO>BAZ</FONT>, and <FONT COLOR=FFOOOO>GCARC</FONT> are to be calculated from station and event coordinates. 
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> IQUAL</FONT>
+	<TD>I
+	<TD> Quality of data [not currently used]: <BR>
+= <FONT COLOR=FFOOOO>IGOOD </FONT>(Good data)<BR>
+= <FONT COLOR=FFOOOO>IGLCH </FONT>(Glitches)<BR>
+= <FONT COLOR=FFOOOO>IDROP </FONT>(Dropouts)<BR>
+= <FONT COLOR=FFOOOO>ILOWSN</FONT> (Low signal to noise ratio)<BR>
+= <FONT COLOR=FFOOOO>IOTHER </FONT>(Other)<BR>
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>ISYNTH</FONT>
+	<TD>I
+	<TD> Synthetic data flag [not currently used]:<BR>
+= <FONT COLOR=FFOOOO>IRLDTA </FONT>(Real data)<BR>
+= <FONT COLOR=FFOOOO>?????</FONT> (Flags for various synthetic seismogram codes)<BR>
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> KDATRD</FONT>
+	<TD>K
+	<TD> Date data was read onto computer.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> USER{\ai n}</FONT>
+	<TD>F
+	<TD> User defined variable storage area, {\ai n}=0,9.
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>KUSER{\ai n}</FONT>
+	<TD>K
+	<TD> User defined variable storage area, {\ai n}=0,2.
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>LOVROK</FONT>
+	<TD>L
+	<TD> <FONT COLOR=FFOOOO>TRUE</FONT> if it is okay to overwrite this file on disk.
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>NXSIZE</FONT>
+	<TD>N
+	<TD> Spectral Length (Spectral files only)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>NYSIZE</FONT>
+	<TD>N
+	<TD>Spectral Width (Spectral files only)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>XMINIMUM </FONT>
+	<TD>F
+	<TD>Minimum value of X (Spectral files only)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>XMAXIMUM  </FONT>
+	<TD>F
+	<TD>Maximum value of X (Spectral files only)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>YMINIMUM</FONT>
+	<TD>F
+	<TD>Minimum value of Y (Spectral files only)
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>YMAXIMUM </FONT>
+	<TD>F
+	<TD>Maximum value of Y (Spectral files only)
+</TR>
+</TABLE>
+</CENTER>
+<P>
+<HR>
+<P>
+<A NAME="HDT"><H3>Header Data Types</H3></A><BR>
+
+<P>
+This table lists the header types and their definitions. The third
+column lists the special value used to signify that a particular
+header variable is undefined in a particular file.<BR>
+<BR>
+
+<P>
+<CENTER>
+<TABLE  BORDER>
+<TR>
+	<TH>Type</TH>
+	<TH>Definition</TH>
+	<TH>Undefined</TH>
+	<TH>Description</TH>
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>F</FONT>
+	<TD> Floating
+	<TD> -12345.0
+	<TD> Single precision.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> N </FONT>
+	<TD> Integer
+	<TD> -12345
+	<TD> Name begins with an ``<FONT COLOR=FFOOOO>N</FONT>''.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>I</FONT>
+	<TD> Enumerated
+	<TD> -12345
+	<TD> Name begins with an ``<FONT COLOR=FFOOOO>I</FONT>''. Has a limited set of integer values. Each value is given a specific name. Each value represents a specific condition. Subroutines use the equivalent alphanumeric name.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>L</FONT>
+	<TD> Logical
+	<TD> 
+	<TD> FALSE Name begins with an ``<FONT COLOR=FFOOOO>L</FONT>''. Value is either <FONT COLOR=FFOOOO>TRUE</FONT> or <FONT COLOR=FFOOOO>FALSE</FONT>. 
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>K</FONT>
+	<TD>Alphanumeric
+	<TD>``-12345''
+	<TD>Name begins with a ``<FONT COLOR=FFOOOO>K</FONT>''.  Either 8 or 16 characters long.
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>A</FONT>
+	<TD>Auxilary
+	<TD>
+	<TD> Not really in the header.  Derived from other header fields.
+</TR>
+</TABLE>
+</CENTER>
+<P>
+<HR>
+<P>
+<A NAME="EH"><H3>Enumerated Header</H3></A>
+<P>
+<H4>Enumerated Header Field Values<BR>
+</H4>
+<P>
+The enumerated header field values are stored in the header as
+integers. Their names and values are given in the table below.
+<BR>
+<BR>
+
+<P>
+<CENTER>
+<TABLE   BORDER>
+<TR>
+	<TH VALIGN=TOP>Name</TH>
+	<TH>Value</TH>
+	<TH >Name</TH>
+	<TH  >Value</TH>
+
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>itime</FONT>
+	<TD>01
+	<TD><FONT COLOR=FFOOOO>irlim</FONT>
+	<TD>02
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> iamph</FONT>
+	<TD>03
+	<TD><FONT COLOR=FFOOOO> ixy</FONT>
+	<TD>04
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> iunkn</FONT>
+	<TD>05
+	<TD><FONT COLOR=FFOOOO> idisp</FONT>
+	<TD>06
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> ivel</FONT>
+	<TD>07
+	<TD> <FONT COLOR=FFOOOO>iacc</FONT>
+	<TD>08
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> ib</FONT>
+	<TD> 09
+	<TD><FONT COLOR=FFOOOO> iday</FONT>
+	<TD>10
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>io</FONT>
+	<TD>11
+	<TD><FONT COLOR=FFOOOO>ia</FONT>
+	<TD>12
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>it0</FONT>
+	<TD>13
+	<TD><FONT COLOR=FFOOOO>it1</FONT>
+	<TD>14
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>it2</FONT>
+	<TD>15
+	<TD><FONT COLOR=FFOOOO>it3</FONT>
+	<TD>16
+</TR><FONT COLOR=FFOOOO>
+<TR>
+	<TD><FONT COLOR=FFOOOO>it4</FONT>
+	<TD>17
+	<TD><FONT COLOR=FFOOOO>it5</FONT>
+	<TD>18
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>it6</FONT>
+	<TD>19
+	<TD><FONT COLOR=FFOOOO>it7</FONT>
+	<TD>20
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>it8</FONT>
+	<TD>21
+	<TD><FONT COLOR=FFOOOO>it9</FONT>
+	<TD>22
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>iradnv</FONT>
+	<TD>23
+	<TD><FONT COLOR=FFOOOO> itannv</FONT>
+	<TD>24
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> iradev</FONT>
+	<TD>25
+	<TD> <FONT COLOR=FFOOOO>itanev</FONT>
+	<TD>26
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> inorth</FONT>
+	<TD>27
+	<TD> <FONT COLOR=FFOOOO>ieast</FONT>
+	<TD>28
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> ihorza</FONT>
+	<TD>29
+	<TD><FONT COLOR=FFOOOO> idown</FONT>
+	<TD>30
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> iup</FONT>
+	<TD>31
+	<TD><FONT COLOR=FFOOOO> illlbb</FONT>
+	<TD>32
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> iwwsn1</FONT>
+	<TD>33
+	<TD><FONT COLOR=FFOOOO> iwwsn2</FONT>
+	<TD>34
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> ihglp</FONT>
+	<TD>35
+	<TD><FONT COLOR=FFOOOO> isro</FONT>
+	<TD>36
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> inucl</FONT>
+	<TD>37
+	<TD> <FONT COLOR=FFOOOO>ipren</FONT>
+	<TD>38
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> ipostn</FONT>
+	<TD>39
+	<TD> <FONT COLOR=FFOOOO>iquake</FONT>
+	<TD>40
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> ipreq</FONT>
+	<TD>41
+	<TD><FONT COLOR=FFOOOO> ipostq</FONT>
+	<TD>42
+</TR>
+<TR>
+	<TD  VALIGN=TOP> <FONT COLOR=FFOOOO>ichem</FONT>
+	<TD>43
+	<TD> <FONT COLOR=FFOOOO>iother</FONT>
+	<TD>44
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO> igood</FONT>
+	<TD>45
+	<TD> <FONT COLOR=FFOOOO>iglch</FONT>
+	<TD>46
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>idrop</FONT>
+	<TD>47
+	<TD><FONT COLOR=FFOOOO> ilowsn</FONT>
+	<TD>48
+</TR>
+<TR>
+	<TD> <FONT COLOR=FFOOOO>irldta</FONT>
+	<TD>49
+	<TD> <FONT COLOR=FFOOOO>ivolts</FONT>
+	<TD>50
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ixyz</FONT>
+	<TD>51
+	<TD><FONT COLOR=FFOOOO>imb</FONT>
+	<TD>52
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ims</FONT>
+	<TD>53
+	<TD><FONT COLOR=FFOOOO>iml</FONT>
+	<TD>54
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>imw</FONT>
+	<TD>55
+	<TD><FONT COLOR=FFOOOO>imd</FONT>
+	<TD>56
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>imx</FONT>
+	<TD>57
+	<TD><FONT COLOR=FFOOOO>ineic</FONT>
+	<TD>58
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ipde</FONT>
+	<TD>59
+	<TD><FONT COLOR=FFOOOO>iisc</FONT>
+	<TD>60
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ireb</FONT>
+	<TD>61
+	<TD><FONT COLOR=FFOOOO>iusgs</FONT>
+	<TD>62
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ibrk</FONT>
+	<TD>63
+	<TD><FONT COLOR=FFOOOO>icaltech</FONT>
+	<TD>64
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>illnl</FONT>
+	<TD>65
+	<TD><FONT COLOR=FFOOOO>ievloc</FONT>
+	<TD>66
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ijsop</FONT>
+	<TD>67
+	<TD><FONT COLOR=FFOOOO>iuser</FONT>
+	<TD>68
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>iunknown</FONT>
+	<TD>69
+	<TD><FONT COLOR=FFOOOO>iqb</FONT>
+	<TD>70
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>iqb1</FONT>
+	<TD>71
+	<TD><FONT COLOR=FFOOOO>iqb2</FONT>
+	<TD>72
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>iqbx</FONT>
+	<TD>73
+	<TD><FONT COLOR=FFOOOO>iqmt</FONT>
+	<TD>74
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ieq</FONT>
+	<TD>75
+	<TD><FONT COLOR=FFOOOO>ieq1</FONT>
+	<TD>76
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>ieq2</FONT>
+	<TD>77
+	<TD><FONT COLOR=FFOOOO>ime</FONT>
+	<TD>78
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>iex</FONT>
+	<TD>79
+	<TD><FONT COLOR=FFOOOO>inu</FONT>
+	<TD>80
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>inc</FONT>
+	<TD>81
+	<TD><FONT COLOR=FFOOOO>io_</FONT>
+	<TD>82
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>il</FONT>
+	<TD>83
+	<TD><FONT COLOR=FFOOOO>ir</FONT>
+	<TD>84
+</TR>
+<TR>
+	<TD><FONT COLOR=FFOOOO>it</FONT>
+	<TD>85
+	<TD><FONT COLOR=FFOOOO>iu</FONT>
+	<TD>86
+</TR>
+</font></TABLE>
+</CENTER>
+<P>
+<HR>
+If you have technical questions about this page, contact:
+<ADDRESS>
+<A HREF="http://www.llnl.gov/llnl-bin/feedback/peterg@llnl.gov">peterg@llnl.gov</A> -- <A HREF="gopher://ns.llnl.gov:105/2?peterg">Peter Goldstein</A>
+</ADDRESS><p></P>
+
+ <HR>
+
+<P>This page maintained by:
+<ADDRESS><A HREF="http://www.llnl.gov/llnl-bin/feedback/peterg@llnl.gov">peterg@llnl.gov</A> -- <A HREF="gopher://ns.llnl.gov:105/2?peterg">Peter Goldstein</A></ADDRESS><p></P>
+<P>
+<P>
+<A HREF="http://www.llnl.gov/disclaimer.html">LLNL Disclaimer</A>
+<BR>
+8/12/98<BR>
+<STRONG>
+UCRL-MA-112836
+</STRONG>
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,1188 @@
+<html><!-- #BeginTemplate "/Templates/basic3.dwt" --><!-- DW6 -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title> rdseed manual : IRIS</title>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" src="/scripts/cssDetection.js" type="text/javascript"></script> 
+<script language="JavaScript" src="/scripts/objFunctions.js" type="text/javascript"></script>
+<script language="JavaScript1.2" src="/mm_menu.js" type="text/javascript"></script>
+<!-- #BeginEditable "head" --> 
+<meta name="description" content="rdseed is a tool that allows users to read an FDSN SEED format volume.">
+<!-- #EndEditable --> 
+</head>
+<body bgcolor="#ffffff" link="003366" vlink="9c0c00" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('/gifs/IRISnav/IRIS_f2.gif','/gifs/IRISnav/search_f2.gif','/gifs/IRISnav/contact_f2.gif','/gifs/IRISnav/sitemap_f2.gif','/gifs/IRISnav/intro_f2.gif','/gifs/IRISnav/members_f2.gif','/gifs/IRISnav/programs_f2.gif','/gifs/IRISnav/publications_f2.gif','/gifs/IRISnav/earthquakes_f2.gif','/gifs/IRISnav/SM_f2.gif','/gifs/IRISnav/data_f2.gif','/gifs/IRISnav/software_f2.gif','/gifs/IRISnav/stations_f2.gif')">
+<script language="JavaScript1.2" type="text/javascript">mmLoadMenus();</script>
+  
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr> 
+    <td width="87"><img src="/gifs/IRISnav/spacer.gif" alt="" width="87" height="1" hspace="0" vspace="0" border="0"></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="61" height="1" border="0" alt=""></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="67" height="1" border="0" alt=""></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="70" height="1" border="0" alt=""></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="70" height="1" border="0" alt=""></td>
+    <td width="199"><img src="/gifs/IRISnav/spacer.gif" width="89" height="1" border="0" alt=""></td>
+    <td width="199"><img src="/gifs/IRISnav/spacer.gif" width="40" height="1" border="0" alt=""></td>
+    <td width="199"><img src="/gifs/IRISnav/spacer.gif" width="70" height="1" border="0" alt=""></td>
+    <td width="117"><img src="/gifs/IRISnav/spacer.gif" width="117" height="1" border="0" alt=""></td>
+    <!td width="1"><!img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""><!/td>
+    <td width="100%"><img src="/gifs/IRISnav/spacer.gif"  height="1" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td rowspan="2" width="87"><a href="http://www.iris.edu" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('IRIS','','/gifs/IRISnav/IRIS_f2.gif',1);"><img name="IRIS" src="/gifs/IRISnav/IRIS.gif" width="87" height="50" border="0" alt="IRIS Home"></a></td>
+    <td rowspan="2"  width="268" colspan="4"><img name="topMiddle" src="/gifs/IRISnav/topMiddle.gif" width="268" height="50" border="0" alt=""></td>
+    <td colspan="3" width="199"><img name="topright2" src="/gifs/IRISnav/topright2.gif" width="199" height="23" border="0" alt=""></td>
+    <td width="117">&nbsp; </td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="23" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td height="27" width="199"><a href="/about/sitemap.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('sitemap2','','/gifs/IRISnav/sitemap2_f2.gif',1);"><img name="sitemap2" src="/gifs/IRISnav/sitemap2.gif" width="89" height="27" border="0" alt="site map"></a></td>
+    <td height="27" width="199"><a href="/about/contact.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('contact2','','/gifs/IRISnav/contact2_f2.gif',1);"><img name="contact2" src="/gifs/IRISnav/contact2.gif" width="40" height="27" border="0" alt="contact"></a></td>
+    <td height="27" width="199"><a href="/about/search.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('search2','','/gifs/IRISnav/search2_f2.gif',1);"><img name="search2" src="/gifs/IRISnav/search2.gif" width="70" height="27" border="0" alt="search"></a></td>
+    <td width="117">&nbsp;</td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="27" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="be9f5a"><img name="middleStripe1" src="/gifs/IRISnav/middleStripe1.gif" width="671" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="98cbcb"><img name="middleStripe2" src="/gifs/IRISnav/middleStripe2.gif" width="671" height="6" border="0" alt=""></td>
+    <td bgcolor="98cbcb"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="98cbcb"><img src="/gifs/IRISnav/spacer.gif" width="1" height="6" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="be9f5a"><img name="middleStripe3" src="/gifs/IRISnav/middleStripe3.gif" width="671" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td width="87"><a href="/about/iris.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('intro','','/gifs/IRISnav/intro_f2.gif',1);"><img name="intro" src="/gifs/IRISnav/intro.gif" width="87" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/about/members.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('members','','/gifs/IRISnav/members_f2.gif',1);"><img name="members" src="/gifs/IRISnav/members.gif" width="61" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/about/programs.htm" onMouseOut="MM_swapImgRestore();MM_startTimeout()" onMouseOver="MM_showMenu(window.mm_menu_0829111952_0,0,18,null,'programs');MM_swapImage('programs','','/gifs/IRISnav/programs_f2.gif',1);"><img name="programs" src="/gifs/IRISnav/programs.gif" width="67" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/about/publications.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('publications','','/gifs/IRISnav/publications_f2.gif',1);"><img name="publications" src="/gifs/IRISnav/publications.gif" width="70" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/quakes/quakes.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('earthquakes','','/gifs/IRISnav/earthquakes_f2.gif',1);"><img name="earthquakes" src="/gifs/IRISnav/earthquakes.gif" width="70" height="16" border="0" alt=""></a></td>
+    <td width="199"><a href="http://www.iris.edu/seismon/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('SM','','/gifs/IRISnav/SM_f2.gif',1);"><img name="SM" src="/gifs/IRISnav/SM.gif" width="89" height="16" border="0" alt=""></a></td>
+    <td width="199"><a href="/data/data.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('data','','/gifs/IRISnav/data_f2.gif',1);"><img name="data" src="/gifs/IRISnav/data.gif" width="40" height="16" border="0" alt="data"></a></td>
+    <td width="199"><a href="/manuals/manuals.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('software2','','/gifs/IRISnav/software2_f2.gif',1);"><img name="software2" src="/gifs/IRISnav/software2.gif" width="70" height="16" border="0" alt="software"></a></td>
+    <td width="117"><a href="/stations/stations.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('stations2','','/gifs/IRISnav/stations2_f2.gif',1);"><img name="stations2" src="/gifs/IRISnav/stations2.gif" width="117" height="16" border="0" alt="stations and instrumentation"></a></td>
+    <td>&nbsp;</td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="16" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="be9f5a"><img name="bottomStripe" src="/gifs/IRISnav/bottomStripe.gif" width="671" height="2" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="2" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td height="1" colspan="12"  bgcolor="#be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1"></td>
+  </tr>
+  <tr> 
+    <td height="1" colspan="12"> </td>
+  </tr>
+</table>
+<table width="100%"  border="0" cellspacing="3" summary="breadcrumb">
+  <tr>
+    <td bgcolor="#98CBCB"><span class="small">You are here: <a href="http://www.iris.edu">IRIS</a> &gt; <!-- #BeginEditable "where" --><a href="/manuals/manuals.htm">Software</a> &gt; Manuals<!-- #EndEditable --></span></td>
+  </tr>
+</table>
+ <!-- #BeginEditable "body" --> 
+      
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="left">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td align="left"> <h2><em><a name="top"></a>rdseed</em> 4.6 Manual</h2>
+      <p><em>(updated as of v4.6)</em></p>
+      <hr noshade>
+      Jump to: 
+      <ul>
+        <li><a href="#opt">OPTIONS</a> 
+        <li><a href="#1a">DESCRIPTION </a> 
+          <ul>
+            <li> <a href="#header">Output Header Corrections</a> 
+            <li><a href="#1">User Prompt Mode</a> 
+            <li><a href="#2">Input Options</a> 
+            <li><a href="#3">Alternate Response Files and the use of miniSEED 
+              Volumes</a> 
+            <li><a href="#4">The Alias File</a> 
+            <li><a href="#5">Time Tear Tolerance</a> 
+            <li><a href="#altert"><em>rdseed</em> Alert message file</a> 
+            <li><a href="#logging"><em>rdseed</em> error logging</a> 
+            <li><a href="#6">Data Recovery</a> 
+            <li><a href="#7">Recovering auxiliary data from FDSN SEED volume</a> 
+          </ul>
+        <li><a href="#8">DIAGNOSTICS</a> 
+        <li><a href="#9">EXAMPLES</a> 
+        <li><a href="#10">FILES</a> 
+        <li><a href="#11">CHANGES &amp; BUGS</a> 
+        <li><a href="#12">AUTHOR</a> 
+      </ul>
+      <hr noshade> <h3>NAME</h3>
+      <p><a href="ftp://ftp.iris.washington.edu/pub/programs"><em>rdseed</em></a> 
+        - Read an FDSN <a href="/manuals/SEED_chpt1.htm">SEED</a> format volume</p>
+      <h3>SYNOPSIS</h3>
+      <p>rdseed -{acCsSpRtde} [-f filename] [v (n)]</p>
+      <a name="opt"></a> <h3>OPTIONS</h3>
+      <p>The following options may be selected:</p>
+      <p><tt>-a retrieve the abbreviation dictionaries.</tt><br clear="ALL">
+        <tt>-b set the seismogram input buffer size (bytes)</tt><br clear="ALL">
+        <tt>-c retrieve volume table of contents.</tt><br clear="ALL">
+        <tt>-C retrieve the comments where arg is either STN or CHN</tt><br clear="ALL">
+        <tt>-d read data from tape</tt><br>
+        <tt>-e extract event/station data</tt><br>
+        <tt>-f input file name</tt><br>
+        <tt>-g alternate response files(s)</tt><br>
+        <tt>-i ignore location codes</tt><br>
+        <tt>-k strip records from output which have a zero sample count. (miniSEED 
+        and SEED only)</tt><br>
+        <tt>-l list contents of each record in the volume.</tt><br clear="ALL">
+        <tt>-o specify output format (1=SAC, 2=AH, 3=CSS, 4=miniSEED, 5=SEED [default=1])</tt><br>
+        <tt>-p output poles and zeros</tt><br>
+        <tt>-q specify the output directory</tt><br>
+        <tt>-Q specify data type (E=Everythin, D=Data of undetermined state, R=Raw 
+        waveform data, Q=QC'd data)</tt> <tt>-R print response data</tt><br clear="ALL">
+        <tt>-s retrieve all station header information.</tt><br clear="ALL">
+        <tt>-S retrieve station summary information</tt><br clear="ALL">
+        <tt>-t show start/stop times, start blocks of events</tt><br clear="ALL">
+        <tt>-u usage (this list)</tt><br>
+        <tt>-v select volume number</tt><br clear="ALL">
+        <tt>-x use summary file</tt><br clear="ALL">
+        <tt>-z check reversal</tt><br clear="ALL">
+      </p>
+      <a name="1a"></a> <h3>DESCRIPTION</h3>
+      <p>rdseed reads from the input tape (or other input file) in the format 
+        defined by the Federation of Digital Seismographic Networks (<a href="http://www.fdsn.org/">FDSN</a>), 
+        popularly known as the Standard for Exchange of Earthquake Data (SEED). 
+        According to the command line function option specified by the user, rdseed 
+        will read the volume and recover the volume table of contents (-c option), 
+        the set of abbreviation dictionaries (-a option), or station and channel 
+        information and instrument response tables (-s option).</p>
+      <p>The desired volume on tape (or in a file) can be selected with the (-v 
+        option). The first volume is &quot;1&quot; , the second &quot;2&quot; 
+        and so forth. (Note: this option is only used when a physical volume contains 
+        more than one logical volume.</p>
+      <p>Two additional options allow access to detailed information concerning 
+        the actual contents of the volume (rather than reading files purporting 
+        to contain such information from the volume, for which one uses the -c 
+        option). The first of these options (-t) writes out a list of data start 
+        and stop times along with the starting records at which those data may 
+        be found. (For the purposes of this discussion, a record is defined as 
+        a set of station/channel/time continuous data records.) The other option 
+        (-l) is primarily a diagnostic tool; it writes a description of every 
+        record on the volume.</p>
+      <p>In order to extract data from the SEED volume for analysis by other packages, 
+        the user must run rdseed in User Prompt Mode which is discussed below. 
+        As data is extracted from the SEED volume, rdseed looks at the orientation 
+        and sensitivity of each channel and determines if channel polarity is 
+        reversed. Refer to the description of blockettes 52 and 58 in the SEED 
+        manual for a description of reversed polarity. A negative sensitivity 
+        in blockette 58 is indicative of a reversed polarity. The user can request 
+        that reversed channels be corrected. This correction is a simple multiplication 
+        by -1.0 . The output response file information is NOT adjusted for channels 
+        which rdseed inverts.</p>
+      <a name="header"> </a> <h3>Output Header Corrections</h3>
+      <p><em>rdseed</em> does correct the header information in the SAC, AH and 
+        CSS files as follows:</p>
+      <blockquote> 
+        <p>SAC headers contain both scale factor and Dip/Azimuth information. 
+          If a Dip/Azimuth reversal has been corrected, <em>rdseed</em> will correct 
+          the Dip/Azimuth information in the SAC header. If a negative sensitivity 
+          is corrected, the header SCALE value is also made positive. If <em>rdseed</em> 
+          finds both types of reversals, NO corrections to the data or header 
+          are made.</p>
+        <p>CSS headers are handled in the same way as SAC headers. The header 
+          information is found in CSS formatted relation files that are seperate 
+          from the data files. These files are named RDSEED.WFDISC, RDSEED.SITE 
+          and RDSEED.SITECHAN.</p>
+        <p>The AH format presents a problem. There is no place for Dip/Azimuth 
+          information. Headers contain only a scale factor. Therefore when a Dip/Azimuth 
+          reversal occurs, there is no place in the header to indicate that occurrance. 
+          Therfore the following rules are followed. If the user has not requested 
+          dip/azimuth checking and one is detected, <em>rdseed</em> will invert 
+          the sign of the scale factor in the AH header. If the user has asked 
+          for inversion checking, the data will be inverted and NO change in the 
+          scale factor will occur. Negative sensitivity is handled the same way 
+          as in the SAC and CSS headers. Again, if rdseed finds both types of 
+          reversals, NO corrections will be made.</p>
+      </blockquote>
+      <p> <a name="1"> </a> 
+      <h3>User Prompt Mode</h3>
+      <p></p>
+      <p>When <em>rdseed</em> is run without any options, the user is prompted 
+        for all of the options as well as some additional options.</p>
+      <p> <a name="2"> </a> 
+      <h3>Input Options</h3>
+      <p></p>
+      <dl>
+        <dd>Input Device (/dev/nrst0): 
+          <dl>
+            <dd>the input device can be changed from the default of /dev/nrst0. 
+              Note that when a taoe is being accessed, it is best to use the norewind 
+              device. This allows <em>rdseed</em> to search for multiple volumes 
+              on tape accross tape file marks. 
+          </dl>
+        <dd>Output Device (stdout): 
+          <dl>
+            <dd>the output device can be changed from the default of stdout.\ 
+          </dl>
+        <dd>Volume # [(1)-N]: 
+          <dl>
+            <dd>volume number can be changed from the default value of 1. 
+          </dl>
+        <dd>Options [acsSrRtde]: 
+          <dl>
+            <dd>one of the options must be selected. All except &quot;d&quot; 
+              and &quot;e&quot; have the same meaning as the corresponding command 
+              line options. 
+          </dl>
+      </dl>
+      <blockquote> 
+        <p><strong>the &quot;e&quot; option will generate a &quot;weed&quot; compatible 
+          event file.</strong></p>
+        <p><strong>If the &quot;d&quot;, &quot;s&quot; or &quot;S&quot; option 
+          is selected, further selection can be made.</strong></p>
+      </blockquote>
+      <dl>
+        <dd>Summary File (None): 
+          <dl>
+            <dd>a rdseed summary file can be selected as input for rdseed. Used 
+              in conjunction with <a href="weed.htm">WEED</a> to specify station 
+              time windows. 
+          </dl>
+        <dd>Station List (ALL) : 
+          <dl>
+            <dd>a list of selected stations separated by spaces or commas. Wildcard 
+              substitution of characters &quot;*&quot; , &quot;?&quot; and &quot;.&quot; 
+              is performed. A station name can be that of an alias whose name 
+              is defined in a file whose filename is specified by the enviornment 
+              variable SEEDALIAS. See details below. 
+          </dl>
+        <dd>Channel List (ALL) : 
+          <dl>
+            <dd>a list of selected channels separated by spaces or commas. Wildcard 
+              substitution of characters &quot;*&quot; ,&quot;?&quot; and &quot;.&quot; 
+              is performed. 
+          </dl>
+        <dd>Network Code (ALL) : 
+          <dl>
+            <dd>a list of selected networks separated by spaces or commas. Enter 
+              ?? to disable network processing. If the &quot;d&quot; option is 
+              selected, further selection can be made. 
+          </dl>
+        <dd>Output Format [(1=SAC),2=AH,3=CSS, 4=miniseed, 5=seed, 6=SAC ascii, 
+          7=SEGY]: 
+          <dl>
+            <dd>select output format as SAC, AH, CSS 3.0 binary, mini seed, seed, 
+              SAC ascii or SEGY; default is SAC. 
+          </dl>
+        <dd>Check Reversal [(0=No), 1=Dip.Azimuth, 2=Gain, 3=Both]: 
+          <dl>
+            <dl>
+              <dt>select signal reversal checking; default is No. 
+            </dl>
+            <dt>Start Time(s) (FIRST) : 
+              <dl>
+                <dt>a list of seismogram start times of the form YYYY.DDD.HH:MM:SS.FFFF 
+                  or YYYY/MM/DD.HH:MM:SS.FFFF separated by spaces. YYYY may be 
+                  YY i.e. &quot;90&quot; for &quot;1990&quot;. Least significant 
+                  parts may be omitted, in which case they become zero i.e. &quot;90.270&quot; 
+                  is time 00:00:00.000 of the 270th day of 1990. 
+              </dl>
+            <dt>End Time(s) (LAST) : 
+              <dl>
+                <dt>a list of seismogram end times of the same form as start times. 
+                  Each start time (except the last one) must have a corresponding 
+                  end time. If the last start time does not have a corresponding 
+                  end time, the end time is assumed to be the last time in the 
+                  volume. 
+              </dl>
+            <dt>Sample Buffer Length [2000000]: 
+              <dl>
+                <dt>each seismogram is assembled in a sample buffer prior to output. 
+                  The size of the buffer can be changed. This number is the number 
+                  of samples. If the length is too small for the any of the requested 
+                  seismograms an error message will inform the user that the waveform 
+                  is being broken into pieces. The user may increase the size 
+                  of the buffer to avoid this problem. 
+              </dl>
+            <dt>Extract Responses [Y/(N)] : 
+              <dl>
+                <dt>channel response extraction is selected via this prompt. 
+              </dl>
+          </dl>
+        <dt>Select Data Type [(E=Everything), D=Data of Undetermined state, R=Raw 
+          waveform Data, Q=QC'd data] 
+        <dt>&nbsp;</dt>
+      </dl>
+      <h3><a name="3"> </a>Alternate Response Files and the Use of miniSEED Volumes</h3>
+      <p>The user can specify that station configuration and responses be taken 
+        from another SEED volume. This will allow for two possible scenarios to 
+        be accomplished. First, if station information is found to be in error, 
+        the user can use the headers from another SEED volume that is known to 
+        be correct. Second, if the SEED volume is a &quot;data-only&quot; volume 
+        (miniSEED), the user can use a &quot;data-less&quot; SEED volume and the 
+        &quot;data-only&quot; SEED volume to extract the desired waveforms. So 
+        you say, &quot;how do I do this?&quot;. The environment variable ALT_RESPONSE_FILE 
+        should be defined with its value being the path name of the SEED volume 
+        (be it full or data-only SEED) from which responses should be taken. If 
+        miniSEED is being used, enter the miniSEED file name into the rdseed prompt 
+        as you would a normal seed volume.</p>
+      <a name="4"></a> <h3>The Alias File</h3>
+      <p>An alias file can be defined which contains a list of station alias names. 
+        The first word in each line of the file is the alias. The following words 
+        are station names which will match the corresponding alias. The alias 
+        file name must be defined in the SEEDALIAS environment variable. For example, 
+        the file rdseed.alias contains the following:</p>
+      <blockquote> 
+        <p>CHINA BJI XIAN SHNG</p>
+      </blockquote>
+      <p>All references to station CHINA will match station BJI, XIAN or SHNG.</p>
+      <p>The source code is written in such a way that it will run, with recompilation, 
+        on both big-endian (e.g., Sun) and little-endian machines (e.g., VAX) 
+        under UNIX. This program has not yet been tested under VAX VMS.</p>
+      <a name="5"> </a> <h3>Time Tear Tolerance</h3>
+      <p>Normally, the tolerance for determining time tears is found in the station 
+        header information. Some stations may have clocks that wander excessively. 
+        This may cause time tears in the data. The drift tolerance can be adjusted 
+        by defining an environment variable called SEEDTOLERANCE. Its value is 
+        multipled by a drift tolerance that is contained in the SEED volume for 
+        each channel. Thus a value of 3.0 will increase the drift tolerance by 
+        a factor of three. Drift is defined in units of &quot;seconds per sample&quot; 
+        and is typically around .00005 sec/smp.</p>
+      <a name="altert"> </a> <h3><em>rdseed</em> Alert message file</h3>
+      <p>When <em>rdseed</em> determines that data reversal is necessary and the 
+        user specifies that <em>rdseed</em> should reverse the data, <em>rdseed</em> 
+        creates a file with the data reversal information inside. This information 
+        includes the file name where the reversal was applied. When you exit the 
+        program, a message is displayed reminding you to look at this file.</p>
+      <p>This file is called rdseed.alert.log and is located in the startup directory.</p>
+      <a name="logging"> </a> <h3><em>rdseed</em> error logging</h3>
+      <p>All rdseed error messages are logged to a file, called rdseed.error.log 
+        with the date. This file is appended to throughout the day.</p>
+      <a name="6"> </a> <h3>Data Recovery</h3>
+      <p>There are two necessary steps to recovering seismograms from a SEED tape.</p>
+      <p>The first step consists of finding out what is on the tape; one does 
+        this by using any of the command line options -c or -t, to list the station 
+        and channel names, starting times, and record numbers of the seismograms 
+        contained in the volume.</p>
+      <p>Seismic data are recovered from SEED tapes in the second step. Using 
+        the station, channel and time information, use User Prompt Mode to select 
+        start and stop times for individual seismograms.</p>
+      <p>Seismogram files are written to the current directory with names of the 
+        form<br clear="ALL">
+        yyyy.ddd.hh.mm.ss.ffff.SSSSS.CCC.SAC for SAC Files<br
+clear="ALL">
+        yyyy.ddd.hh.mm.ss.ffff.SSSSS.CCC.AH for AH Files<br clear="ALL">
+        yy.ddd.hh.mm.ss.ffff/SSSSS.CCC.w for CSS Files<br clear="ALL">
+        mini.seed for mini seed<br clear="ALL">
+        yyyy.ddd.hh.mm.ss.ffff.SSSSS.CCC.SAC_ASC for sac ascii<br clear="ALL">
+        yyyy.ddd.hh.mm.ss.ffff.SSSSS.CCC.SEGY for SEGY<br
+clear="ALL">
+      </p>
+      <p>where yyyy is the year, ddd is the Julian day, hh.mm.ss.ffff is the time 
+        of day of the start of the first record, SSSSS is the station name, and 
+        CCC is the component name for the particular seismogram being recovered. 
+        This seismogram file naming convention was chosen to provide unique names 
+        to output files without user intervention; however, the large number of 
+        files which can be generated to a single directory might cause problems 
+        for some operating systems. Notice that CSS uses a slightly different 
+        format that puts channel data in subdirectories. This is due to a limitation 
+        in the filename field in the CSS database. For CSS there are three additional 
+        files created, RDSEED.WFDISC, RDSEED.SITE and RDSEED.SITECHAN. These files 
+        are used by the CSS database system.</p>
+      <p>Be aware that rdseed always appends onto the mini.seed file. You need 
+        to manually remove this file if you wish to start over.</p>
+      <a name="7"></a> <h3>Recovering auxiliary data from an FDSN</h3>
+      <p>One may also retrieve the set of abbreviation dictionaries or the set 
+        of station information tables from an FDSN SEED volume. The former is 
+        accomplished with the command<br clear="ALL">
+        rdseed -af inputfile<br clear="ALL">
+        while the latter results from<br clear="ALL">
+        rdseed -sf inputfile<br clear="ALL">
+        Output from these commands should be redirected to files, as in examples 
+        6 and 7.</p>
+      <a name="8"> </a> <h3>DIAGNOSTICS </h3>
+      <p>Various warnings and error messages are issued to the standard error 
+        device by the procedure. Typical response of the procedure to a warning 
+        condition is to write a message to the standard error device and then 
+        to continue execution. An error condition, on the other hand, will cause 
+        a message to be generated to the standard error device followed by immediate 
+        termination of the procedure.</p>
+      <a name="9"> 
+      <h3>EXAMPLES </h3>
+      </a> <p>1. Reading the table of contents from a volume.</p>
+      <blockquote> 
+        <p>rdseed -cf /dev/rmt8 &gt; tape.contents &amp; or <em>rdseed</em><br clear="ALL">
+          Input Device (/dev/rst0) : /dev/rmt8<br clear="ALL">
+          Output Device (stdout) : tape.contents<br clear="ALL">
+          Volume # [(1)-N] :<br clear="ALL">
+          Options [acsSrRtde] : c<br clear="ALL">
+        </p>
+        <p>reads the table of contents from the tape on device /dev/rmt8 into 
+          a file called tape.contents; the job is run in the background (command 
+          line example). Output directed to &quot;stderr&quot;, such as error 
+          messages, comes to the terminal. Table-of-contents entries have the 
+          format</p>
+        <p>AFI LPZ 1988,228,00:00:00.68 1 147</p>
+        <p>where the columns represent station name, channel name, start time, 
+          location flag (here, a blank), subsequence number, and starting record 
+          number.</p>
+      </blockquote>
+      <p>2. Determining event start/stop times on a volume.</p>
+      <blockquote> 
+        <p>rdseed -tvf 2 image &gt; image.times &amp; or rdseed<br clear="ALL">
+          Input Device (/dev/rst0) : image<br clear="ALL">
+          Output Device (stdout) : image.times<br
+  clear="ALL">
+          Volume # [(1)-N] : 2<br clear="ALL">
+          Options [acsSrRtde] : t</p>
+        <p>reads a disk file called &quot;image&quot; and creates a table containing 
+          starting record numbers, station and channel names, start and stop times 
+          of events, nominal sample rate, calculated sample rate and numbers of 
+          samples for that file. Output is written to the file &quot;image.times&quot;. 
+          The lines of the output table have the format</p>
+        <p>119 ANMO LPZ 1988,230,00:00:00.6800 1988,230,18:35:04.6800 1.00 66904</p>
+        <p>where the columns represent station name, channel name, start time, 
+          end time, sample rate in samples per second, number of samples, and 
+          starting record number for these data.</p>
+      </blockquote>
+      <p>3. Creating a detailed list of the contents of a volume.</p>
+      <blockquote> 
+        <p>rdseed -lf /dev/rmt11 &gt; tape.list &amp;</p>
+        <p>reads a tape on drive mt11 and writes a list of the contents of each 
+          record to a file called tape.list. The job is run in the background.</p>
+      </blockquote>
+      <p>4. Reading all data from a tape.</p>
+      <ul>
+        <dl>
+          <dt>rdseed 
+          <dt>Input Device (/dev/rst0): /dev/rmt8 
+          <dt>Output Device (stdout): tape.extraction.list 
+          <dt>Volume # [(1)-N]: 
+          <dt>Options [acsSrRtde]: d 
+          <dt>Station List (ALL): 
+          <dt>Channel List (ALL): 
+          <dt>Output format [(1-SAC),2-AH...]: 
+          <dt>Start Time(s) (FIRST) : 
+          <dt>End Time(s) (LAST): 
+          <dt>Sample Buffer Length [2000000]: 
+          <dt>Extract Responses [Y/(N)]: 
+        </dl>
+      </ul>
+      <blockquote> 
+        <p>reads all seismograms from the tape on device /dev/rmt8 into the current 
+          directory, writes &quot;stdout&quot; output to a file.</p>
+      </blockquote>
+      <p>5. Reading the abbreviation dictionaries.</p>
+      <ul>
+        <dl>
+          <dt>rdseed -af tape.image &gt; tape.abbreviation.dictionaries or rdseed 
+          <dt>Input Device (/dev/rst0): tape.image 
+          <dt>Output Device (stdout): tape.abbreviation.dictionaries 
+          <dt>Volume # [(1)-N]: 1 
+          <dt>Options [acsSrRtde]: a 
+        </dl>
+      </ul>
+      <blockquote> 
+        <p>extracts the abbreviation dictionaries from a tape image stored on 
+          disk, sends the result to a file, and runs in the foreground.</p>
+      </blockquote>
+      <p>6. Reading station information.</p>
+      <ul>
+        <dl>
+          <dt>rdseed -sf /dev/rmt8 &gt; tape.station.information &amp; or <em>rdseed</em> 
+          <dt>Input Device (/dev/rst0): /dev/rmt8 
+          <dt>Output Device (stdout):tape.station.information 
+          <dt>Volume # [(1)-N]: 1 
+          <dt>Options [acsSrRtde]: s 
+        </dl>
+      </ul>
+      <blockquote> 
+        <p>recovers station and channel location and response information from 
+          the tape on device /dev/rmt8, writes the information to a file, and 
+          in the command line form runs in the background.</p>
+      </blockquote>
+      <p>7. Reading specific station/channel/time information.</p>
+      <ul>
+        <dl>
+          <dt>rdseed 
+          <dt>Input Device (/dev/rst0) : /dev/rmt8 
+          <dt>Output Device (stdout) : 
+          <dt>tape.station.information 
+          <dt>Volume # [(1)-N] : 2 
+          <dt>Options [acsSrRtde] : d 
+          <dt>Summary File (None) : 
+          <dt>Station List (ALL) : BJI YKW1 
+          <dt>Channel List (ALL) : *Z 
+          <dt>Network List (ALL) : 
+          <dt>Output format [(1-SAC),2-AH..]: 
+          <dt>Start Time(s) (FIRST) : 1990,270,20:30 
+          <dt>End Time(s) (LAST) : 1991/2/1 
+          <dt>Sample Buffer Length [2000000]: 3000000 
+          <dt>Extract Responses [Y/(N)] : Y 
+        </dl>
+      </ul>
+      <blockquote> 
+        <p>reads all seismograms from stations BJI and YKW1, all Z channels, from 
+          year 1900, julian day 270, hour 20, minute 30 to Febuaury 1, 1991. The 
+          buffer size was increased to 3 million samples and the channel response 
+          information will be output.</p>
+      </blockquote>
+      <a name="10"> 
+      <h3>FILES </h3>
+      </a> <p>yyyy,ddd,hh.mm.ss.ffff.SSSSS.CCC - seismogram files as described 
+        above</p>
+      <p>mini.seed - file of mini seed data</p>
+      <p>rdseed.err_log.MM.DD.YY - a log of all error messages created during 
+        the day's usage.</p>
+      <p>rdseed.alert_log - file created when rdseed reverses the data.</p>
+      <a name="see"> 
+      <h3>SEE ALSO</h3>
+      </a> <p>Halbert, S. E., R. Buland, and C. R. Hutt (1988). Standard for the 
+        Exchange of Earthquake Data (SEED), Version V2.0, February 25, 1988. United 
+        States Geological Survey, Albuquerque Seismological Laboratory, Building 
+        10002, Kirtland Air Force Base East, Albuquerque, New Mexico 87115. 82 
+        pp.</p>
+      <p>O'Neill, D. (1987). IRIS Interim Data Distribution Format (SAC ASCII), 
+        Version 1.0 (12 November 1987). Incorporated Research Institutions for 
+        Seismology, 1616 North Fort Myer Drive, Suite 1440, Arlington, Virginia 
+        22209. 11 pp.</p>
+      <p>Tull, J. (1987). SAC User's Manual, Version 10.2, October 7, 1987. Lawrence 
+        Livermore National Laboratory, L-205, Livermore, California 94550. ??? 
+        pp.</p>
+      <p><a href="/manuals/manuals.htm#1a">SEED Reference Manual</a>, <a href="/manuals/weed.htm">WEED</a></p>
+      <a name="11"></a> <h3>CHANGES &amp; BUGS </h3>
+    <p><strong>version 3.44 </strong></p>
+      <blockquote> 
+        <p>- added support for mini seed output <br>
+          - added "r" option to output response information <br>
+          - changed "Printers/*.c" to eliminate null pointer crashes <br>
+          - merged ddl support fixed small bugs in parse_nchar.c & parse_double.c 
+        </p>
+      </blockquote>
+      <p><strong>version 3.45</strong></p>
+      <blockquote> 
+        <p> - fixed bug in process_data.c, where under certain circumstances a 
+          null pointer resulted in program crash. <br>
+          - fixed minor bug, if they specified options:ct, then the times data 
+          output complained. <br>
+          - Also added a printout header to the time series output. <br>
+          - modified and fixed some bugs in the free() routines. Put in checks 
+          to make sure we weren't deallocating a NULL pointer, etc.<br>
+          - added code to clear allocated memory to zeros. <br>
+          - Added code to use multiple alt_response_file<br>
+          - Added new way of calculating the A0 for AH output. <br>
+          - If the output is SAC, added response file output. <br>
+          - Fixed bug wherein program complained if outputing a mini-seed and 
+          it encountered a blockette 1000 already. <br>
+          - Fixed a bug wherein the program didn't put the correct time out to 
+          mini-seed files. <br>
+          - Fixed a steim compression bug. Program wasn't reading the start of 
+          data correctly. <br>
+          - Fixed a off-by-one bug in parse_61 - number_of_numerators </p>
+      </blockquote>
+      <p><strong>version 3.46</strong></p>
+      <blockquote> 
+        <p> - fixed mini_flag not being reinitialized after every loop thru rdseed. 
+          Minor bug.<br>
+          - fixed small problem in process_data where the program returns if the 
+          logical record's time was outside any selected time. Just let it do 
+          its thing.<br>
+          - added seed subset generation. **** <br>
+          - expanded the decode string too hold complete name (from 5) <br>
+          - added frequency multiplication to calib factor in output_css.c </p>
+      </blockquote>
+      <p><strong>version 4.0</strong></p>
+      <blockquote> 
+        <p>- Finished seed subset generation. Generates the same seed version 
+          as the original, if greater than 2.0<br>
+          - Added more support for network code. Touched a lot of modules. Added 
+          new command line for network code. This will allow for duplicate station 
+          names. <br>
+          - Added support for blocks 43..48 in output_ah.<br>
+          - Changed process_data so it will look for and use the blockette 1000 
+          information, if there.<br>
+          - Added individual station/channel/network selection when the user selects 
+          the 's' option.<br>
+          - Untangled some minor spagetti which was causing some missed waveforms.<br>
+          - Changed AH output so it doesn't do inapproriate calculations if channels 
+          are AT, SHO, LOG<br>
+          - Added network code to output file name of RESP files.<br>
+          - updated the man page<br>
+          - Made changes to the way rdseed reads in the header information. Previously, 
+          rdseed would read in all stations/channel regardless of a specifications 
+          made by the user. It would then eliminate station/ channels at output 
+          time. Now it only reads in the requested station/ channels. Should save 
+          memory, especially on <a href="javascript:openWin('/data/datalessDef.htm')" target="_blank">dataless</a> 
+          SEED volumes being linked to miniseed stuff.</p>
+      </blockquote>
+      <p><strong>version 4.1</strong></p>
+      <blockquote> 
+        <p>- changed all references to patchlevel.h in include statements to a 
+          new file (called it version.h). In addition to the PATCHLEVEL, also 
+          defines the VERSION for use in print statements </p>
+        <p>files effected by this procedure:<br>
+          Main/output_resp.c <br>
+          Main/rdseed.c <br>
+          Printers/pagetop.c <br>
+          Decoders/process_time_span.c</p>
+        <p>- changed the output format of the response file information in the 
+          following files:<br>
+          Main/output_resp.c <br>
+          Printers/print_53.c<br>
+          Printers/print_54.c <br>
+          Printers/print_55.c <br>
+          Printers/print_56.c <br>
+          Printers/print_57.c <br>
+          Printers/print_58.c <br>
+          Printers/print_60.c <br>
+          Printers/print_61.c <br>
+          Printers/print_43.c <br>
+          Printers/print_44.c <br>
+          Printers/print_45.c <br>
+          Printers/print_46.c <br>
+          Printers/print_47.c <br>
+          Printers/print_48.c <br>
+          Printers/print_41.c </p>
+        <p> this includes changes that add the comment string (through the creation 
+          of the Include/resp_defs.h include file) and the blockette/field number 
+          addresses for parsing.</p>
+        <p>- Also added the Transfer Function Type to the output in Printers/print_53.c 
+          (so that more than just the string generated by rdseed is given as the 
+          Transfer Function Type) and aligned the dictionary reference integers 
+          in [53] and [54] so that they look better.</p>
+        <p>- finally, the output for the print_60, find_41 and find_43 through 
+          find_48 files were changed considerably. Breaking comments were added 
+          to each type of filter, the blockette info from blockette 60 was expanded, 
+          and blockette 60 had a breaking comment added. A new command line option 
+          was also added to rdseed (-R) to print this new format. For the time 
+          being, both RESP file formats will be supported. Eventually, only this 
+          new format will survive.</p>
+        <p> the files that were changed to support this "dual" RESP format are: 
+          <br>
+          Main/output_resp.c <br>
+          Main/rdseed.c <br>
+          Printers/print_53.c<br>
+          Printers/print_54.c <br>
+          Printers/print_55.c <br>
+          Printers/print_56.c <br>
+          Printers/print_57.c <br>
+          Printers/print_58.c <br>
+          Printers/print_60.c <br>
+          Printers/print_61.c <br>
+          Printers/print_43.c <br>
+          Printers/print_44.c <br>
+          Printers/print_45.c <br>
+          Printers/print_46.c <br>
+          Printers/print_47.c <br>
+          Printers/print_48.c <br>
+          Printers/print_41.c </p>
+        <p>- the changes should be easy to remove, since they involved defining 
+          a new flag (outresp_old_flag) to output the old format (defined in rdseed.h 
+          and rdseed.c), adding an option to the command line interpretation section 
+          of rdseed.c, and duplicating most of the code in the rest of the files 
+          to add an equivalent function where the dual functions can be identified 
+          easily by the presence of the string 'old' in the function name that 
+          is called to support the old format (e.g. old_print_type43 output_old_resp, 
+          and print_old_resp). The R option was also added to the interactive 
+          part of the rdseed program (and made the default if the user asks to 
+          extract responses there).</p>
+        <p>- Added support for "weed" <br>
+          - Added the 'S' extract station info option <br>
+          - Added the 'e' extract event info option <br>
+          - Found a bug in the output_seed stuff, where the program "forgot" to 
+          output the block 74s. <br>
+          - Added a routine to output the LOG records, if there. <br>
+          - Added summary file processing to rdseed. <br>
+          - Added new input line to the interactive mode. Input summary file >>>> 
+          <br>
+          - updated man page</p>
+      </blockquote>
+      <p><strong>version 4.11 </strong></p>
+      <blockquote> 
+        <p>- added ability to ignore network codes if there. Farm products don't 
+          all have network codes. <br>
+          - fixed bug in free_43.c and free_44.c </p>
+      </blockquote>
+      <p><strong>version 4.11a</strong></p>
+      <blockquote> 
+        <p> - If new style resp file output, no Network Code. Needed a line added. 
+          fixed RESP file output so it indents properly - an issue for evalresp. 
+          added the ability to skip channels and network from interactive cmdline.</p>
+      </blockquote>
+      <p><strong>version 4.12 </strong></p>
+      <blockquote> 
+        <p>- An error reading the tapes was fixed. - rdseed.c <br>
+          - A0 * gains was added to SAC POLES & ZEROS file output for SAC data 
+          <br>
+          - Some internal date format changes for use with WEED - summary.c<br>
+          - A minor bug with blockette 1000 and steim 2 - output_mini.c <br>
+          - Minor bug fix to parse_50.c - make sure network code is a null string 
+          instead of a null byte.<br>
+          - Added some code to clean up the logical record memory area, problem 
+          crops up if logical record size < 4096 read_logical_record.c<br>
+          - Added change so it processes "I" of family 50 - DDL - parse_key.c 
+          & parse_30.c<br>
+          - Also fixed a bug where it separated the timespan if they crossed a 
+          day boundary.<br>
+          - rdseed wasn't positioning itself properly when reading multiple tapes 
+          volumes.<br>
+          - AH output was changed, bug fix wherein it didn't get the right instrument 
+          abbrviation, also added a unit type to the comment field, also added 
+          hypocenter info in available. <br>
+          - output_mini.c had a lot of changes needed to fix orientation code 
+          missing in the geoscope volumes. Also put check in to make sure the 
+          number of blockettes is accurate.<br>
+          - Fixed a bug in time_span_out.c where the sample count was overflowing 
+          the sizeof(int)!<br>
+          - Also, if they specified multiple time slices, it wasn't processing 
+          them all. <br>
+          - output_sac.c - added conversion of CONSTANT value to what we do with 
+          AH output data, convert from velocity or accel to displacement. <br>
+          - Also changed the SAC poles and zeros file to reflect the 3 letter 
+          channel name in the case of geoscope.<br>
+          - minor problem with decode_32bit.c, needed unsigned changed to a signed 
+          int. </p>
+        <p>- fixed a problem with the way that the 'station' information was output. 
+          The 'new' RESP file format needed to be consistent with the station 
+          information so that the blockette and field number prefixes could be 
+          removed with a simple 'cut' command. The files effected by this change 
+          were:</p>
+        <p>rdseed/Printers/find_30.c <br>
+          rdseed/Printers/find_33.c <br>
+          rdseed/Printers/pagetop.c<br>
+          rdseed/Printers/print_10.c <br>
+          rdseed/Printers/print_11.c <br>
+          rdseed/Printers/print_12.c <br>
+          rdseed/Printers/print_30.c <br>
+          rdseed/Printers/print_31.c <br>
+          rdseed/Printers/print_32.c <br>
+          rdseed/Printers/print_33.c <br>
+          rdseed/Printers/print_34.c<br>
+          rdseed/Printers/print_35.c<br>
+          rdseed/Printers/print_41.c <br>
+          rdseed/Printers/print_43.c <br>
+          rdseed/Printers/print_44.c <br>
+          rdseed/Printers/print_45.c <br>
+          rdseed/Printers/print_46.c <br>
+          rdseed/Printers/print_47.c <br>
+          rdseed/Printers/print_48.c<br>
+          rdseed/Printers/print_50.c<br>
+          rdseed/Printers/print_51.c <br>
+          rdseed/Printers/print_52.c <br>
+          rdseed/Printers/print_59.c <br>
+          rdseed/Printers/print_70.c<br>
+          rdseed/Printers/print_71.c <br>
+          rdseed/Printers/print_72.c <br>
+          rdseed/Printers/print_73.c <br>
+          rdseed/Printers/print_74.c <br>
+          rdseed/Printers/print_abrvd.c </p>
+        <p> - the result of these changes is that all of the 'station' information 
+          will be preceded by a blockette and field number prefix, as was the 
+          case with the response information in the RESP files. This consistency 
+          should make it easier to parse the station information from this output, 
+          since the routines that added a prefix to the response output in versions 
+          4.1, 4.11, and 4.11a were used in the 'station' information output (so 
+          the station information output had a mixture of blockette/field number 
+          prefixes for some of the information and no blockette/field number prefixes 
+          in other parts of the output). This fix may make this type of output 
+          useable with evalresp once more. Thomas J. McSweeney, Feb 20, 1996</p>
+      </blockquote>
+      <p><strong>version 4.14</strong></p>
+      <blockquote> 
+        <p> - changed 'print_type50' so that a network code is always printed. 
+          If it is a NULL pointer, the string "??" is printed, otherwise the network 
+          code is printed.<br>
+          - bug fix to find_41.c to fix problems with output of RESP files containing 
+          blockette [41] style FIR filters. Each was followed by a blank line 
+          that should have contained a '#' character prefix on it. Thomas J. McSweeney 
+          , Apr 29, 1996<br>
+          - Added support for differing logical record sizes within the data record.<br>
+          - Added support for event processing from weed. rdseed will place waveforms 
+          for each event as found in the summary file into seperate directories. 
+          This function is activated from the weed interface.<br>
+          - Alpha port: Fixed many problems associated with 64bit compilation. 
+          At the same time fixed many bugs which showed up with Alpha port (byte 
+          swapped data).<br>
+          - Added code to place event/station distance, both degrees and Km, azimuth 
+          and back azimuth into SAC headers.<br>
+          - Version support, looks to see the version of weed which is running 
+          it.<br>
+          - added sip and azimuth in AH output.<br>
+          - Opps, dip and azimuth needed switching in AH header output.<br>
+          - added dip and azimuth reversal in output_ah.c<br>
+          - added event lat/lon information in AH headers.<br>
+          - Changed some longs to ints in steim.c (64bit port)<br>
+          - Added support for data blockette swapping if needed. Currently only 
+          blockette 100 is located and swapped.<br>
+          - Small bug fixed in output_css.c where if no description entered for 
+          instrument type, program would crash.<br>
+          - Added support for negative BIAS in summary file processing. <br>
+          - Took out call to timelocal() and converted to mktime()<br>
+          - Bug fix in summary file processing where it goofed about what data 
+          to grab.<br>
+          - Changed the output format for event files into a more readable format, 
+          as per Ken suggestion. The precision of the floats were changed.<br>
+          - changed decode_geoscope.c so i is insensitive to case when scanning 
+          for data type code.<br>
+          - added scan_for_blk_1000() in process_data.c so it would get the word 
+          order from this if available.<br>
+          - Changed process_data.c to do the byte swapping upfront, instead of 
+          peppered throughout the code.<br>
+          - The LOG record output wasn't being done right for "Seed" output. WOuld 
+          miss the log records.<br>
+          - Small bug fix for seed output, blockette 74s seek locations weren't 
+          being computed properly on subsequent interations.<br>
+          - Took out some longs and other problem spots for Alpha port.<br>
+          - This version was never releases, went to 4.15 directly from 4.12<br>
+          - Added SAC ascii output </p>
+      </blockquote>
+      <p><strong>version 4.15</strong></p>
+      <blockquote> 
+        <p>- Added SEEDTOLERANCE - or rather activated it.<br>
+          - Bug in output_polesNzeros() where if LOG channel it crashed.<br>
+          - Changed the way rdseed reads stn/chn information, more flexible, not 
+          dependent on order of info in seed volume.<br>
+          - Added ability to process data records of varying sizes.<br>
+          - needed to look at data record size from the blk1000<br>
+          - added command line processing for summary file.<br>
+          - bug in output_event_info, date conversion on leap years<br>
+          - bug in steim.c when day is 366<br>
+          - changed some things so it compiles and runs on linux.<br>
+          - Conflict with rdseed.h's abs and stdlib.h's. Made into all CAPS.<br>
+          - Small bug with using one letter network code ala geoscope<br>
+          - Activated blk 11 and 12 usage.<br>
+          - Added SEGY output.<br>
+          - Bug fix with network codes of one letter, ala geoscope<br>
+          - implemented blockette 11 and 12 usage, if disk file<br>
+          - Added alert message processing, if reversals are initiated, rdseed 
+          will write message to disk and alert the user about this file.<br>
+          - Small bug caught in scanning for blockette 1000<br>
+          - Added to "WEED" station file, station effective dates.<br>
+          - Small bug in date conversion routine when leap year.<br>
+          - removed some unnecessary routines from the Snoop directory<br>
+          - Small bug in output_seed() where if network code is length of one, 
+          the resulting blockettes needed padding to 2.<br>
+          - In output_seed(), needed to get the network code from the data record.<br>
+          - summary.c - small bug in how the channel names were being interfaced 
+          to the old style holding array (from keyboard).<br>
+          - ah_resp.c - small bug in the complex math routines.<br>
+          - steim.c - bug in time computation when leap year.<br>
+          - Added event info (if there) to output seed volume<br>
+          - Added stdlib.h for atof()<br>
+          - solaris compatability</p>
+        <p><strong>revision 5</strong> - took out getwd() for getcwd()<br>
+          - also bug fix, fread didn't work on tape drives</p>
+        <p><strong>rev 6</strong> - Bug in naming of output files for geoscope 
+          data <br>
+          - bug in getcwd() in log_errors() resulted in I/O error - result too 
+          large<br>
+          - Bug in the 't' option - lrecord_ptr off by one</p>
+        <p> <strong>rev 7</strong> - added event hypo info for SAC headers<br>
+          - put some sanity checking for fsdh->bofb field <br>
+          - one last bug fix for finding chn recs when stn recs don't match based 
+          one effective time. Default to what is there<br>
+          - added blockette 51, 59 output 'C' option <br>
+          - new command line options for 'C'<br>
+          - bug fix in convert date of event if leap year in output_event_info.c 
+        </p>
+        <p><strong>rev 8</strong> - changed how the summary file is processed. 
+          <br>
+          - took out the old_resp flag option<br>
+          - added a perror() to output_segy.c <br>
+          - added some I/O error messages to output_sac.c<br>
+          - same with output_resp.c output_ah.c and output_css.c <br>
+          - output_css.c : changed elevation from meters to km also fix a calib 
+          of zero bug (if no stage 0 (58))</p>
+        <p> <strong>rev 9</strong> - bug fix for really small (&lt;32k) seed volumes. 
+          <br>
+          - bug fixes for summary file processing.<br>
+          - small apparently harmless overflows fixed (process_data.c)<br>
+          - some needed byteswapping for updated version</p>
+      </blockquote>
+      <p><strong>version 4.16</strong></p>
+      <blockquote> 
+        <p> - output of sub-seed from Geoscope files had 0 in network code<br>
+          - also, mod made for reading small &lt;32k seed volumes<br>
+          - took out innocous warning mess on 'c' option, could be dataless<br>
+          - added station/channel/net prompts to option 'C', the station/channel 
+          comments option. Also user can specify time windows for effective time 
+          processing.<br>
+          - bug in output_mini() where it didn't properly write records with an 
+          existing blk1000 and the rec length !- 4096 <br>
+          - bug in output_seed, changed timeadd() to timeadd_double(). Also in 
+          output of blk 55/56, missing % in sprintf()<br>
+          - some errors which showed up in linux compilations.<br>
+          - added in location code processing</p>
+        <p><strong>4.16.1</strong> - added toms fix to the IIR instrument error 
+          message, poles > 0 in parse_53.c</p>
+        <p><strong>4.16.2</strong> - small fix to bug that seems to have come 
+          back in extract_time_span() where if the data record size was < logrec 
+          size, it didn't properly look at the sub index value as found in the 
+          block 74. Off by one<br>
+          - also add in if num_itms < 0 do perror("") in extract_this_time_span(). 
+        </p>
+        <p> <strong>4.16.3</strong> - blk 1001 virtual support, program complained 
+          if running under linux<br>
+          - location code processing added to the 't' option</p>
+        <p> <strong>4.16.8</strong> - added in support for block 42/62.<br>
+          - printing blocks 51/59 needed a flag to print the station information.<br>
+          - added support for CSS's affiliate, network and hypocenter table.<br>
+          - bug fix in output_mini.c, pointer to new block needed recalculating.<br>
+          - sac ascii output needed the numbers reformatted from %15.7f to %15.7g, 
+          to conform with the SAC manual. Maintains a 80 column output with large 
+          numbers<br>
+          - output_seed.c - changed fopen("a+") to fopen("a"), caused problems 
+          with linux, but should be this way anyway. Also "w+" to "w".<br>
+          - Polynomial response was added in.<br>
+          - get_date() returned pointer to local variable.<br>
+          - bug in rdseed.c - process_stn_lrecs(), buffer needed memset() to spaces 
+          in case read failed from EOF.<br>
+          - summary.c, many changes associated with location codes. Also added 
+          file version checking. </p>
+      </blockquote>
+      <p><strong>version 4.17</strong></p>
+      <blockquote> 
+        <p> - new summary file processing <br>
+          - support for opaque data type<br>
+          - added capability for processing multi 53 poles_zeros blks when calculating 
+          A0 <br>
+          - took out erroneous message about found a pole > 0<br>
+          - added support for 16 bit ints (H2O data) </p>
+      </blockquote>
+      <p><strong>version 4.18</strong></p>
+      <blockquote> 
+        <p> - Doug Neuhauser's changes to allow 512 byte data records and to allow 
+          for very low sample rate.<br>
+          - fixed a crash bug when encountering an unknown compression code.<br>
+          - SAC poles and zeros file needed location code in file name.</p>
+      </blockquote>
+      <p><strong>version 4.18.1</strong></p>
+      <blockquote> 
+        <p>- decode_16_bit.c - needed to take out debug output file</p>
+      </blockquote>
+      <p><strong>version 4.18.2</strong></p>
+      <blockquote> 
+        <p>- added in Jean-Francois Fels' fixes to decode_steim.c for<br>
+          linux<br>
+          <br>
+          - added in Chad Trabant's addins for alt response file<br>
+          processing using command line option (g).<br>
+          <br>
+          - added in command line processing to allow for designation<br>
+          of file output directory (-q).<br>
+          <br>
+          - added in command line processing for seismogram data input<br>
+          buffer size specification (-b).<br>
+          <br>
+          - small bug fix needed when fsdh has zero samples.<br>
+          <br>
+          - added in Doug Neuhauser's fixes for default lat/lon output<br>
+          in the station file (-S) option to have + for<br>
+          positive lats.</p>
+      </blockquote>
+      <p><strong>version 4.19</strong></p>
+      <blockquote> 
+        <p>- added in the DRQ in interactive and command line prompts.<br>
+          - Added in DR or Q into file output names.</p>
+      </blockquote>
+      <p><br>
+        <strong>version 4.19.1 </strong></p>
+      <blockquote> 
+        <p>- took out Jean-Francois Fels' fixes for decode_steim.c</p>
+      </blockquote>
+      <p><strong>version 4.19.4</strong></p>
+      <blockquote> 
+        <p>- bug in CSS output for origin event time. <br>
+          - Function get_secs_since_1970() did not work. Took it out.</p>
+      </blockquote>
+      <p><strong>version 4.2</strong></p>
+      <blockquote> 
+        <p>- add in more support for DRQ<br>
+          - bug fix in output_seed_data_file. needed support for multi<br>
+          - data rec lengths. decode_usnsn had an ugly bug.<br>
+          - MAC makefile changes. Some fixes for linux.</p>
+      </blockquote>
+      <p><strong>version 4.3</strong></p>
+      <blockquote> 
+        <p>- added in some robustness in process_data.c because<br>
+          bad data was creeping into seed volumes.<br>
+          <br>
+          - ah_resp.c wasn't processing dictionary blockettes<br>
+          properly.<br>
+          <br>
+          - linux bug in ah_resp.c for pointer math.<br>
+          <br>
+          - ALT_RESPONSE_FILE processing wasn't right for linux<br>
+          <br>
+          - rdseed.c:</p>
+        <ul>
+          <li>changed reads to fread</li>
+          <li>needed num_bytes_read returned from skip_to_DRQ</li>
+          <li>changed checking for LRECL only if scln changed</li>
+        </ul>
+        <p>- alt_response.c:</p>
+        <ul>
+          <li>changed file numbers to FILE</li>
+        </ul>
+        <p>- process_data.c:</p>
+        <ul>
+          <li>checked for sample rate sanity</li>
+          <li>miniseed blockettes processing had a bug.</li>
+          <li>heck for good bod field</li>
+        </ul>
+        <p>- decode_steim2.c</p>
+        <ul>
+          <li>still had LRECL hardcoded as 4096 instead of<br>
+            variable.</li>
+        </ul>
+        <p>- timeqc.c, timetol.c:</p>
+        <ul>
+          <li>if the blk52 has a zero for a clock tolerance,<br>
+            substitute a 1 so math will work.</li>
+        </ul>
+        <p>- VERSION.h updated to version 4.3 so page_top.c would<br>
+          print out properly.</p>
+      </blockquote>
+      <p><strong>version 4.4</strong> </p>
+      <blockquote> 
+        <p>- log_errors.c for newer gcc</p>
+        <p>- also, bug in ah_resp.c which only showed up in<br>
+          ah_resp.c</p>
+      </blockquote>
+      <p><strong>version 4.5</strong></p>
+      <blockquote>
+        <p>- fix for GEOSCOPE data</p>
+        <p>- changed makefile to use gcc</p>
+        <p>- took out some references to version for easier maintenance </p>
+      </blockquote>
+    <p><strong>version 4.6 </strong></p>
+        <blockquote>
+        <p>- Added identifying time to file names of SAC poles and zeros files<br>
+          - Added blockette 40's logic<br>
+          - Fixed SAC evdp * 1000<br>
+          - Fixed bug in leap year calculation<br>
+          - Added SAC idep (units)<br>
+        </p>
+        </blockquote>
+      <p>Address bug reports to Sandy Stromme at IRIS DMC, 206-547-0393, or send 
+        email to <img src="/gifs/em/sandy.gif" alt="sandy" width="185" height="14" align="absbottom">. 
+        Please DO NOT &quot;fix bugs&quot; locally without telling the author 
+        about them. Please DO NOT redistribute this program. Address requests 
+        for the program to IRIS at the numbers given above.</p>
+      <a name="12"> </a> <h3>AUTHORS </h3>
+      <p>Dennis O'Neill, Allen Nance, Chris Laughbon, Sandy Stromme
+      <p>IRIS Data Management Center
+      <p> <a href="#top">[return to top]</a> 
+      <p> 
+        <center>
+          <small>updated 07/23/2004</small> 
+        </center>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+      <p>&nbsp;</p>
+      <!-- #EndEditable --> 
+
+   
+<table width="100%" border="0" cellspacing="4" cellpadding="0">
+  <tr>
+    <td height="2" align="center" valign="middle" bgcolor="be9f5a"><img src="/gifs/tran_dot.GIF" width="1" height="1" hspace="0" vspace="0"></td>
+  </tr>
+  <tr> 
+    <td width="77%" height="41" align="center" valign="middle"> <h6><a href="/about/iris.htm">About
+          IRIS </a> 
+        | <a href="/about/members.htm">Members</a> | <a href="/about/programs.htm">Programs</a> 
+        | <a href="http://www.iris.edu/USArray/">USArray</a> | <a href="http://www.iris.edu/seismon/">Seismic
+         Monitor</a> | <a href="/quakes/quakes.htm">Earthquakes</a> | <a href="/data/SeismoArchives/">SeismoArchives</a><br>
+        <a href="http://norman.iris.washington.edu/mailman/listinfo/">Mailing Lists</a> | <a href="/stations/stations.htm">Stations</a> | 
+        <a href="/data/data.htm">Data</a> | <a href="/manuals/manuals.htm">Software</a> 
+        | <a href="/about/publications.htm">Publications</a> | <a href="/news/news.htm">News</a> 
+        | <a href="/about/contact.htm">Contact</a> | <a href="/about/sitemap.htm">Site
+    Map</a> | <a href="/about/search.htm">Search</a></h6></td>
+  </tr>
+  <tr> 
+    <td width="77%" valign="top"> <center>
+        <p><table><tr><td width= 450>
+
+<center><font face="Verdana, Arial, Helvetica, sans-serif" size=3 color="#000000">
+Incorporated Research Institutions for Seismology</font><br>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=2 color="#333333">
+1200 New York Ave NW &bull; Suite 800 &bull; Washington DC 20005<br>
+Phone: 202.682.2220 | Fax: 202.682.2444<br>
+</font>
+<hr noshade size=1>
+</center>
+
+</td>
+        </tr></table>
+
+<table><tr><td width="225">
+
+<center>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=2 color="#000000">Data Management Center</font><br>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=1 color="#333333">
+1408 NE 45th St. Suite 201<br>
+Seattle, WA 98105<br>
+Phone: 206.547.0393 | Fax: 206.547.1093
+</font>
+</center>
+
+</td><td width="225">
+
+<center>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=2 color="#000000">PASSCAL Instrument Center</font><br>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=1 color="#333333">
+100 East Road &bull; Tech Industrial Park<br>
+New Mexico Tech &bull; Socorro, NM 87801<br>
+Phone: 505.835.5070 | Fax: 505.835.5079
+</font>
+</center>
+
+</td></tr></table>
+        <p><font size="1">Send comments to the <script>
+
+<!--
+
+function escramble(){
+ var a,b,c,d,e,f,g,h,i
+ a='<a href=\"mai'
+ b='webmaster'
+ c='\">'
+ a+='lto:'
+ b+='@'
+ e='</a>'
+ f='webmaster'
+ b+='iris.washington.edu'
+ g='<img src=\"'
+ h=''
+ i='\" alt="Email us." border="0">'
+
+ if (f) d=f
+ else if (h) d=g+h+i
+ else d=b
+
+ document.write(a+b+c+d+e)
+}
+
+escramble()
+
+//-->
+
+</script>          <!-- fwtable fwsrc="footer.sm.png" fwbase="footer.still" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+          </font></p>
+      </center></td>
+  </tr>
+</table>
+
+
+</body>
+<!-- #EndTemplate --></html>

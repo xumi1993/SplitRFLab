@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Matlab Utilities for Seismology</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<style>.title {
+	FONT-WEIGHT: normal; FONT-SIZE: 20pt; COLOR: #dddddd; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.hdr_ftr {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #dddddd; FONT-FAMILY: verdana, sans-serif
+}
+</style></head><body alink="#aaaaaa" bgcolor="#333333" link="#95ddff" text="#dddddd" vlink="#aaaaaa">
+		<font face="verdana,sans-serif">
+			<table bgcolor="#444444" border="0" cellpadding="3" cellspacing="0" width="100%">
+				<tbody>
+					<tr>
+						<td class="title">Matlab Utilities for Seismology</td>
+					</tr>
+				</tbody>
+			</table>
+		</font>
+		<p><br>
+		</p>
+		<table bgcolor="#444444" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td colspan="2"><b>SACLAB is the integration of the standard in solid earth seismic signal processing, Seismic Analysis Code (SAC), </b>with
+the standard in technical computing, MatLab, making the computational
+and programming power of MatLab easily available for use with SAC data
+files. SACLAB allows one to read SAC data files into MatLab and perform
+some useful SAC operations in MatLab. SACLAB utilities complement the
+MatLab signal processing toolbox, which has become widely used in the
+industry. With SACLAB, programs and data files are portable to any
+platform that runs MatLab. SACLAB fosters interdisciplinary
+collaboration since MatLab can be found in most all departments. Also,
+the extensive documentation in MatLab provides a better understanding
+of the algorithms used, and makes it easy to alter a program for a
+different use. <p>Special thanks to <a href="http://www.public.asu.edu/%7esrford/">Sean Ford</a> for help in developing and debugging these routines.  Please send comments to mthorne @ asu.edu</p>
+				</td>
+			</tr>
+		</tbody></table>
+		<div align="left">
+			<p><br>
+			</p>
+			<table bgcolor="#444466" border="0" cellpadding="6" cellspacing="0">
+				<tbody>
+					<tr>
+						<td class="hdr_ftr"><b>SACLAB</b> - Utilities for converting between Seismic Analysis Code <a href="http://www.llnl.gov/sac/">(SAC)</a> and Matlab formats</td>
+					</tr>
+				</tbody>
+			</table>
+			<table bgcolor="#444444" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td nowrap="nowrap" width="50%"><b>Utility Name</b></td>
+					<td nowrap="nowrap">
+						<div align="left">
+							<b>Function </b></div>
+					</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><i>(click below to view m-file)</i></td>
+					<td nowrap="nowrap"></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/rsac.m.txt">rsac.m</a></td>
+					<td nowrap="nowrap">Read SAC binary</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/wsac.m.txt">wsac.m</a></td>
+					<td>Write SAC binary</td>
+				</tr>
+				<tr>
+					<td width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/bsac.m.txt">bsac.m</a></td>
+					<td>Be SAC - convert Matlab array to SAC format </td>
+				</tr>
+				<tr>
+					<td width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/lh.m.txt">lh.m</a></td>
+					<td>List Header</td>
+				</tr>
+				<tr>
+					<td width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/ch.m.txt">ch.m</a></td>
+					<td>Change Header</td>
+				</tr>
+				<tr>
+					<td width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/p1.m.txt">p1.m</a></td>
+					<td>Plot Traces (one trace per subplot) - <a href="http://gcc.asu.edu/mthorne/saclab/p1_example.jpg">Example Screenshot</a></td>
+				</tr>
+				<tr>
+					<td width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/p2.m.txt">p2.m</a></td>
+					<td>Plot Traces (overlay traces) - <a href="http://gcc.asu.edu/mthorne/saclab/p2_example.jpg">Example Screenshot</a></td>
+				</tr>
+				<tr>
+					<td width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/sac.share.tar.gz">Download m-files (tar.gz)</a></td>
+					<td></td>
+				</tr>
+			</tbody></table>
+		</div>
+		<div align="left">
+			<p><br>
+			</p>
+			<table bgcolor="#444466" border="0" cellpadding="6" cellspacing="0">
+				<tbody>
+					<tr>
+						<td class="hdr_ftr"><b>SACLAB Contributions</b> - M-file contributions using SACLAB</td>
+					</tr>
+				</tbody>
+			</table>
+			<table bgcolor="#444444" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td nowrap="nowrap" width="50%"><b>Utility Name</b></td>
+					<td nowrap="nowrap">
+						<div align="left">
+							<b>Function </b></div>
+					</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><i>(click below to view m-file)</i></td>
+					<td nowrap="nowrap"></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/marktimes.m.txt">marktimes.m</a>  (Contributed by <a href="http://www.public.asu.edu/%7esrford/">Sean Ford</a>)</td>
+					<td nowrap="nowrap">Calculate travel-times and put in SAC header</td>
+				</tr>
+			</tbody></table>
+		</div>
+		<div align="left">
+			<p><br>
+			</p>
+			<table bgcolor="#444466" border="0" cellpadding="6" cellspacing="0">
+				<tbody>
+					<tr>
+						<td class="hdr_ftr">Utilities for reading <a href="http://www.szgrf.bgr.de/sh-doc/">Seismic Handler</a> files into Matlab</td>
+					</tr>
+				</tbody>
+			</table>
+			<table bgcolor="#444444" border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td nowrap="nowrap" width="50%"><b>Utility Name</b></td>
+					<td nowrap="nowrap"><b>Function</b></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><i>(click below to view m-file)</i></td>
+					<td nowrap="nowrap"></td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/rqhd.m.txt">rqhd.m</a></td>
+					<td nowrap="nowrap">Read SH header</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/rqbn.m.txt">rqbn.m</a></td>
+					<td>Read SH binary</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/sh.share.tar.gz">Download m-files (tar.gz)</a></td>
+					<td><a href="http://gcc.asu.edu/mthorne/saclab/sh_example.jpg">(Example Screenshot)</a></td>
+				</tr>
+			</tbody></table>
+		</div>
+		<p>
+		<table bgcolor="#444466" border="0" cellpadding="6" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="hdr_ftr">Misc. Matlab Functions</td>
+				</tr>
+			</tbody>
+		</table>
+		<table bgcolor="#444444" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td nowrap="nowrap" width="50%"><b>Utility Name</b></td>
+				<td nowrap="nowrap"><b>Function</b></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"><i>(click below to view m-file)</i></td>
+				<td nowrap="nowrap"></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/refl.m.txt">refl.m</a></td>
+				<td nowrap="nowrap">Reflectivity-like Source Time function.</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%">
+					
+				</td>
+				<td></td>
+			</tr>
+		</tbody></table>
+		</p><p></p>
+		<table bgcolor="#444466" border="0" cellpadding="6" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="hdr_ftr">Matlab Color Palette Tables</td>
+				</tr>
+			</tbody>
+		</table>
+		<table bgcolor="#444444" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td nowrap="nowrap" width="50%"><b>Utility Name</b></td>
+				<td nowrap="nowrap"><b>Function</b></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"><i>(click below to view m-file)</i></td>
+				<td nowrap="nowrap"></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"><a href="http://gcc.asu.edu/mthorne/saclab/france.m.txt">france.m</a></td>
+				<td nowrap="nowrap">French flag-like color palette Table.</td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"></td>
+				<td></td>
+			</tr>
+		</tbody></table>
+		<p></p>
+		<table bgcolor="#444466" border="0" cellpadding="6" cellspacing="0">
+			<tbody>
+				<tr>
+					<td class="hdr_ftr">Links to Other Seismology Related Matlab Applications</td>
+				</tr>
+			</tbody>
+		</table>
+		<table bgcolor="#444444" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td nowrap="nowrap" width="50%">TTBox - Calculate travel times, ray paths, etc. <a href="http://ifp.uni-muenster.de/spp1115/content/pub/">(download)</a> <a href="http://solarsystem.dlr.de/TP/seis_en.shtml">(info)</a></td>
+				<td nowrap="nowrap"></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"><a href="http://www.ess.washington.edu/creager/">Coral: A matlab program for seismic waveform analysis</a></td>
+				<td nowrap="nowrap"></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"><a href="http://eqseis.geosc.psu.edu/%7ecammon/HTML/UsingMATLAB/">Charles Ammon's Matlab Exercise's for Seismology</a></td>
+				<td nowrap="nowrap"></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"><a href="http://www.es.ucl.ac.uk/people/fjsimons/simons/software.html">Frederik J. Simons Software Page </a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td nowrap="nowrap" width="50%"></td>
+				<td></td>
+			</tr>
+		</tbody></table>
+		<p><font face="verdana,sans-serif"><br>
+		<table bgcolor="#444444" border="0" cellpadding="3" cellspacing="0" width="100%">
+					<tbody>
+						<tr>
+							<td>
+								<table text="#111111" border="0" cellpadding="3" cellspacing="0" width="100%">
+									<tbody>
+										<tr>
+											<td class="hdr_ftr" align="left">Last updated <csobj format="LongDate" h="14" locale="00000409" region="0" t="DateTime" w="155">Thursday, June 02, 2005</csobj></td>
+											<td class="hdr_ftr" align="right"><a href="http://gcc.asu.edu/mthorne">return home</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		</font></p><p></p>
+<font face="verdana,sans-serif">		</font><p></p>
+<font face="verdana,sans-serif">	</font></body></html>

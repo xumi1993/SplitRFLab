@@ -1,0 +1,58 @@
+<html><head><title>docopt (MATLAB Functions)</title>
+<!-- $Revision$  $Date$ -->
+
+<!-- DOCNAME: MATLAB Functions -->
+<!-- CHUNKNAME: docopt -->
+<!-- CHAPNAME: docopt -->
+<!-- HEADSTUFF -->
+<link rel=stylesheet href="docstyle1.css" type="text/css">
+</head>
+<body bgcolor=#ffffff>
+<a name="453514">
+<!-- NAVBARTOP -->
+<table border=0 width="100%" cellpadding=0 cellspacing=0><tr>
+<td valign=baseline bgcolor="#e7ebf7"><b>MATLAB Function Reference</b></td>
+<td valign=baseline bgcolor="#e7ebf7" align=right><a href="doc.html"><img src="b_prev.gif" alt="Previous page" border=0></a>&nbsp;&nbsp;&nbsp;<a href="docsearch.html"><img src="b_next.gif" alt="Next Page" border=0></a></td>
+</tr>
+</table><font size=+3 color="#990000">docopt</font>
+
+
+<!-- FNAME:docopt --><a name="453514"></a>
+
+<!-- SYNCHTO: func_by_.html -->
+
+
+<!-- H2 --><a name="453515"></a><br>
+<p><a name="453517"></a>Web browser for UNIX platforms</p>
+<a name="syntax"></a><!-- H2 --><a name="453518"></a><p><font size=+1 color="#990000"><b>Syntax</b></font><br class="hdr">
+<ul class=continued><li class=continued><pre><a name="453519"></a>docopt
+</pre></li></ul>
+<a name="description"></a><!-- H2 --><a name="453521"></a><p><font size=+1 color="#990000"><b>Description</b></font><br class="hdr">
+<p><a name="453522"></a><code>docopt
+</code> <a name="453524"></a>displays the Web browser used with MATLAB on non-Macintosh UNIX platforms, with the default being <code>netscape</code> (for Netscape). For non-Macintosh UNIX platforms, you can modify the <code>docopt.m</code> file to specify the Web browser MATLAB uses. The Web browser is used with the <code><a href="file:../../techdoc/ref/web.html">web</a></code> function and its <code>-browser</code> option. It is also used for links to external Web sites from the Help.</p>
+<p><a name="619398"></a><code>doccmd = docopt
+</code> <a name="619406"></a>returns a string containing the command that <code>web -browser</code> uses to invoke a Web browser.</p>
+<p><a name="619422"></a>To change the browser, edit the <code>docopt.m</code> file and change line 51. For example,</p>
+<ul class=continued><li class=continued><pre><a name="619428"></a>50  elseif isunix                   % UNIX
+<a name="619423"></a>51  %   doccmd = '';
+</pre></li></ul>
+<p><a name="619438"></a>Remove the comment symbol. In the quote, enter the command that starts your Web browser, and save the file. For example,</p>
+<ul class=continued><li class=continued><pre><a name="619441"></a>51      doccmd = 'mozilla';
+</pre></li></ul>
+<p><a name="619446"></a>specifies Mozilla as the Web browser MATLAB uses.</p>
+<a name="see_also"></a><a name="seeal_sec"></a><!-- H2 --><a name="453543"></a><p><font size=+1 color="#990000"><b>See Also</b></font><br class="hdr">
+<p><a name="453544"></a><code><a href="file:../../techdoc/ref/doc.html">doc</a></code>, <code><a href="file:../../techdoc/ref/edit.html">edit</a></code>, <code><a href="file:../../techdoc/ref/helpbrowser.html">helpbrowser</a></code>, <code><a href="file:../../techdoc/ref/web.html">web</a></code> </p>
+
+<br>
+
+
+<p><table bgcolor="#e7ebf7" border=0 width="100%" cellpadding=0 cellspacing=0><tr valign=top><td align=left width=20><a href="doc.html"><img src="b_prev.gif" alt="Previous page" border=0 align=bottom></a>&nbsp;</td><td align=left>&nbsp;doc</td><td>&nbsp;</td><td align=right>docsearch&nbsp;</td><td align=right width=20><a href="docsearch.html"><img src="b_next.gif" alt="Next page" border=0 align=bottom></a></td></tr></table>
+<p class="copy">&copy; 1994-2005 The MathWorks, Inc.</p>
+
+<br>
+<!-- Copyright 2005 The MathWorks, Inc. -->
+<!-- Last updated: Tue Jan 25 22:00:32 2005 -->
+</body>
+</html>
+
+

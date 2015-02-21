@@ -1,0 +1,31 @@
+2011-07-12 10:21:49,239 INFO main sod.Start - logging configured
+2011-07-12 10:21:49,858 INFO main sod.CommonAccess - ORB class is org.jacorb.orb.ORB
+2011-07-12 10:21:49,980 INFO main sod.Start - Start start()
+2011-07-12 10:21:50,617 ERROR main exceptionHandler.GlobalExceptionHandler - Caught an exception in the exception handler: 
+edu.iris.Fissures.model.UnsupportedFormat: 
+	at edu.iris.Fissures.model.ISOTime.<init>(ISOTime.java:47)
+	at edu.iris.Fissures.model.MicroSecondDate.<init>(MicroSecondDate.java:77)
+	at edu.sc.seis.fissuresUtil.chooser.ClockUtil.getServerTimeOffset(ClockUtil.java:76)
+	at edu.sc.seis.fissuresUtil.exceptionHandler.ExceptionReporterUtils.getSysInfo(ExceptionReporterUtils.java:43)
+	at edu.sc.seis.fissuresUtil.exceptionHandler.GlobalExceptionHandler.handle(GlobalExceptionHandler.java:68)
+	at edu.sc.seis.fissuresUtil.exceptionHandler.GlobalExceptionHandler.handle(GlobalExceptionHandler.java:38)
+	at edu.sc.seis.sod.Start.main(Start.java:526)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at edu.sc.seis.sod.PreStart.main(PreStart.java:17)
+2011-07-12 10:21:50,620 ERROR main exceptionHandler.GlobalExceptionHandler - Original exception was:
+edu.iris.Fissures.model.UnsupportedFormat: 
+	at edu.iris.Fissures.model.ISOTime.<init>(ISOTime.java:47)
+	at edu.iris.Fissures.model.MicroSecondDate.<init>(MicroSecondDate.java:77)
+	at edu.sc.seis.fissuresUtil.chooser.ClockUtil.getServerTimeOffset(ClockUtil.java:76)
+	at edu.sc.seis.fissuresUtil.chooser.ClockUtil.getTimeOffset(ClockUtil.java:30)
+	at edu.sc.seis.fissuresUtil.chooser.ClockUtil.now(ClockUtil.java:55)
+	at edu.sc.seis.sod.Start.start(Start.java:307)
+	at edu.sc.seis.sod.Start.main(Start.java:521)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at edu.sc.seis.sod.PreStart.main(PreStart.java:17)

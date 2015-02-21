@@ -1,0 +1,40 @@
+Putting bad receiver functions in prfns\prfns_iter_2.50\rejected\
+Number of station directories: 2
+DIR # = 1
+Number of PRF files: 2
+Number of TRF files: 0
+File # = 1
+	Deconvolution RMS = 0.153075
+	Max abs peak at t=0.200
+	Max amplitude = 0.424076
+	Size of the second largest spike: 0.191391
+Keep with L click. Reject with R click...
+keeping
+File # = 2
+	Deconvolution RMS = 0.555280
+	Larger than defined threshold, indicating deconvolution didnt work
+	Max abs peak at t=-0.100
+	Max amplitude = 0.355267
+	Size of the second largest spike: 0.349921
+	2nd largest spike > 0.500000 x max spike indicating another phase or noise is contaminating the signal
+Keep with L click. Reject with R click...
+keeping
+DIR # = 2
+Number of PRF files: 2
+Number of TRF files: 0
+File # = 1
+	Deconvolution RMS = 0.176174
+	Max abs peak at t=0.000
+	Max amplitude = 0.623074
+	Size of the second largest spike: 0.185401
+Keep with L click. Reject with R click...
+keeping
+File # = 2
+	Deconvolution RMS = 0.242000
+	Max abs peak at t=-0.100
+	Max amplitude = 0.473726
+	Size of the second largest spike: 0.392641
+	2nd largest spike > 0.500000 x max spike indicating another phase or noise is contaminating the signal
+Keep with L click. Reject with R click...
+rejecting
+Moved prfns\prfns_iter_2.50\TA_Z16A\2008_245_0706_TA_Z16A.PRF.sac to prfns\prfns_iter_2.50\rejected\TA_Z16A

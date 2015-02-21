@@ -1,0 +1,116 @@
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document"><title>Institutt for den faste jords fysikk</title>
+
+<link rel="stylesheet" type="text/css" href="seisan_version8.1_files/ifg.css"></head><body background="seisan_version8.1_files/background.gif">
+
+<table border="0" cellpadding="0" cellspacing="0" height="204" width="748">
+  <tbody><tr valign="top">
+    <td rowspan="4" height="204" width="114">
+      <p>
+      </p>
+    </td>
+    <td height="37" width="616">
+      <p align="left"><b><font color="#084a5a" face="Verdana" size="2"><a href="http://www.uib.no/" class="nav">UiB</a>
+      : <a href="http://www.uib.no/mnfa/" class="nav">MatNat</a> : <a href="http://www.ifjf.uib.no/" class="nav">Department
+      of Earth Science</a></font></b>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" height="56" valign="middle" width="616">
+      <h2><font face="Verdana">SEISAN Version 8.1.1 </font>&nbsp;</h2>
+    </td>
+  </tr>
+  <tr>
+    <td height="40" valign="top" width="616">
+      <hr>
+      <strong><font color="#ff0000" face="Verdana" size="2">SEISAN
+    Version 8.1.1 is now released (April 2006)</font></strong> <font face="Verdana" size="2"> for Solaris, Linux,&nbsp;
+      Windows (95/98/2000/NT/XP) and MACOSX. The
+    full distribution are now available on our anonymous ftp server.&nbsp;</font>
+      <p><font face="Verdana" size="2">Download:
+    1) access to
+		<a href="ftp://ftp.geo.uib.no/pub/seismo/SOFTWARE/SEISAN_8.1.1/">the aftp server</a>
+    (in case you dont get access try 2)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2)
+    download files <a href="http://www.geo.uib.no/seismo/SOFTWARE/SEISAN_8.1.1/">from the web
+    server</a></font></p>
+    <p><font face="Verdana" size="2">SEISAN manual online:
+	<a href="http://www.geo.uib.no/seismo/SOFTWARE/SEISAN_8.1.1/seisan_8.1.pdf">seisan_8.1.pdf</a>
+    (Adobe PDF)</font></p>
+    <p><font face="Verdana" size="2">SEISAN tutorial:
+	<a href="http://www.geo.uib.no/seismo/SOFTWARE/SEISAN_8.1.1/seitrain_8.1.pdf">seitrain_8.1</a><a href="http://www.geo.uib.no/seismo/SOFTWARE/SEISAN_8.0/seitrain_8.0.pdf">.pdf</a></font></p>
+      <p><font face="Verdana" size="2">SEISAN testdata (not included):
+		<a href="http://www.geo.uib.no/seismo/SOFTWARE/SEISAN_8.1.1/testdata_8.1.1.tar.gz">testdata_8.1</a><a href="http://www.geo.uib.no/seismo/SOFTWARE/SEISAN_8.0/testdata_8.0.tar.gz">.tar.gz</a></font></p>
+    <p><font face="Verdana" size="2"><font color="#ff0000">SEISAN mailing</font> lists - click
+    <a href="http://www.geo.uib.no/seismo/software/seisan/seisan_mailing_list.html">here</a> !</font></p>
+      <p><font face="Verdana" size="2">Please send an email to <a href="mailto:jens@geo.uib.no">jens@geo.uib.no</a>
+    or <a href="mailto:lot@bgs.ac.uk">lot@bgs.ac.uk</a> in case you find any problems when testing this version of
+      SEISAN.</font></p>
+      <p>&nbsp;</p>
+      <p><font face="Verdana" size="2"><b><u>Latest changes</u></b></font></p>
+		<h1><span lang="EN-GB"><font size="2">GENERAL</font></span></h1>
+		<p class="MsoNormal"><span lang="EN-GB">&nbsp;Several minor bugs have been 
+		fixed</span></p>
+		<p class="MsoNormal"><span lang="EN-GB">&nbsp;<font size="2">SEED</font></span></p>
+		<p class="MsoNormal"><span lang="EN-GB">Several smaller problems have 
+		been fixed. A major problem was that writing on PC was not correct, 
+		however since the reading routines were made to read the wrong output, 
+		we did not notice. The routines have now been fixed. </span></p>
+		<p class="MsoNormal"><span lang="EN-GB">The unofficial standard is to 
+		write everything in the Sun way meaning big endian. This is now the 
+		default for SEISAN on all platforms. However, SEISAN can also be set up 
+		to write little endian on all platforms if desired, see routine seed.for 
+		in LIB.</span></p>
+		<p class="MsoNormal"><span lang="EN-GB">NOTE: Files written in miniseed 
+		on PC on version 8.1 might not be readable by others.</span></p>
+		<p class="MsoNormal"><span lang="EN-GB">There are still some Steim2 
+		files SEISAN cannot read.</span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><b><span lang="EN-GB">SEISAN2MSEED</span></b></p>
+		<p class="MsoNormal"><span lang="EN-GB">Official IRIS&nbsp; program to 
+		convert&nbsp; from SEISAN to mseed, all platforms and all mseed formats.</span></p>
+		<h1><span lang="EN-GB"><font size="2">Wavetool</font></span></h1>
+		<p class="MsoNormal"><span lang="EN-GB">Outputs have been changed from 
+		extract.out to wavetool.out and a few bugs fixed.</span></p>
+		<p class="MsoNormal"><span lang="EN-GB">Output option –wav_out_file=SEISAN 
+		means that a standard SEISAN file name is made instead of wavetool.out.</span></p>
+		<p class="MsoNormal"><span lang="EN-GB">Output option –duration is in 
+		seconds.</span></p>
+		<p class="MsoNormal"><b><span lang="EN-GB">Mb magnitude.</span></b></p>
+		<p class="MsoNormal"><span lang="EN-GB">Magnitude is NOT calculated if 
+		the phase is blank</span></p>
+		<p class="MsoNormal"><span lang="EN-GB">Magnitude is only calculated if 
+		distance is larger than test(57)</span></p>
+		<h1><span lang="EN-GB"><font size="2">Ml and Mc</font></span></h1>
+		<p class="MsoNormal"><span lang="EN-GB">If both were calculated, Mc came 
+		before Mc on header line, now it is the opposite. This is to reflect 
+		that Ml is the more important magnitude.</span></p>
+		<p class="MsoNormal"><span lang="EN-GB"><b>ISC location program</b>: Does not 
+		work on PC</span></p>
+		<p class="MsoNormal">&nbsp;</p>
+		<p class="MsoNormal"><span lang="EN-GB"><b>Phase weight key </b>(manual p104). 
+		To clarify: The symbol used for weight must be in column 41 and the 
+		weight in 51. Weight is a one digit integer.</span></p>
+		<p class="MsoNormal"><span lang="EN-GB">&nbsp;</span></p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" height="71" valign="top" width="628">
+      <table border="0" cellpadding="0" cellspacing="0" height="54" width="100%">
+        <tbody><tr>
+          <td align="center" height="54" valign="middle" width="62%"><font face="Verdana" size="1">Sidene
+            vedlikeholdes av </font> <a href="mailto:seismo@geo.uib.no"><font face="Verdana" size="1">seismo@geo.uib.no</font></a><font face="Verdana" size="1"><br>
+            Sist oppdatert:&nbsp; 19.4.2006 </font> <a href="mailto:jens@geo.uib.no"><font face="Verdana" size="1">J.H.</font></a></td>
+          <td height="54" width="8%"><font face="Verdana" size="1"><a href="http://www.uib.no/"><img src="seisan_version8.1_files/uibugle50.gif" align="middle" border="0" height="49" width="50"></a></font></td>
+        </tr>
+      </tbody></table>
+    </td>
+  </tr>
+</tbody></table>
+
+</body></html>

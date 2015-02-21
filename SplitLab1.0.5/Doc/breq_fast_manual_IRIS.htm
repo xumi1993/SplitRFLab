@@ -1,0 +1,546 @@
+<html><!-- #BeginTemplate "/Templates/basic3.dwt" --><!-- DW6 -->
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>breq_fast manual : IRIS</title>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" src="/scripts/cssDetection.js" type="text/javascript"></script> 
+<script language="JavaScript" src="/scripts/objFunctions.js" type="text/javascript"></script>
+<script language="JavaScript1.2" src="/mm_menu.js" type="text/javascript"></script>
+<!-- #BeginEditable "head" --> 
+<meta name="description" content="Batch access to the IRIS DMC archive can be obtained by electronically mailing a specially formatted file to the IRIS DMC in Seattle.">
+<meta name="keywords" content="breq_fast, breakfast, breqfast, data, request, method, email, batch, waveforms, dataless, SEED">
+<!-- #EndEditable --> 
+</head>
+<body bgcolor="#ffffff" link="003366" vlink="9c0c00" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('/gifs/IRISnav/IRIS_f2.gif','/gifs/IRISnav/search_f2.gif','/gifs/IRISnav/contact_f2.gif','/gifs/IRISnav/sitemap_f2.gif','/gifs/IRISnav/intro_f2.gif','/gifs/IRISnav/members_f2.gif','/gifs/IRISnav/programs_f2.gif','/gifs/IRISnav/publications_f2.gif','/gifs/IRISnav/earthquakes_f2.gif','/gifs/IRISnav/SM_f2.gif','/gifs/IRISnav/data_f2.gif','/gifs/IRISnav/software_f2.gif','/gifs/IRISnav/stations_f2.gif')">
+<script language="JavaScript1.2" type="text/javascript">mmLoadMenus();</script>
+  
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr> 
+    <td width="87"><img src="/gifs/IRISnav/spacer.gif" alt="" width="87" height="1" hspace="0" vspace="0" border="0"></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="61" height="1" border="0" alt=""></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="67" height="1" border="0" alt=""></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="70" height="1" border="0" alt=""></td>
+    <td width="268"><img src="/gifs/IRISnav/spacer.gif" width="70" height="1" border="0" alt=""></td>
+    <td width="199"><img src="/gifs/IRISnav/spacer.gif" width="89" height="1" border="0" alt=""></td>
+    <td width="199"><img src="/gifs/IRISnav/spacer.gif" width="40" height="1" border="0" alt=""></td>
+    <td width="199"><img src="/gifs/IRISnav/spacer.gif" width="70" height="1" border="0" alt=""></td>
+    <td width="117"><img src="/gifs/IRISnav/spacer.gif" width="117" height="1" border="0" alt=""></td>
+    <!td width="1"><!img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""><!/td>
+    <td width="100%"><img src="/gifs/IRISnav/spacer.gif"  height="1" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td rowspan="2" width="87"><a href="http://www.iris.edu" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('IRIS','','/gifs/IRISnav/IRIS_f2.gif',1);"><img name="IRIS" src="/gifs/IRISnav/IRIS.gif" width="87" height="50" border="0" alt="IRIS Home"></a></td>
+    <td rowspan="2"  width="268" colspan="4"><img name="topMiddle" src="/gifs/IRISnav/topMiddle.gif" width="268" height="50" border="0" alt=""></td>
+    <td colspan="3" width="199"><img name="topright2" src="/gifs/IRISnav/topright2.gif" width="199" height="23" border="0" alt=""></td>
+    <td width="117">&nbsp; </td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="23" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td height="27" width="199"><a href="/about/sitemap.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('sitemap2','','/gifs/IRISnav/sitemap2_f2.gif',1);"><img name="sitemap2" src="/gifs/IRISnav/sitemap2.gif" width="89" height="27" border="0" alt="site map"></a></td>
+    <td height="27" width="199"><a href="/about/contact.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('contact2','','/gifs/IRISnav/contact2_f2.gif',1);"><img name="contact2" src="/gifs/IRISnav/contact2.gif" width="40" height="27" border="0" alt="contact"></a></td>
+    <td height="27" width="199"><a href="/about/search.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('search2','','/gifs/IRISnav/search2_f2.gif',1);"><img name="search2" src="/gifs/IRISnav/search2.gif" width="70" height="27" border="0" alt="search"></a></td>
+    <td width="117">&nbsp;</td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="27" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="be9f5a"><img name="middleStripe1" src="/gifs/IRISnav/middleStripe1.gif" width="671" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="98cbcb"><img name="middleStripe2" src="/gifs/IRISnav/middleStripe2.gif" width="671" height="6" border="0" alt=""></td>
+    <td bgcolor="98cbcb"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="98cbcb"><img src="/gifs/IRISnav/spacer.gif" width="1" height="6" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="be9f5a"><img name="middleStripe3" src="/gifs/IRISnav/middleStripe3.gif" width="671" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td width="87"><a href="/about/iris.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('intro','','/gifs/IRISnav/intro_f2.gif',1);"><img name="intro" src="/gifs/IRISnav/intro.gif" width="87" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/about/members.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('members','','/gifs/IRISnav/members_f2.gif',1);"><img name="members" src="/gifs/IRISnav/members.gif" width="61" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/about/programs.htm" onMouseOut="MM_swapImgRestore();MM_startTimeout()" onMouseOver="MM_showMenu(window.mm_menu_0829111952_0,0,18,null,'programs');MM_swapImage('programs','','/gifs/IRISnav/programs_f2.gif',1);"><img name="programs" src="/gifs/IRISnav/programs.gif" width="67" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/about/publications.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('publications','','/gifs/IRISnav/publications_f2.gif',1);"><img name="publications" src="/gifs/IRISnav/publications.gif" width="70" height="16" border="0" alt=""></a></td>
+    <td width="268"><a href="/quakes/quakes.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('earthquakes','','/gifs/IRISnav/earthquakes_f2.gif',1);"><img name="earthquakes" src="/gifs/IRISnav/earthquakes.gif" width="70" height="16" border="0" alt=""></a></td>
+    <td width="199"><a href="http://www.iris.edu/seismon/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('SM','','/gifs/IRISnav/SM_f2.gif',1);"><img name="SM" src="/gifs/IRISnav/SM.gif" width="89" height="16" border="0" alt=""></a></td>
+    <td width="199"><a href="/data/data.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('data','','/gifs/IRISnav/data_f2.gif',1);"><img name="data" src="/gifs/IRISnav/data.gif" width="40" height="16" border="0" alt="data"></a></td>
+    <td width="199"><a href="/manuals/manuals.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('software2','','/gifs/IRISnav/software2_f2.gif',1);"><img name="software2" src="/gifs/IRISnav/software2.gif" width="70" height="16" border="0" alt="software"></a></td>
+    <td width="117"><a href="/stations/stations.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('stations2','','/gifs/IRISnav/stations2_f2.gif',1);"><img name="stations2" src="/gifs/IRISnav/stations2.gif" width="117" height="16" border="0" alt="stations and instrumentation"></a></td>
+    <td>&nbsp;</td>
+    <td><img src="/gifs/IRISnav/spacer.gif" width="1" height="16" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td colspan="9" bgcolor="be9f5a"><img name="bottomStripe" src="/gifs/IRISnav/bottomStripe.gif" width="671" height="2" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1" border="0" alt=""></td>
+    <td bgcolor="be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="2" border="0" alt=""></td>
+  </tr>
+  <tr> 
+    <td height="1" colspan="12"  bgcolor="#be9f5a"><img src="/gifs/IRISnav/spacer.gif" width="1" height="1"></td>
+  </tr>
+  <tr> 
+    <td height="1" colspan="12"> </td>
+  </tr>
+</table>
+<table width="100%"  border="0" cellspacing="3" summary="breadcrumb">
+  <tr>
+    <td bgcolor="#98CBCB"><span class="small">You are here: <a href="http://www.iris.edu">IRIS</a> &gt; <!-- #BeginEditable "where" --><a href="/manuals/manuals.htm">Software</a>      &gt; Manuals <!-- #EndEditable --></span></td>
+  </tr>
+</table>
+ <!-- #BeginEditable "body" --> 
+      <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="left">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td align="left"> <h2><a name="top"></a>BREQ_FAST Request Manual</h2>
+            <hr noshade>
+            Jump to: 
+            <ul>
+              <li><a href="#8">DESCRIPTION</a> 
+              <li><a href="#1">FILE FORMAT</a> 
+              <li><a href="#hypos">HYPOCENTER OPTION</a>               
+              <li><a href="#q">QUALITY CONTROL OPTION</a>
+              <li><a href="#2">EXAMPLE</a> 
+              <li><a href="#3">WILDCARDING</a> 
+              <li><a href="#4">SUBMITTING YOUR REQUESTS</a> 
+              <li><a href="#5">SEE ALSO</a> 
+              <li><a href="#6">DIAGNOSTICS</a> 
+              <li><a href="#7">BUGS AND LIMITATIONS</a> 
+            </ul>
+            <hr noshade> <h3>NAME </h3>
+            <blockquote> 
+              <p>BREQ_FAST - Batch REQuests, FAST </p>
+            </blockquote>
+            <p> 
+            <h3>AVAILABILITY </h3>
+            <blockquote> 
+              <address>
+              Incorporated Research Institutions for Seismology<br>
+              Data Management Center<br>
+              1408 NE 45th Street, Seattle WA 98105 <br>
+              (206)547-0393, FAX:(206)547-1093 <br>
+              <img src="/gifs/em/breq_fast.gif" alt="breqfast" width="220" height="14">
+              </address>
+            </blockquote>
+            <p> <a name="8"></a> 
+            <h3>DESCRIPTION </h3>
+            <blockquote> 
+              <p> Batch access to the IRIS DMC archive can be obtained by electronically 
+                mailing a specially formatted file to the IRIS DMC in Seattle. 
+                These are BREQ_FAST files and provide a base level access to the 
+                DMC needed by any user. These requests are not interactive in 
+                that you simply send the file to the DMC and the DMC will return 
+                either full <a href="/manuals/SEED_chpt1.htm">SEED</a> data or 
+                a dataless SEED file matching the request depending on where the 
+                e-mail was sent. For users that do not have access to electronic 
+                mail facilities, the IRIS DMC will process tapes containing images 
+                of BREQ_FAST files in simple ASCII format. </p>
+            </blockquote>
+            <p> <a name="1"></a> 
+            <h3>FILE FORMAT </h3>
+            <blockquote> 
+              <p> The format of the file is as follows:</p>
+              <pre>
+.NAME
+.INST
+.MAIL
+.EMAIL
+.PHONE
+.FAX
+.MEDIA:
+.ALTERNATE MEDIA:
+.ALTERNATE MEDIA:
+.LABEL
+.SOURCE		---
+.HYPO		  | optional
+.MAGNITUDE	---
+.QUALITY
+.END
+ request line-1
+ request line-2
+ .
+ .
+ .
+ request line-n<br>
+</pre>
+            </blockquote>
+            <h3 align="center">!!!BE SURE TO LEFT JUSTIFY EACH TOKEN LINE OR YOUR 
+              REQUEST COULD BE REJECTED.!!!</h3>
+            <blockquote> 
+              <p>The format of each line is as follows:<br>
+              </p>
+              <blockquote> 
+                <pre>
+             STARTING TIME        ENDING TIME
+ STA NN YYYY MM DD HH MM SS.T  YYYY MM DD HH MM SS.T #_CH CH1 CH2 CHn LI
+</pre>
+              </blockquote>
+              <p>where:<br>
+              </p>
+              <blockquote> 
+                <pre>
+ STA  is the station
+ NN   is network code 
+ YYYY is the year - 2 digit entries will be rejected!
+ MM   is the month
+ DD   is the day
+ HH   is the hour
+ MM   is the minute
+ SS.T is the second and tenths of seconds
+ #_CH is the number of channel designators in the immediately following list
+ CHn  is a channel designator that can contain wildcards
+ LI   is location identifier (optional) 
+(See the DMS Electronic Newsletter article &quot;<a href="/news/newsletter/vol1no1/page1.htm" target="_top">Location  Identifiers</a>&quot; 
+for more information about how these identifiers are used.) </pre>
+              </blockquote>
+              <p>Individual lines in the request can not exceed 100 characters. 
+              </p>
+              <p> Valid selections for media at the present time, in the order 
+                of preference are: </p>
+              <blockquote> 
+                <p> Electronic (FTP)<br>
+                  EXABYTE - 2 gigabyte<br>
+                  EXABYTE - 5 gigabyte<br>
+                  DAT (digital audio tape)<br>
+                  DLT<br>
+                  DVD* </p>
+              </blockquote>
+              <p>* When requesting DVD-R media, there may be a delay in shipment
+                of data</p>
+              <p>Please be sure to specify your first, second and third choices 
+                for the output media. </p>
+              <p> The LABEL entry will be used to name the files containing your 
+                SEED volumes whenever they are small enough to transfer with ftp. 
+                Your SEED volumes will alsO include this LABEL internally so they 
+                can be distinguished regardless of filename. This capability can 
+                help you distinguish data you receive for different projects and 
+                aids communication with regard to a specific request. </p>
+            </blockquote>
+            <p> 
+              <!------------------->
+              <!--- HYPO OPTION --->
+              <!------------------->
+              <a name="hypos"></a> 
+            <h3>HYPOCENTER OPTION</h3>            <blockquote>
+              <p> You must add the three token fields .SOURCE, .HYPO, and .MAGNITUDE 
+                  to the standard BREQ_FAST file to request hypocenter data. The 
+                  fields are defined as follows: </p>
+              <p> <strong>Cited Source Info:</strong><br>
+                (All referenced entries marked "# n" below refer to field numbers 
+                in blockette 32 of the SEED volume. See the <a href="/manuals/SEEDManual_V2.4.pdf">SEED 
+                manual</a> for details about blockette 32). </p>
+              <blockquote>
+                <pre>
+.SOURCE ~NEIC PDE~Jan 1990 PDE~National Earthquake Information Center-USGS DOI~
+  |         |           |                            |
+  |         |           |                            Publisher Name (# 6)
+  |         |           Date Published/Cataloged (# 5)
+  |         Name of Publication - Author (# 4)
+Token name
+            </pre>
+              </blockquote>
+              <p><strong>Event Info:</strong><br>
+                (All referenced entries marked "# n" below refer to field numbers
+                in blockette 71 of the SEED volume.) </p>
+              <blockquote>
+                <pre>
+.HYPO ~1990 01 02 20 21 32.62~13.408~144.439~135.0~18~216~Mariana Islands~
+  |               |             |      |      |     |  |        |
+  |               |             |      |      |     |  |  Region Name (# 14)
+  |               |             |      |      |     | Seismic Loc (# 13)
+  |               |             |      |      |   Seismic region (# 12)
+  |               |             |      |      Depth (# 7)
+  |               |             |      Longitude  (# 6)
+  |               |             Latitude (# 5)
+  |               Origin Time (# 3)
+  Token name
+            </pre>
+              </blockquote>
+              <p><strong>Magnitudes:</strong><br>
+              </p>
+              <blockquote>
+                <pre>
+.MAGNITUDE ~5.7~mb~
+    |       |   |
+    |       |   Magnitude Type (Blk 71 - field 10)
+    |       Magnitude  (blk 71 - field 9)
+    Token name
+            </pre>
+              </blockquote>
+              <p>You can have as many MAGNITUDE entries as you need, just repeat 
+                  the token. </p>
+              <p> Also note, you can have optional source entries for each magnitude. 
+                  If the cited source is different than the SOURCE line entered 
+                  above, just add the references here, i.e: </p>
+              <blockquote>
+                <pre>
+.MAGNITUDE ~5.7~mb~Publication/Author~Date Published~Publisher Name~
+    |       |   |           |             |                 |
+    |       |   |           |             |                 Blk 32 - field 6
+    |       |   |           |             Blk 32 - field 5
+    |       |   |           Blk 32 - field 4
+    |       |   Same as above
+    |       Same as above
+  Token name
+            </pre>
+              </blockquote>
+              <p><strong>NOTE</strong>: The "~" works as a field delimeter and must appear
+                at the beginning of each line (after the token) and after each
+                field as shown in the above examples.</p>
+              </blockquote>            
+            <h3><font face="Arial, Helvetica, sans-serif"><a name="q"></a></font>QUALITY
+                OPTION</h3>
+            <blockquote>
+              <blockquote>
+              <p>Data can be of varying 
+                qualities. This field allows requesters to specify the quality of the data 
+                they want to receive. The default value is B (for best available). The values 
+                the Quality Field can assume are:</p>
+              <pre>B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Best Data (Q,if not Q then D, if not Q or D then R)
+E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Everything (Q &amp; D &amp; R)
+Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Data tagged as QC'd
+D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Data of indeterminate quality
+          (Before June 2002 all miniSEED data was labeled D and as such<br>		some had been quality controlled and some had not.)
+R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Raw Data<br>		  (For example, data reaching the IRIS DMC via real-time telemetric<br>        methods does not have QC applied and is labeled R beginning with<br>        data in the year 2002.)</pre>
+              </blockquote>
+            </blockquote>            <a name="2"></a> 
+            <h3>EXAMPLE </h3>
+            <blockquote> 
+              <div align="left"> An example of a valid short BREQ_FAST file: </div>
+              <blockquote> 
+                <div align="left"> 
+                  <pre>
+.NAME Joe Seismologist
+.INST Podunk University
+.MAIL 101 Fast Lane, Middletown, KS  89432
+.EMAIL joe@podunk.edu
+.PHONE 555 555-1212
+.FAX   555 555-1213
+.MEDIA DVD
+.ALTERNATE MEDIA 1/2" tape - 6250
+.ALTERNATE MEDIA EXABYTE
+.LABEL Joe's FIRST Request
+<nobr>.SOURCE ~NEIC PDE~Jan 1990 PDE~National Earthquake Information Center - USGS DOI~</nobr>
+<nobr>.HYPO ~1999 01 02 20 21 32.62~ 13.408~ 144.439~135.0~18~216~Mariana Islands~</nobr>
+.MAGNITUDE ~5.7~mb~
+.QUALITY B
+.END
+</pre>
+                </div>
+              </blockquote>
+             
+              <blockquote> 
+                <pre>
+GRFO IU 1999 01 02 00 18 10.4 1999 01 02 00 20 10.4  1 SHZ
+ANTO IU 1999 01 02 02 10 36.6 1999 01 02 02 12 36.6  1 SH? 
+AFI  IU 1999 01 02 02 10 37.1 1999 01 02 02 12 37.1  1 BH? 00 
+SEE  CD 1999 01 02 14 45 08.9 1999 01 02 14 47 08.9  1 SHZ 
+CASY IU 1999 01 04 02 42 13.4 1999 01 04 02 44 13.4  1 BHZ 10 
+NNA  II 1999 01 04 02 41 57.5 1999 01 04 02 43 57.5  1 BHZ 
+PFO  TS 1999 01 04 02 41 57.5 1999 01 04 02 43 57.5  1 BHZ 
+PFO  II 1999 01 04 02 41 57.5 1999 01 04 02 43 57.5  1 BHZ 
+KMI  CD 1999 01 04 02 41 57.5 1999 01 04 02 43 57.5  1 BHZ 
+SSE  CD 1999 01 04 02 18 25.4 1999 01 04 02 20 25.4  2 B?? SHZ
+PAS  TS 1999  1  4  2 10 49   1999  1  4  2 12 49    3 BH? SHZ L??
+</pre>
+              </blockquote>
+            </blockquote>
+            <h3><a name="3"></a>WILDCARDING </h3>
+            <blockquote> 
+              <p> The Channel list in the batch file supports limited wild carding. 
+                It is similar to but not the equivalent of UNIX filename wild 
+                carding. Only the "?" wild card character is supported. It means 
+                match any single character. For instance "BH?" means match any 
+                Broad band High Gain Channel when entered into the Channel field. 
+              </p>
+              <p> The Channel list can contain multiple entries such as </p>
+              <blockquote> 
+                <p> <strong>3 LHZ BH? S?? </strong> </p>
+              </blockquote>
+              <p> As an example a #_ch of 1 and a channel list of L?? (1 L??) 
+                would result in three characters in each of the channel names 
+                in the DMC archive being compared to L??. Since the "?" means 
+                match any character it should be clear that "L??" is the same 
+                as entering "L". The channel names are matched for the same number 
+                of characters as the number in the input channel designator field. 
+                Also, if you are wanting to wildcard for more than one character 
+                you must use a "?" for ALL character positions (ie. if you want 
+                all L channels you must type L??). </p>
+              <p> The DMC archive stores data for channels using the SEED channel 
+                naming convention documented in the SEED Reference Manual, appendix 
+                A. </p>
+              <p> Briefly, the channel names are three characters in length. The 
+                first character is the Band Code, the second the Source Code and 
+                the third the Orientation Code. Refer to the SEED reference manual 
+                for a more <a href="/manuals/SEED_appA.htm">complete description
+                of the SEED channel naming convention</a>. 
+              </p>
+              <p> You can also wilcard for networks  and stations. However, it
+                is not suggested that you wildcard for network AND station at
+                the same time or your request may be too big. A single ? is sufficient
+                to wildcard for stations. </p>
+              <p>If you do not include a location identifier (not all stations 
+                use them), you will receive data for all locations that exsist 
+                at that station. (See the DMS Electronic Newsletter article &quot;<a href="/news/newsletter/vol1no1/page1.htm" target="_top">Location 
+                Identifiers</a>&quot; for more information about how these identifiers 
+                are used.) </p>
+              <p> One of the major benefits of the BREQ_FAST method is that you 
+                can specify time windows for various stations that have travel 
+                time corrections applied to the windows. </p>
+            </blockquote>
+            <p> <a name="4"></a> 
+            <h3>SUBMITTING YOUR REQUESTS </h3>
+            <blockquote> 
+              <p> Once you have generated your BREQ_FAST file you can simply mail 
+                it via email to either: </p>
+              <blockquote> 
+                <p> <img src="/gifs/em/breq_fast.gif" alt="breq" width="220" height="14" align="absbottom"> - for full SEED</p>
+                <p>or </p>
+                <p> <img src="/gifs/em/dataless.gif" alt="dataless" width="229" height="14" align="absbottom"> - for dataless SEED*</p>
+              </blockquote>
+              <p> When the IRIS DMC receives your request, programs will be run 
+                that will compare what you requested with what data are actually 
+                in the IRIS archive, recover the data from the mass storage system, 
+                generate the output SEED volume, and send it to you in the manner 
+                you requested. The only exception to this is that if you request 
+                electronic transfer and the file is too large, an alternate media 
+                will be used. </p>
+              <p>* A dataless SEED volume contains the metadata for a request 
+                only, including instrument responses, instrument coordinates, 
+                compression type, etc., which can be used in combination with 
+                a miniSEED volume (as extracted from the BUD filesystem) with 
+                <a href="/manuals/rdseed.htm">rdseed</a>. A dataless, by definition, 
+                contains no &quot;data&quot;, in the sense that no waveform data 
+                are included, only headers. </p>
+            </blockquote>
+            <p> <a name="5"></a> 
+            <h3>SEE ALSO </h3>
+            <blockquote> 
+              <p><a href="/SeismiQuery/">SeismiQuery</a>, <a href="/manuals/netdc/intro.htm">NetDC</a>, 
+                <a href="/manuals/rdseed.htm">rdseed</a> </p>
+            </blockquote>
+            <p> <a name="6"></a> 
+            <h3>DIAGNOSTICS </h3>
+            <blockquote> 
+              
+        <p> Your request will be echoed back via email. Another message is sent 
+          when your SEED format data is available for pickup via FTP. </p>
+            </blockquote>
+            <p> <a name="7"></a> 
+            <h3>BUGS AND LIMITATIONS </h3>
+            <blockquote> 
+              <p> Not able to guess correct values for out of range data, such 
+                as minutes&gt;59.</p>
+              <strong>Each line expected to begin at the left margin</strong>. 
+              <p> Wildcarding convention for CHANNEL names is not UNIX standard. 
+              </p>
+            </blockquote>
+            <p> <a href="#top">[return to top]</a><br>
+              <center>
+                <small>version 2004/08/05</small>
+              </center>
+          </td>
+        </tr>
+      </table>
+      <p>&nbsp;</p>
+     
+      <!-- #EndEditable --> 
+
+   
+<table width="100%" border="0" cellspacing="4" cellpadding="0">
+  <tr>
+    <td height="2" align="center" valign="middle" bgcolor="be9f5a"><img src="/gifs/tran_dot.GIF" width="1" height="1" hspace="0" vspace="0"></td>
+  </tr>
+  <tr> 
+    <td width="77%" height="41" align="center" valign="middle"> <h6><a href="/about/iris.htm">About
+          IRIS </a> 
+        | <a href="/about/members.htm">Members</a> | <a href="/about/programs.htm">Programs</a> 
+        | <a href="http://www.iris.edu/USArray/">USArray</a> | <a href="http://www.iris.edu/seismon/">Seismic
+         Monitor</a> | <a href="/quakes/quakes.htm">Earthquakes</a> | <a href="/data/SeismoArchives/">SeismoArchives</a><br>
+        <a href="/stations/stations.htm">Stations &amp; Instrumentation</a> | 
+        <a href="/data/data.htm">Data</a> | <a href="/manuals/manuals.htm">Software</a> 
+        | <a href="/about/publications.htm">Publications</a> | <a href="/news/news.htm">News</a> 
+        | <a href="/about/contact.htm">Contact</a> | <a href="/about/sitemap.htm">Site
+         Map</a> | <a href="/about/search.htm">Search</a></h6></td>
+  </tr>
+  <tr> 
+    <td width="77%" valign="top"> <center>
+        <p><table><tr><td width= 450>
+
+<center><font face="Verdana, Arial, Helvetica, sans-serif" size=3 color="#000000">
+Incorporated Research Institutions for Seismology</font><br>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=2 color="#333333">
+1200 New York Ave NW &bull; Suite 800 &bull; Washington DC 20005<br>
+Phone: 202.682.2220 | Fax: 202.682.2444<br>
+</font>
+<hr noshade size=1>
+</center>
+
+</td>
+        </tr></table>
+
+<table><tr><td width="225">
+
+<center>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=2 color="#000000">Data Management Center</font><br>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=1 color="#333333">
+1408 NE 45th St. Suite 201<br>
+Seattle, WA 98105<br>
+Phone: 206.547.0393 | Fax: 206.547.1093
+</font>
+</center>
+
+</td><td width="225">
+
+<center>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=2 color="#000000">PASSCAL Instrument Center</font><br>
+<font face="Verdana, Arial, Helvetica, sans-serif" size=1 color="#333333">
+100 East Road &bull; Tech Industrial Park<br>
+New Mexico Tech &bull; Socorro, NM 87801<br>
+Phone: 505.835.5070 | Fax: 505.835.5079
+</font>
+</center>
+
+</td></tr></table>
+        <p><font size="1">Send comments to the <script>
+
+<!--
+
+function escramble(){
+ var a,b,c,d,e,f,g,h,i
+ a='<a href=\"mai'
+ b='webmaster'
+ c='\">'
+ a+='lto:'
+ b+='@'
+ e='</a>'
+ f='webmaster'
+ b+='iris.washington.edu'
+ g='<img src=\"'
+ h=''
+ i='\" alt="Email us." border="0">'
+
+ if (f) d=f
+ else if (h) d=g+h+i
+ else d=b
+
+ document.write(a+b+c+d+e)
+}
+
+escramble()
+
+//-->
+
+</script>          <!-- fwtable fwsrc="footer.sm.png" fwbase="footer.still" fwstyle="Dreamweaver" fwdocid = "742308039" fwnested="0" -->
+          </font></p>
+      </center></td>
+  </tr>
+</table>
+
+
+</body>
+<!-- #EndTemplate --></html>

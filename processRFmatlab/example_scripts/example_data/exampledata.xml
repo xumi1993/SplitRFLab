@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<sod>
+  <!-- Sod xml file to get P and S data for two example events on two stations -->
+  <!-- 
+       Event properties 
+    -->
+  <eventArm>
+    <eventFinder>
+      <name>IRIS_EventDC</name>
+      <dns>edu/iris/dmc</dns>
+      <!-- get 2 events -->
+      <originTimeRange>
+        <startTime>20080819T16:30:00.001Z</startTime>
+        <endTime>20080911T00:00:00.001Z</endTime>
+      </originTimeRange>
+      <!-- Use Weekly Hypocenter Data File -->
+      <catalog>WHDF</catalog>
+    </eventFinder>
+    <originAND>
+      <magnitudeRange>
+        <min>5.5</min>
+      </magnitudeRange>
+      <originDepthRange>
+        <unit>KILOMETER</unit>
+        <min>8</min>
+        <max>10</max>
+      </originDepthRange>
+    </originAND>
+    <printlineEventProcess/>
+  </eventArm>
+  <!-- 
+       Network properties 
+    -->
+  <networkArm>
+    <networkFinder>
+      <name>IRIS_NetworkDC</name>
+      <dns>edu/iris/dmc</dns>
+    </networkFinder>
+    <!--TA Network Code -->
+    <networkCode>TA</networkCode>
+    <stationOR>
+      <stationCode>Q20A</stationCode>
+      <stationCode>Z16A</stationCode>
+    </stationOR>
+    <channelAND>
+      <!-- Bandpass, High gain -->
+      <bandCode>B</bandCode>
+      <gainCode>H</gainCode>
+    </channelAND>
+    <printlineChannelProcess/>
+  </networkArm>
+  <!-- 
+       Waveform vector properties 
+    -->
+  <waveformVectorArm>
+    <distanceRange>
+      <unit>DEGREE</unit>
+      <min>30</min>
+      <max>90</max>
+    </distanceRange>
+    <!-- Cut around P, allow for 5 s error -->
+    <phaseRequest>
+      <model>ak135</model>
+      <beginPhase>ttp</beginPhase>
+      <beginOffset>
+        <unit>SECOND</unit>
+        <value>-35</value>
+      </beginOffset>
+      <endPhase>tts</endPhase>
+      <endOffset>
+        <unit>SECOND</unit>
+        <value>125</value>
+      </endOffset>
+    </phaseRequest>
+    <!-- fixedDataCenter  tells SOD to fetch that data from IRIS's
+    POND server -->
+    <fixedDataCenter>
+      <name>IRIS_PondDataCenter</name>
+      <dns>edu/iris/dmc</dns>
+    </fixedDataCenter>
+    <someCoverage/> <!-- Only when there is some data available -->
+    <printlineSeismogramProcess/>
+    <!-- Processing: -->
+    <threeComponentData/> <!-- Check all three components exist -->
+    <noDataGaps/>
+    <invertFlippedChannels>
+      <printlineSeismogramProcess/>
+    </invertFlippedChannels>
+    <!-- <integrate/>  Change Vel to displacement -->
+    <rMean/> <!-- Remove DC -->
+    <rTrend/> <!-- Remove Trend -->
+    <taper> <!-- Taper -->
+      <width>.05</width>
+      <type>HANNING</type>
+    </taper>
+    <responseGain/> <!-- Correct Var gain -->
+    <!-- 
+	 Write SAC file 
+      -->
+    <sacWriter>
+      <location>events/${event.getTime('yyyy_MM_dd_HH_mm_ss')}/${net.code}.${channel.station.code}.${channel.code}</location>
+      <phaseTimeHeader>
+	<model>ak135</model>
+	<!-- Put the p time in t0 -->
+	<!-- ..then rayp go into user0--> 
+        <phaseName>ttp</phaseName>
+        <tHeader>0</tHeader>
+      </phaseTimeHeader>
+      <phaseTimeHeader>
+        <phaseName>tts</phaseName>
+        <tHeader>1</tHeader>
+      </phaseTimeHeader>
+      <littleEndian/>
+    </sacWriter>
+  </waveformVectorArm>
+</sod>
