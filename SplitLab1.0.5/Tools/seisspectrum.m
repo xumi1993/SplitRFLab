@@ -65,7 +65,12 @@ tit={'Radial','Transverse'};
 for k=1:2
     axes(ax(k));
 shading interp
-ylim([0 2])
+%ylim([0 2])
+if isfield(thiseq, 'filter')
+    ylim(thiseq.filter)
+else
+    ylim([0 2])
+end
 set(gca,'Layer','top','color','none')
 title(gca,{[tit{k} ' component Power Spectral Density [dB/Hz]'], 'This feature is still experimental !!!'})
 grid on
@@ -80,8 +85,9 @@ cb=colorbar('SouthOutside');
 set(cb,'units','normalized','position',[.2 .03 .6 .02])
 set(ax(2),'Position',pos)
 
+
 %% This program is part of SplitLab
-% © 2006 Andreas Wüstefeld, Université de Montpellier, France
+% ?2006 Andreas W?tefeld, Universit?de Montpellier, France
 %
 % DISCLAIMER:
 % 

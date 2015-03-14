@@ -23,9 +23,7 @@ set(n(1:2),'Userdata',n(1:2))
 
 m4 = uimenu(Synfig,'Label',   'Figure');
 uimenu(m4,'Label',  'Save current figure',  'Callback',@localSavePicture);
-%uimenu(m4,'Label',  'Page setup',
-%'Callback','pagesetupdlg(gcbf)');  the function of pagesetupdlg has been
-%removed since MATLAB 2014b.
+uimenu(m4,'Label',  'Page setup',           'Callback','pagesetupdlg(gcbf)');
 uimenu(m4,'Label',  'Print preview',        'Callback','printpreview(gcbf)');
 uimenu(m4,'Label',  'Print current figure', 'Callback','printdlg(gcbf)');
 
@@ -34,22 +32,22 @@ uimenu(m4,'Label',  'Print current figure', 'Callback','printdlg(gcbf)');
 
 % borders
 fontsize = get(gcf,'DefaultAxesFontsize')-2;
-RCpanel = uipanel('units','normalized',  'Position',[.025 .39  .96 .36],  'BackgroundColor', 'w', 'BorderType', 'line', 'HighlightColor','k');
-SCpanel = uipanel('units','normalized',  'Position',[.025 .015 .96 .36],  'BackgroundColor', 'w', 'BorderType', 'line', 'HighlightColor','k');
+uipanel('units','normalized',  'Position',[.025 .39  .96 .36],  'BackgroundColor', 'w', 'BorderType', 'line', 'HighlightColor','k');
+uipanel('units','normalized',  'Position',[.025 .015 .96 .36],  'BackgroundColor', 'w', 'BorderType', 'line', 'HighlightColor','k');
 
 %clf
 axSeis     = axes('units','normalized', 'position',[.08 .78 .19 .2], 'Box','on', 'Fontsize',fontsize);
 axSeis(2)  = axes('units','normalized', 'position',[.80 .8 .15 .16], 'Box','on', 'Fontsize',fontsize);
 
-axRC(1) = axes('Parent',RCpanel,'units','normalized', 'position',[.055 .09 .20  .785], 'Box','on', 'Fontsize',fontsize);
-axRC(2) = axes('Parent',RCpanel,'units','normalized', 'position',[.305 .09 .20  .785], 'Box','on', 'Fontsize',fontsize);
-axRC(3) = axes('Parent',RCpanel,'units','normalized', 'position',[.535 .11 .20  .77], 'Box','on', 'Fontsize',fontsize);
-axRC(4) = axes('Parent',RCpanel,'units','normalized', 'position',[.77 .09 .20  .785], 'Box','on', 'Fontsize',fontsize,'Layer','top');
+axRC(1) = axes('units','normalized', 'position',[.08 .42 .19  .28], 'Box','on', 'Fontsize',fontsize);
+axRC(2) = axes('units','normalized', 'position',[.32 .42 .19  .28], 'Box','on', 'Fontsize',fontsize);
+axRC(3) = axes('units','normalized', 'position',[.54 .43 .19  .27], 'Box','on', 'Fontsize',fontsize);
+axRC(4) = axes('units','normalized', 'position',[.77 .42 .19  .28], 'Box','on', 'Fontsize',fontsize,'Layer','top');
 
-axSC(1) = axes('Parent',SCpanel,'units','normalized', 'position',[.055 .09 .20  .785], 'Box','on', 'Fontsize',fontsize);
-axSC(2) = axes('Parent',SCpanel,'units','normalized', 'position',[.305 .09 .20  .785], 'Box','on', 'Fontsize',fontsize);
-axSC(3) = axes('Parent',SCpanel,'units','normalized', 'position',[.535 .11 .20  .77], 'Box','on', 'Fontsize',fontsize);
-axSC(4) = axes('Parent',SCpanel,'units','normalized', 'position',[.77 .09 .20  .785], 'Box','on', 'Fontsize',fontsize,'Layer','top');
+axSC(1) = axes('units','normalized', 'position',[.08 .05 .19  .28], 'Box','on', 'Fontsize',fontsize);
+axSC(2) = axes('units','normalized', 'position',[.32 .05 .19  .28], 'Box','on', 'Fontsize',fontsize);
+axSC(3) = axes('units','normalized', 'position',[.54 .06 .19  .27], 'Box','on', 'Fontsize',fontsize);
+axSC(4) = axes('units','normalized', 'position',[.77 .05 .19  .28], 'Box','on', 'Fontsize',fontsize,'Layer','top');
 
 
 
@@ -104,4 +102,4 @@ function localSavePicture(hFig,evt)
 global config thiseq
 defaultname = sprintf('%s_%4.0f.%03.0f.%02.0f.result.',config.stnname,thiseq.date([1 7 4]));
 defaultextension = strrep(config.exportformat,'.','');
-exportfiguredlg(gcbf, [defaultname defaultextension])
+exportfiguredlg4old(gcbf, [defaultname defaultextension])

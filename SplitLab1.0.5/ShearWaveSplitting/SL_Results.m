@@ -333,6 +333,10 @@ if isempty(fig)
     errordlg(['Sorry, no Result Figure found with title:' tit])
 else
     defaultname = [config.project(1:end-4) '_ResultPlot' config.exportformat];
-    exportfiguredlg(fig, defaultname, config.savedir)
+    if config.isoldver
+       exportfiguredlg4old(fig, defaultname, config.savedir)
+    else
+       exportfiguredlg(fig, defaultname, config.savedir)
+    end
 end
 

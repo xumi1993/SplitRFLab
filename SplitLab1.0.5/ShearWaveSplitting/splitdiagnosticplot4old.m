@@ -54,7 +54,7 @@ titlefontsize = fontsize+2;
 
 
 
-[axH, axRC, axSC, axSeis] = splitdiagnosticLayout(Synfig);
+[axH, axRC, axSC, axSeis] = splitdiagnosticLayout4old(Synfig);
 splitdiagnosticSetHeader(axH, phiRC, dtRC, phiSC, dtSC, phiEV, dtEV, pol, splitoption)
 
 
@@ -164,7 +164,7 @@ hold off
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Correlation Map
-axes(axRC(4))
+axes(axRC(4))   %
 hold on
 f  = size(Cmatrix);
 ts = linspace(0,maxtime,f(2));
@@ -175,8 +175,7 @@ mini = min(Cmatrix(:));% allways >= -1
 maxmin = abs(mini - maxi)/2;% allways between 0 and 1
 
 nb_contours = 12;floor((1 - maxmin)*9);
-[C, h] = contourf(ts,ps,-Cmatrix,-[LevelRC LevelRC]);
-%[C, h] = contourf('v6',ts,ps,-Cmatrix,-[LevelRC LevelRC]);the option 'v6' has been removed since MATLAB 2014b  
+[C, h] = contourf('v6',ts,ps,-Cmatrix,-[LevelRC LevelRC]);
 contour(ts, ps, Cmatrix, nb_contours);
 
 
@@ -258,8 +257,7 @@ ps = linspace(-90,90,f(1));
 maxi = max(abs(Ematrix(:)));
 mini = min(abs(Ematrix(:)));
 nb_contours = floor((1 - mini/maxi)*10);
-[C, h] = contourf(ts,ps,-Ematrix,-[Level Level]);
-% [C, h] = contourf('v6',ts,ps,-Ematrix,-[Level Level]);
+[C, h] = contourf('v6',ts,ps,-Ematrix,-[Level Level]);
 contour(ts, ps, Ematrix, nb_contours);
 
 

@@ -1,4 +1,4 @@
-function plotR_P(Datapath,OUT_path,h1,h2,k1,k2,sh1,sh2,sk1,sk2,Constantvp)
+function plotR_P4old(Datapath,OUT_path,h1,h2,k1,k2,sh1,sh2,sk1,sk2,Constantvp)
 
 global config
 
@@ -140,7 +140,7 @@ while 1
    %plot lines:
      
     hold on;
-    plot(h1,time,receiver,'color',[0.5 0.5 0.5],'lineWidth',0.5);
+    plot(h1,time,receiver,'color',[0.5 0.5 0.5],'lineWidth',0.2);
 
      m=m+1;    
 end
@@ -170,7 +170,7 @@ h2 = subplot(3,1,2);
 %     negX=[time,fliplr(time)];negY=[fillneg',fliplr(yy)];
 %     fill(negX,negY,[0.5 0.5 0.5],'EdgeColor','none','LineStyle','none');
     box on;
- plot(h2,time,receiver+1,'color',[0.5 0.5 0.5],'lineWidth',0.05)
+ plot(h2,time,receiver+1,'color',[0.5 0.5 0.5],'lineWidth',0.2)
  p2ylim=[min(receiver+1)-min(receiver+1)/10 max(receiver+1)+max(receiver+1)/10];
  text(-3,(p2ylim(1)+p2ylim(2))/2,'sum','FontSize',14)
  
@@ -184,7 +184,7 @@ colormap(cyan);hold on;
 %contourf(Moho,kappa,stack_all,'LineStyle','none');hold on;%plot the 1-sigma contour
 %tempstr = num2str(onesigma);
 %onesigma = str2double(tempstr(1:5));
-[cc bb] = contour(Moho,kappa,Normed_stack,[cvalue,1],'ShowText','off','linestyle','-','linewidth',0.7,'linecolor',[.2 .2 .2]);
+[cc bb] = contour(Moho,kappa,Normed_stack,[cvalue],'ShowText','off','linestyle','-','linewidth',0.7,'linecolor',[.2 .2 .2]);
 % cb4 = colorbar('peer',gca);
 %clabel(cc,bb,'fontsize',10,'FontName','Arial','color','k','rotation',0)
 set(h3,'position',[0.2 0.78 0.75 0.18])
@@ -230,8 +230,6 @@ set(gcf, 'PaperPosition', [28 0 350 800]);
 if strcmp(button1, 'Yes')
      
 % print(h,'-dpdf',  ['/Volumes/LaCie/YN.RFunction/plotRT' config.stnname 'RT_bazorder_' num2str(plotpara) '.pdf'])
- print(h,'-depsc','-painters','-r300','-tiff',  fullfile(OUT_path, [config.stnname '_R_rayp.eps']))
+ print(h,'-dpdf',  [OUT_path '\' config.stnname '_R_rayp.pdf'])
 % saveas(h,['/Users/xumj/Documents/YunNan/plotrayp/' config.stnname '_R_rayp.eps'])
  end 
-
-

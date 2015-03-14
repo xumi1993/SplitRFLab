@@ -67,6 +67,7 @@ addpath(fullfile(processRFmatlab_root,'velmodels1D'));
 fprintf('Adding some useful tiny codes to path\n');
 addpath(fullfile(processRFmatlab_root,'Tinycodes'));
 
+savepath;
 % Clean up variables
 clear processRFmatlab_root;
 

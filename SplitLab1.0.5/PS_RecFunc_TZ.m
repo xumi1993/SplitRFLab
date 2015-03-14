@@ -24,8 +24,13 @@ fprintf(' %s -- analysing event  %s:%4.0f.%03.0f (%.0f/%.0f) --\n',...
 extime_before    = 10 ; 
 extime_after    = 120 ; 
 o         = thiseq.Amp.time(1);%common offset of all files after hypotime
+if isfield(thiseq, 'a')
 extbegin  = floor( (thiseq.a - extime_before - o) / thiseq.dt); %index of first element of amplitude verctor of the selected time window
 extfinish = floor( (thiseq.a + extime_after - o) / thiseq.dt); %index of last element
+else
+extbegin  = floor( (thiseq.phase.ttimes(1) - extime_before - o) / thiseq.dt);
+extfinish = floor( (thiseq.phase.ttimes(1) + extime_after - o) / thiseq.dt); 
+end
 extIndex  = extbegin:extfinish;%create vector of indices to elements of extended selection window
 RFlength = length(extIndex);
 % now find indices of selected window, but this time 
@@ -147,7 +152,7 @@ Z = seis(:,3);
 %% Receiver function parameters
 RFlength = length(extIndex);
 Shift = 10; %RF starts at 10 s
-f0 = 0.6; % pulse width
+f0 = config.f0; % pulse width
 niter = 400;  % number iterations
 minderr = 0.001;  % stop when error reaches limit
 
@@ -158,12 +163,12 @@ minderr = 0.001;  % stop when error reaches limit
 % Z = seis(:,3);
 [thiseq.RadialRF, thiseq.RMS_R,thiseq.it_num_R] = makeRFitdecon_la( R, Z, thiseq.dt, RFlength, Shift, f0, ...
 				 niter, minderr);
-[thiseq.TransverseRF, thiseq.RMS_T,thiseq.it_num_T] = makeRFitdecon_la( T, Z, thiseq.dt, RFlength, Shift, f0, ...
-				 niter, minderr);
+% [thiseq.TransverseRF, thiseq.RMS_T,thiseq.it_num_T] = makeRFitdecon_la( T, Z, thiseq.dt, RFlength, Shift, f0, ...
+% 				 niter, minderr);
 %plot RF
 time = - Shift  + thiseq.dt*(0:1:RFlength-1);
 figure(10);
-set(figure(10),'position',[100 400 500 375]);
+set(figure(10),'position',[100 500 1100 375]);
 %subplot(3,1,1);plot(time,E,'k');
 %subplot(3,1,2);plot(time,N,'k');
 %subplot(3,1,3);plot(time,Z,'k');
@@ -190,8 +195,9 @@ eta_s660 = vslow( vs660, Ev_para);
 tp410s=tPs(410, eta_p410, eta_s410 );
 tp660s=tPs(660, eta_p660, eta_s660 );
 %pause
-plot(time,thiseq.RadialRF,'k','LineWidth',1.1);hold on;
-plot(time,thiseq.TransverseRF);hold on;
+subplot(1,2,1)
+plot(time,thiseq.RadialRF,'k','LineWidth',1.2);hold on;
+% plot(time,thiseq.TransverseRF);hold on;
 plot([tp410s tp410s],ylim,'r','LineWidth',0.8);hold on;
 plot([tp660s tp660s],ylim,'r','LineWidth',0.8);hold on;
 plot(xlim,[0 0],'g--');
@@ -200,13 +206,11 @@ set(gca,'xlim',[-5 80],'xtick',(0:5:80),'Xgrid','on')
 
 [RadialRF, RMS_R,it_num_R] = makeRFitdecon_la( R, Z, thiseq.dt, RFlength, Shift, 2.0, ...
 				 niter, minderr);
-[TransverseRF, RMS_T,it_num_T] = makeRFitdecon_la( T, Z, thiseq.dt, RFlength, Shift, 2.0, ...
-				 niter, minderr);
+
              
-figure(11);
-set(figure(11),'position',[620 400 500 375]);
-plot(time,RadialRF,'k','LineWidth',1.1);hold on;
-plot(time,TransverseRF);hold on;
+
+subplot(1,2,2)
+plot(time,RadialRF,'k','LineWidth',1.2);hold on;
 plot(xlim,[0 0],'g--');
 set(gca,'xlim',[-5 30],'xtick',(0:2:30),'Xgrid','on')
 %% XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -242,7 +246,7 @@ if strcmp(button, 'Yes')
      if( ~exist( OUT_path , 'dir') )
      mkdir( OUT_path ); end
      fid_iter_R = fopen(fullfile(OUT_path,[config.stnname 'iter_R.dat']),'a+');
-     fid_iter_T = fopen(fullfile(OUT_path,[config.stnname 'iter_T.dat']),'a+');
+%      fid_iter_T = fopen(fullfile(OUT_path,[config.stnname 'iter_T.dat']),'a+');
      fid_finallist = fopen(fullfile(OUT_path,[config.stnname 'finallist.dat']),'a+');
       %OUTPUT Radial RFs
         fidR = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(yy:ss) '_' thiseq.SplitPhase '_R.dat']),'w+');        
@@ -252,15 +256,15 @@ if strcmp(button, 'Yes')
         fclose(fidR);
         
         %OUTPUT Transverse RFs
-        fidT = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(yy:ss) '_' thiseq.SplitPhase '_T.dat']),'w+');       
-        for ii = 1:RFlength
-        fprintf(fidT,'%f\n',thiseq.TransverseRF(ii));       
-        end
-        fclose(fidT);
+%         fidT = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(yy:ss) '_' thiseq.SplitPhase '_T.dat']),'w+');       
+%         for ii = 1:RFlength
+%         fprintf(fidT,'%f\n',thiseq.TransverseRF(ii));       
+%         end
+%         fclose(fidT);
         
         %OUTPUT iteration number
         fprintf(fid_iter_R,'%s %s %u %f\n',thiseq.seisfiles{1}(yy:ss),thiseq.SplitPhase,thiseq.it_num_R,thiseq.RMS_R(thiseq.it_num_R));
-        fprintf(fid_iter_T,'%s %s %u %f\n',thiseq.seisfiles{1}(yy:ss),thiseq.SplitPhase,thiseq.it_num_T,thiseq.RMS_T(thiseq.it_num_T));
+%         fprintf(fid_iter_T,'%s %s %u %f\n',thiseq.seisfiles{1}(yy:ss),thiseq.SplitPhase,thiseq.it_num_T,thiseq.RMS_T(thiseq.it_num_T));
         
         %Add the current earthquake to the finallist:
       
@@ -312,7 +316,7 @@ if strcmp(button, 'Yes')
      fid_finallist1 = fopen(fullfile(OUT_path1,[config.stnname 'finallist.dat']),'a+');
      fprintf(fid_finallist1,'%s %s %f %f %f %f %f %f %f %f\n',thiseq.seisfiles{1}(yy:ss),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,f0);
      
-     fclose(fid_iter_R);fclose(fid_iter_T);fclose(fid_finallist);close(figure(10));close(figure(11));     
+     fclose(fid_iter_R);fclose(fid_finallist);close(figure(10));close(figure(11));     
 else
     clear('thiseq.RadialRF','thiseq.TransverseRF', 'thiseq.RMS_R','thiseq.it_num_R', 'thiseq.RMS_T','thiseq.it_num_T');close(figure(10));
     close(figure(11));

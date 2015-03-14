@@ -6,7 +6,17 @@ global config eq
 
 
 SL_checkversion
-config.version='SplitRFLab2.1.2';
+config.version='SplitRFLab2.2.0';
+
+matver = version;
+R2014b = 'R2014b';
+nowver = regexp(matver, '[()]', 'split');
+isver = char(nowver(2)) < R2014b;
+if isempty(find(isver,1))
+    config.isoldver = 0;
+else
+    config.isoldver = 1;
+end
 
 [p,f] = fileparts(mfilename('fullpath'));  % directory of Splitlab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
@@ -131,13 +141,13 @@ h.menu(9) = uicontrol(...
     'ToolTipString','Start / Continue splitting',...
     'BackgroundColor','w',...
     'pos',[10 70 100 25],'parent',h.menu(1),'HandleVisibility','off',...
-    'Callback','SL_SeismoViewer(config.db_index)'); %open last splitting event
+    'Callback','if config.isoldver;SL_SeismoViewer4old(config.db_index);else;SL_SeismoViewer(config.db_index);end;'); %open last splitting event
 h.menu(10) = uicontrol(...
     'Style','pushbutton',...
     'String',' View Database',...
     'BackgroundColor','w',...
     'pos',[10 40 100 25],'parent',h.menu(1),'HandleVisibility','off',...
-    'Callback','SL_databaseViewer');
+    'Callback','if config.isoldver;SL_databaseViewer4old;else;SL_databaseViewer;end');
 h.menu(10) = uicontrol(...
     'Style','pushbutton',...
     'String','Results',...
@@ -243,7 +253,7 @@ splitlab
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function savecallback(src,e)
-global config eq rf
+global config eq 
 str ={'*.pjt', '*.pjt - SplitLab projects files';
     '*.mat', '*.mat - MatLab files';
     '*.*',     '* - All files'};

@@ -293,10 +293,7 @@ if Pt1(1) < xxx(1) || Pt1(1) > xxx(2)
     return
 else
     split.x = [Pt1(:,1); Pt1(:,1)];
-    set(split.hfill,'Xdata',split.x,'Visible','on');
-    split.hfill.FaceAlpha = 0.5;
-    drawnow expose
-%    animatedline(split.x(1:2),split.x(3:4),'Color','r');
+    set(split.hfill,'Xdata',split.x,'Visible','on','eraseMode','xor');
     set(src,'pointer','left','WindowButtonMotionFcn',{@buttonMotion, split, ax, seis});
 end
 
@@ -306,9 +303,7 @@ Pt2 = get(gca,'CurrentPoint');
 Pt2 = [Pt2(:,1)];
 split.x(3:4) = Pt2;
 split.x      = sort(split.x);
-set(split.hfill,'Xdata',split.x);
-split.hfill.FaceAlpha = 0.5;
-drawnow expose
+set(split.hfill,'Xdata',split.x,'EraseMode','xor');
 set(src,'WindowButtonupFcn',{@buttonUp, split, ax, seis})
 status = findobj('Tag','Statusbar');
 set(status,'String',sprintf('Split Window: %11.2fsec -- %.2fsec',split.x(1),split.x(3)));drawnow
@@ -334,13 +329,11 @@ if abs(diff(split.x(2:3))) < diff(xlim)/500 % 0.5precent of total axes length
 
 else
     xxx = xlim;
-    if split.x(1) < xxx(1) || split.x(4) > xxx(2)
+    if split.x(1) < xxx(1) | split.x(4) > xxx(2)
         return
     else
         if ishandle(split.hfill)
-            set(split.hfill,'Xdata',split.x);
-            split.hfill.FaceAlpha = 0.5;
-            drawnow expose
+            set(split.hfill,'Xdata',split.x,'eraseMode','normal');
             n = thiseq.resultnumber;
             thiseq.a     = split.x(2); %start of window
             thiseq.f     = split.x(3); %end of window

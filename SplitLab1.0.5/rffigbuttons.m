@@ -1,4 +1,4 @@
-function rffigbuttons(fig,rfseis)
+function rffigbuttons(fig)
 %create buttons for seismogram plot SL_SeismoViewer and assings callbacks
 global thisrf
 
@@ -25,16 +25,30 @@ uipushtool(ht,'CData',icon.save,...
 
 uipushtool(ht,'CData',icon.sac,...
     'TooltipString','view seismic wave',...
-    'ClickedCallback','SL_SeismoViewer(thisrf.eqidx)');
+    'ClickedCallback',';if config.isoldver;SL_SeismoViewer4old(config.db_index);else;SL_SeismoViewer(config.db_index);end');
 
 uipushtool(ht,'CData',icon.next,...
     'TooltipString','next receiver function',...
     'ClickedCallback', 'idx = thisrf.index+1;if idx>length(rf);idx=1; button = MFquestdlg([ 0.4 , 0.42 ],''Do you want to quit the database?'',''PS_RecFunc'',''Yes'',''No'',''Yes'');if strcmp(button, ''Yes'');close(gcf);else; RfViewer(idx);end;else;RfViewer(idx);end; clear idx',...
     'BusyAction','Cancel');
 
+uipushtool(ht,'CData',icon.trash,...
+    'TooltipString','Remove this RF ...',...
+    'ClickedCallback','delRF;');
+
+uipushtool(ht,'CData',icon.open,...
+    'TooltipString','Select earthquake from table' ,...
+    'ClickedCallback', 'if config.isoldver;SL_databaseViewer4old;else;SL_databaseViewer;end');
+
+
+
 
 function localSavePicture(hFig,evt)
 global config thisrf
 defaultname = sprintf('%s_%s.preview.',config.stnname,thisrf.seisfile);
 defaultextension = strrep(config.exportformat,'.','');
-exportfiguredlg(gcbf, [defaultname defaultextension])
+if config.isoldver
+       exportfiguredlg4old(gcbf, [defaultname defaultextension])
+else
+       exportfiguredlg(gcbf, [defaultname defaultextension])
+end

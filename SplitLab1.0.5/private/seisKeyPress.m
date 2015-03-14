@@ -43,21 +43,21 @@ elseif strcmp(evnt.Key,'return')
 %     end
 %     
 %     
-elseif strcmp(evnt.Key,'tab')|strcmp(evnt.Key,'escape')
+elseif strcmp(evnt.Key,'tab')||strcmp(evnt.Key,'escape')
     %jump close to selected phase
     val  = get(findobj('Tag','PhaseSelector'),'Value');
     t_home = floor(thiseq.phase.ttimes(val)/10)*10 - 18; %~30 seconds before phase; at full 10 seconds
     xlim([t_home t_home+65]) % timewindow of 150 sec
 
-elseif strcmp(evnt.Key,'[')
-    xx = xlim;
-    xlim(xx-diff(xx)/5)
-
-elseif strcmp(evnt.Key,']')
-    xx=xlim;
-    xlim(xx+diff(xx)/5)
+% elseif strcmp(evnt.Key,'[')
+%     xx = xlim;
+%     xlim(xx-diff(xx)/5)
+% 
+% elseif strcmp(evnt.Key,']')
+%     xx=xlim;
+%     xlim(xx+diff(xx)/5)
 elseif strcmp(evnt.Key,'backspace')
-    xlim('auto')
+    xlim([thiseq.Amp.time(1) thiseq.Amp.time(end)])
 % elseif strcmp(evnt.Key,'m')
 %     Aniso_multi;
 elseif strcmp(evnt.Key,'r')
@@ -74,7 +74,16 @@ elseif strcmp(evnt.Key,'d')
     PS_RecFunc_Water
 
 elseif strcmp(evnt.Key,'z') 
-    idx = thiseq.index-1; if idx < 1; idx = length(eq);end; seis=SL_SeismoViewer(idx); clear idx; 
+    idx = thiseq.index-1; 
+    if idx < 1
+       idx = length(eq);
+    end 
+    if config.isoldver
+      seis=SL_SeismoViewer4old(idx); 
+    else
+      seis=SL_SeismoViewer(idx);
+    end
+    clear idx; 
     f1 = thiseq.filter(1);
     f2 = thiseq.filter(2);
 elseif strcmp(evnt.Key,'c') 
@@ -86,10 +95,20 @@ elseif strcmp(evnt.Key,'c')
        if strcmp(button, 'Yes')
           close(figure(2));close(figure(3));close(figure(4));clear idx;return;
        else
-           seis=SL_SeismoViewer(idx); clear idx;
+           if config.isoldver
+               seis=SL_SeismoViewer4old(idx); 
+           else
+               seis=SL_SeismoViewer(idx);
+           end
+           clear idx;
        end
-    else
-        seis=SL_SeismoViewer(idx); clear idx;
+    else 
+        if config.isoldver
+         seis=SL_SeismoViewer4old(idx); 
+        else
+         seis=SL_SeismoViewer(idx); 
+        end
+        clear idx;
     end
     f1 = thiseq.filter(1);
     f2 = thiseq.filter(2);
@@ -102,7 +121,7 @@ else
         case 'f'
             [f1, f2] = filterdialog(thiseq.filter);
         case '0'
-            f1 = 0;z
+            f1 = 0;
             f2 = inf;
         case '1'
             f1 = 0.03;
@@ -144,7 +163,7 @@ else
             f1 = 0.05;
             f2 = 1;
 
-        case '+'
+        case '='
             f1  = f1 + 0.01;
             if f1  >= f2
                 f1 = f2-0.01;
@@ -156,9 +175,9 @@ else
             if f1  < 0
                 f1 = 0;
             end
-        case '*'
+        case ']'
             f2  = f2 + 0.02;
-        case '/'
+        case '['
             f2  = f2 - 0.02;
             if f2  < 0
                 f2 = 0;

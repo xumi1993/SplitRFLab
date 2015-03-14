@@ -43,8 +43,8 @@ else
 end
 orient landscape
         m4 = uimenu(eqfig,'Label',   'Figure');
-        uimenu(m4,'Label',  'Save current figure',  'Callback','if config.isoldver;exportfiguredlg4old(gcbf, [config.stnname ''_EQstats'' config.exportformat], config.savedir);else;exportfiguredlg(gcbf, [config.stnname ''_EQstats'' config.exportformat], config.savedir);end');
-uimenu(m4,'Label',  'Page setup',           'Callback','printpreview(gcbf)');
+uimenu(m4,'Label',  'Save current figure',  'Callback','exportfiguredlg(gcbf, [config.stnname ''_EQstats'' config.exportformat], config.savedir)');
+uimenu(m4,'Label',  'Page setup',           'Callback','pagesetupdlg(gcbf)');
 uimenu(m4,'Label',  'Print preview',        'Callback','printpreview(gcbf)');
 uimenu(m4,'Label',  'Print current figure', 'Callback','printdlg(gcbf)');
 
@@ -110,21 +110,20 @@ else
     
     la  = [eq(:).lat]';
     lo  = [eq(:).long]';
-    siz = [eq(:).Mw]'.^100;    % make marker size more dependend on magnidude: enhance to power of 10
+    siz = [eq(:).Mw]'.^10;    % make marker size more dependend on magnidude: enhance to power of 10
     siz = 100*siz/min(siz) + config.Mw(1)^2;% area of each marker is determined by the values (in points^2) 
     col = [eq(:).depth]';
-    e = scatterm(la, lo , siz, col ,'o');
+    e = scatterm(la, lo , siz, col ,'.');
 end
 
 [latlow,lonlow]= scircle1(config.slat, config.slong, SKSwin(1));
 [latup,lonup]  = scircle1(config.slat, config.slong, SKSwin(2));
-plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1);%SKSwindow
-%f(2) = plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1);
-plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1);
+f(1) = plotm(latlow, lonlow, '--', 'Color',circleColor, 'linewidth',1);%SKSwindow
+f(2) = plotm(latup , lonup , '--', 'Color',circleColor, 'linewidth',1);
 
 %station marker
-%b   = plotm(config.slat, config.slong,'k^','MarkerFaceColor','r','MarkerSize',8);
-plotm(config.slat, config.slong,'k^','MarkerFaceColor','r','MarkerSize',8);
+b   = plotm(config.slat, config.slong,'k^','MarkerFaceColor','r','MarkerSize',8);
+
 %% plot annotation
 if simple 
     stnnameColor = 'y';
@@ -187,15 +186,13 @@ ax=subplot(2,2,3,'Parent',eqfig);
 axes(ax);
 [a,b] = rose([eq(:).bazi]/180*pi, bin_center/180*pi);
 polargeo(a,b);
-bins = findobj(gca,'Type','Line');
-xx = bins.XData;
-yy = bins.YData;
-patch(xx, yy, 'g');
+bins = findobj('Parent', gca,'Type','Line', 'Color','b');
+patch(get(bins,'xdata'), get(bins,'ydata'), 'g');
 
 set(0,'ShowHiddenHandles','on')
-%delete(findobj('Tag','RadiusText'), bins)
-%set(0,'ShowHiddenHandles','off')
-%set(gca,'Line','MarkerFaceColor','g')
+delete(findobj('Tag','RadiusText'), bins)
+set(0,'ShowHiddenHandles','off')
+
 
 f = max(xlim)*.7;
 set(gca,'xtickLabel','');
@@ -210,7 +207,7 @@ text(x,y, num2str(n'),...
 %%
 delete(msg)
 %% This program is part of SplitLab
-% ?2006 Andreas W?tefeld, Universit?de Montpellier, France
+% ?2006 Andreas Wüstefeld, Universit?de Montpellier, France
 %
 % DISCLAIMER:
 % 

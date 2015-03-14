@@ -3,16 +3,6 @@ global  config eq rf
 
 rf = struct();
 
-if strcmp(config.FileNameConvention,'MyFormat')
-    yy=19;ss=35;
-elseif strcmp(config.FileNameConvention,'YNoldFormat')
-    yy=14;ss=30;
-elseif strcmp(config.FileNameConvention,'YNFormat')||strcmp(config.FileNameConvention,'YAFormat')||strcmp(config.FileNameConvention,'CNSFormat')||strcmp(config.FileNameConvention,'TibetFormat')
-    yy=1;ss=17;
-elseif strcmp(config.FileNameConvention,'Fujian')
-    yy=9;ss=21;
-end
-
 
 for i=1:length(eq)
 %    fprintf(' %s -- analysing event  %s:%4.0f.%03.0f (%.0f/%.0f) --\n',...
@@ -69,7 +59,7 @@ f4 = 0.03;
  
  E3 = filtfilt(b3,a3,E); 
  N3 = filtfilt(b3,a3,N);
- Z3 = filtfilt(b3,a2,Z);
+ Z3 = filtfilt(b3,a3,Z);
  
     E1 = detrend(E1,'constant');
     E1 = detrend(E1,'linear');
@@ -114,8 +104,8 @@ Z3 = seis3(:,3);
 niter = 400;  % number iterations
 minderr = 0.001;  % stop when error reaches limit
 
-fprintf([num2str(i) 'th---'])
-
+fprintf([num2str(i) 'th---\n'])
+if config.iter == 1
 [RadialRF1, RMS_R,it_num_R] = makeRFitdecon_la( R1, Z1, out.dt, RFlength, config.extime_before, config.f0, ...
 				 niter, minderr);
 [TransverseRF1, RMS_T,it_num_T] = makeRFitdecon_la( T1, Z1, out.dt, RFlength, config.extime_before, config.f0, ...
@@ -130,6 +120,22 @@ fprintf([num2str(i) 'th---'])
 				 niter, minderr);
 [TransverseRF3, RMS_T,it_num_T] = makeRFitdecon_la( T3, Z3, out.dt, RFlength, config.extime_before, config.f0, ...
 				 niter, minderr);
+else
+[RadialRF1, RMS_R,it_num_R] = makeRFwater_ammon( R1, Z1, config.extime_before, out.dt, RFlength, ...
+				 0.01, config.f0, 0);
+[TransverseRF1, RMS_T,it_num_T] =makeRFwater_ammon( T1, Z1, config.extime_before, out.dt, RFlength, ...
+				 0.01, config.f0, 0);
+
+[RadialRF2, RMS_R,it_num_R] = makeRFwater_ammon( R2, Z2, config.extime_before, out.dt, RFlength, ...
+				 0.01, config.f0, 0);
+[TransverseRF2, RMS_T,it_num_T] = makeRFwater_ammon( T2, Z2, config.extime_before, out.dt, RFlength, ...
+				 0.01, config.f0, 0);
+
+[RadialRF3, RMS_R,it_num_R] = makeRFwater_ammon( R3, Z3, config.extime_before, out.dt, RFlength, ...
+				 0.01, config.f0, 0);
+[TransverseRF3, RMS_T,it_num_T] = makeRFwater_ammon( T3, Z3, config.extime_before, out.dt, RFlength, ...
+				 0.01, config.f0, 0);    
+end
 
              
 rf(i).RadialRF_f1 = RadialRF1;
@@ -166,28 +172,28 @@ rf(i).dis = eq(i).dis;
 rf(i).bazi = eq(i).bazi;
 rf(i).Mw = eq(i).Mw;
 rf(i).RFlength = RFlength;
-rf(i).eqidx = i;
 end
 
-
-ind=[];
-for i=1:length(rf)
-    if isempty(rf(i).dt)
-        
-        ind=[ind,i];
-    end
-end
-rf(ind)=[];
-
-baz=zeros(length(rf),1);
-for k=1:length(baz)
-    baz(k)=rf(k).bazi;
-end
-
-[~,index]=sort(baz,1);
-rf=rf(index);
-for ii = 1:length(rf)
-    rf(ii).index = ii;
-end
+rfview = findobj('Tag','RFButton');
+set(rfview,'Enable','on');
+% ind=[];
+% for i=1:length(rf)
+%     if isempty(rf(i).dt)
+%         
+%         ind=[ind,i];
+%     end
+% end
+% rf(ind)=[];
+% 
+% baz=zeros(length(rf),1);
+% for k=1:length(baz)
+%     baz(k)=rf(k).bazi;
+% end
+% 
+% [~,index]=sort(baz,1);
+% rf=rf(index);
+% for ii = 1:length(rf)
+%     rf(ii).index = ii;
+% end
 
 return

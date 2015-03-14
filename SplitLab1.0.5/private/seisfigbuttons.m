@@ -20,7 +20,7 @@ uipushtool(ht,'CData',icon.sac,...
 %     'ClickedCallback','Aniso_Pre(filt)');
 uipushtool(ht,'CData',icon.open,...
     'TooltipString','Select earthquake from table' ,...
-    'ClickedCallback', 'SL_databaseViewer');
+    'ClickedCallback', 'if config.isoldver;SL_databaseViewer4old;else;SL_databaseViewer;end');
 uipushtool(ht,'CData',icon.print,...
     'TooltipString','Print...',...
     'ClickedCallback','printdlg(gcbf)' );
@@ -49,7 +49,7 @@ uipushtool(ht,'CData',icon.xzoomOUT,...
 uipushtool(ht,'CData',icon.back,...
     'separator','on',...
     'TooltipString','previous earthquake',...
-    'ClickedCallback','idx = thiseq.index-1; if idx < 1; idx = length(eq);end; SL_SeismoViewer(idx); clear idx',...
+    'ClickedCallback','idx = thiseq.index-1; if idx < 1; idx = length(eq);end; if config.isoldver;SL_SeismoViewer4old(idx);else;SL_SeismoViewer(idx);end; clear idx',...
     'BusyAction','Cancel' );
 
 PFig = findobj('Type','Figure','Name','Particle motion');
@@ -102,7 +102,7 @@ uitoggletool(ht,'CData',icon.unlocked,...
     'offCallback',  @changelockstate);
 uipushtool(ht,'CData',icon.next,...
     'TooltipString','next earthquake',...
-    'ClickedCallback','idx = thiseq.index+1; if idx > length(eq); idx =1;button = MFquestdlg([ 0.4 , 0.42 ],''Do you want to quit the database?'',''PS_RecFunc'',''Yes'',''No'',''Yes'');if strcmp(button, ''Yes'');close(figure(2));close(figure(3));close(figure(4));clear idx; else SL_SeismoViewer(idx); clear idx;end;else SL_SeismoViewer(idx);clear idx; end',...
+    'ClickedCallback','idx = thiseq.index+1; if idx > length(eq); idx =1;button = MFquestdlg([ 0.4 , 0.42 ],''Do you want to quit the database?'',''PS_RecFunc'',''Yes'',''No'',''Yes'');if strcmp(button, ''Yes'');close(figure(2));close(figure(3));close(figure(4));clear idx; else; if config.isoldver;SL_SeismoViewer4old(idx);else; SL_SeismoViewer(idx);end; clear idx;end;else; if config.isoldver;SL_SeismoViewer4old(idx);else;SL_SeismoViewer(idx);end;clear idx; end',...
     'BusyAction','Cancel');
 
 
@@ -120,7 +120,7 @@ uipushtool(ht,'CData',icon.config,...
 
 %% %USER DEFINED function
 %enter the name of your function; mus be a string
-PSFunction =  strcat('PS_RecFunc');
+%PSFunction =  strcat('PS_RecFunc');
 SPFunction =  strcat('SP_RecFunc');
 Plot_testINC_SP =  strcat('Plot_testINC_SP');
 %create yuor own symbol: assume an indexed GIF image user.gif is located at c:\
@@ -349,7 +349,11 @@ function localSavePicture(hFig,evt)
 global config thiseq
 defaultname = sprintf('%s_%4.0f.%03.0f.%02.0f.preview.',config.stnname,thiseq.date([1 7 4]));
 defaultextension = strrep(config.exportformat,'.','');
-exportfiguredlg(gcbf, [defaultname defaultextension])
+if config.isoldver
+   exportfiguredlg4old(gcbf, [defaultname defaultextension])
+else
+   exportfiguredlg(gcbf, [defaultname defaultextension])
+end
 
 %% ---------------------------------
 function localTrash(hFig,evt,seis)
@@ -380,7 +384,7 @@ switch button
         
         databaseViewer = findobj('Type','Figure', 'Name','Database Viewer');
         if ~isempty(databaseViewer)
-           SL_databaseViewer
+           if config.isoldver;SL_databaseViewer;else;SL_databaseViewer4old;end;
         end
         
     case 'Later'

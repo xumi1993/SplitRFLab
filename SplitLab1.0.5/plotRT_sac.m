@@ -10,6 +10,7 @@ for i = 1:length(sac_all)
     sac_split = regexp(sac_all(i).name,'_','split');
     sacname = sac_split(1);
     nowsac = rsac(fullfile(path,sac_all(i).name));
+    disp(char(sacname))
     dat(i).name = sacname;
     dat(i).R = nowsac(:,2);
     nowsac = rsac(fullfile(path,[char(sacname) '_' char(sac_split(2)) '_T.sac']));

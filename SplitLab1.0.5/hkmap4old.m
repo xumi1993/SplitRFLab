@@ -1,4 +1,4 @@
-function hkmap(Datapath,OUT_path,mapath,h1,h2,k1,k2,sh1,sh2,sk1,sk2,Constantvp)
+function hkmap4old(Datapath,OUT_path,mapath,h1,h2,k1,k2,sh1,sh2,sk1,sk2,Constantvp)
 
 global config
 
@@ -6,8 +6,9 @@ shift = 10;
 Moho = h1:0.1:h2;
 kappa = k1:0.01:k2;
 weight = [ 0.7, 0.2, 0.1 ] ;% weighting matrix
+linecolor=[0.94 0.27 0.2];
 
-if issac 
+if config.issac 
 %% read sac
 path = fullfile(Datapath,config.stnname);
 sac_all = dir(fullfile(path,'*R.sac'));
@@ -18,8 +19,6 @@ for i = 1:length(sac_all)
     nowsac = rsac(fullfile(path,sac_all(i).name));
     dat(i).name = sacname;
     dat(i).R = nowsac(:,2);
-    nowsac = rsac(fullfile(path,[char(sacname) '_' char(sac_split(2)) '_T.sac']));
-    dat(i).T = nowsac(:,2);
     dat(i).rayp = lh(nowsac,'USER0');
     dat(i).bazi = lh(nowsac,'BAZ');    
 end
@@ -30,18 +29,16 @@ for i = 1:EV_num
 end
 [rayp,idx] = sort(rayp);
 dat = dat(idx);
+RFlength = length(dat(1).R);
 datar = zeros(RFlength,EV_num);
-datat = zeros(RFlength,EV_num);
-event = cell(EV_num,1);
 for i = 1:EV_num
+    disp([char(dat(i).name) ' --s.event number: ' num2str(i)]);
     datar(:,i) = dat(i).R;
-    datat(:,i) = dat(i).T;
-    event(i) = dat(i).name;
 end
 else
 [s.event s.phase s.evlat s.evlon s.evdep s.dis s.bazi s.rayp s.magnitude s.f0]=textread([Datapath '/' config.stnname '/' config.stnname 'finallist.dat'],'%s %s %f %f %f %f %f %f %f %f',-1);
 %sort by rayp
-[s.rayp, idx]=sort(s.rayp);
+[rayp, idx]=sort(s.rayp);
 s.event=s.event(idx);
 s.phase=s.phase(idx);
 s.evlat=s.evlat(idx);
@@ -66,13 +63,13 @@ datafile=strcat([Datapath '/' config.stnname '/'],filename,'_',s.phase(m,:),'_R.
 datar(:,m)=load(char(datafile));
 m=m+1;
 end
-end
 RFlength=length(datar(:,1));
+end
 
 sampling = (config.extime_after + config.extime_before) / (RFlength - 1);
 %% H-k stacking 
 %----------------------------------------------------------------------
-[stack, ~, ~, stackall_var ] = hkstack_iwb( datar, -shift, sampling, s.rayp, Moho, kappa, Constantvp,weight );
+[stack, ~, ~, stackall_var ] = hkstack_iwb( datar, -shift, sampling, rayp, Moho, kappa, Constantvp,weight );
 %[stack_all, stackall_var,besth, bestk] = hkstack(datar,-shift,sampling,s.rayp,Moho,kappa,Constantvp,weight,1,0);
 % combine the stacks 
 allstack = weight(1)*stack(:,:,1) + weight(2)*stack(:,:,2) + weight(3)*stack(:,:,3);
@@ -108,16 +105,18 @@ NumContours = find(c(1,:) == cvalue);
 
 
 %% Calculate the predicted travel times at the best estimated Mohodepth and Kappa 
-eta_p = vslow( Constantvp,s.rayp);  % get vp vertical slowness
-eta_s = vslow( Constantvp./bestk, s.rayp); % get vertical slowness for all vs
+eta_p = vslow( Constantvp,rayp);  % get vp vertical slowness
+eta_s = vslow( Constantvp./bestk, rayp); % get vertical slowness for all vs
 TPs = tPs(besth, eta_p, eta_s );
 TPpPs = tPpPs(besth, eta_p, eta_s );
 TPsPs = tPsPs(besth, eta_s );
 %% plot H-kappa stacking map
-figure(80);
+h=figure(81);
 subplot(2,2,1)
 imagesc(Moho, kappa, stack(:,:,1)); hold on;
-plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
+load('cyan.mat','cyan');
+colormap(cyan);hold on;
+plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5,'color',linecolor)
 axis square
 cb1 = colorbar('peer',gca);
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
@@ -128,7 +127,8 @@ title('Ps',  'fontname','Times new roman','FontSize',16)
 
 subplot(2,2,2)
 imagesc(Moho, kappa, stack(:,:,2)); hold on;
-plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
+colormap(cyan);hold on;
+plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5,'color',linecolor)
 axis square
 cb2 = colorbar('peer',gca);
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
@@ -139,7 +139,8 @@ title('PpPs', 'fontname','Times new roman', 'FontSize',16)
 
 subplot(2,2,3)
 imagesc(Moho, kappa, stack(:,:,3)); hold on;
-plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
+colormap(cyan);hold on;
+plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5,'color',linecolor)
 axis square
 cb3 = colorbar('peer',gca);
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
@@ -150,6 +151,7 @@ title('PsPs & PpSs', 'fontname','Times new roman', 'FontSize',16)
 
 subplot(2,2,4)
 imagesc(Moho, kappa, Normed_stack); hold on;
+colormap(cyan);hold on;
 plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
 axis square
 %contourf(Moho,kappa,stack_all,'LineStyle','none');hold on;%plot the 1-sigma contour
@@ -160,7 +162,7 @@ cb4 = colorbar('peer',gca);
 %clabel(cc,bb,'fontsize',10,'FontName','Arial','color','k','rotation',0)
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
 set(gca,'ticklength',[0.03,0.5],'linewidth',1.0,'fontsize',15);
-line([besth besth], ylim,'Color','w','LineWidth',1.5);line(xlim, [bestk bestk],'Color','w','LineWidth',1.5); 
+line([besth besth], ylim,'Color',linecolor,'LineWidth',1,'linestyle','--');line(xlim, [bestk bestk],'Color',linecolor,'LineWidth',1,'linestyle','--'); 
 ylabel( 'Vp/Vs','FontSize',16 )
 xlabel( 'H (km)', 'FontSize',16 )
 title(['w1: ' num2str(weight(1)) ', w2: ' num2str(weight(2)) ', w3: ' num2str(weight(3))],  'fontname','Times new roman','FontSize',16)
@@ -168,8 +170,8 @@ title(['w1: ' num2str(weight(1)) ', w2: ' num2str(weight(2)) ', w3: ' num2str(we
      'Yes','No','Yes');
  if strcmp(button1, 'Yes') 
 
-print('-dpsc', [mapath '/' config.stnname 'hkmap.ps'])
- end
+print(h,'-dpdf', [mapath '/' config.stnname 'hkmap.pdf'])
+end
 %% Output results
 
 

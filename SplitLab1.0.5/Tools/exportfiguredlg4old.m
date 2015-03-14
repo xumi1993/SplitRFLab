@@ -8,7 +8,7 @@ function exportfiguredlg(varargin)
 % selected path is kept during the matlab session for subsequent calls of
 % this function.
 
-% ?2006 Andreas W?tefeld, Universit?de Montpellier, France
+% © 2006 Andreas Wüstefeld, Université de Montpellier, France
 
 persistent exportdir
 
@@ -38,6 +38,7 @@ else
     defaultname = varargin{2};
     exportdir = varargin{3};
 end
+
 
 %%
 [dummy, file, ext] = fileparts(defaultname);
@@ -79,36 +80,35 @@ descriptions  = descriptions([match order],:);
 [filename, TMPexportdir] = uiputfile(descriptions, ...
     'Save as',...
     defaultfile) ;
-if isequal(filename,0) || isequal(TMPexportdir,0)
+if isequal(filename,0) | isequal(TMPexportdir,0)
     return
 else
    exportdir  = TMPexportdir;
-%    figstr  = ['-f' num2str(fig)];
-%    figstr  = ['-f' fig];
+   figstr  = ['-f' num2str(fig)];
+   
    F = fullfile(exportdir,filename);
    [dummy, dummy,ext] = fileparts(filename);
     
     
     switch ext
         case '.ai'
-            print(fig, '-dill', '-noui',F);
+            print(figstr, '-dill', '-noui',F);
         case '.eps'
-            print(fig,  '-depsc2', '-cmyk',   '-r300','-tiff', '-loose','-painters',F);
-            print(fig,  '-depsc2', '-cmyk',   '-r300','-tiff','-painters',F);
+            print(figstr,  '-depsc2', '-cmyk',   '-r300', '-noui','-tiff', '-loose','-painters',F);
+            print(figstr,  '-depsc2', '-cmyk',   '-r300', '-noui','-tiff','-painters',F);
         
         case '.fig'
             saveas(fig, F)
         case '.jpg'
-            print(fig,  '-djpeg', '-r72', '-painters', F);
+            print(figstr,  '-djpeg', '-r72', '-noui', '-painters', F);
         case '.pdf'
-            %print(figstr,  '-dpdf',  '-noui', '-cmyk', '-painters',F);
-            print(fig, '-dpdf', '-cmyk', '-painters', F);
+            print(figstr,  '-dpdf',  '-noui', '-cmyk', '-painters',F);
         case '.png'
-            print(fig,  '-dpng', '-r72',  '-painters',F);         
+            print(figstr,  '-dpng', '-r72', '-noui',  '-painters',F);         
         case '.ps'
-            print(fig,  '-dps2',   '-adobecset','-r300', '-noui','-loose', '-painters',  F);
+            print(figstr,  '-dps2',   '-adobecset','-r300', '-noui','-loose', '-painters',  F);
         case '.tiff'
-            print(fig,  '-dtiff', '-r150', F);
+            print(figstr,  '-dtiff', '-r150', '-noui', F);
         otherwise
             errordlg('Unrecognized file extension! Aborting!', 'Naming error')
     end
@@ -116,7 +116,7 @@ end
 
 
 %% This program is part of SplitLab
-% ?2006 Andreas W?tefeld, Universit?de Montpellier, France
+% © 2006 Andreas Wüstefeld, Université de Montpellier, France
 %
 % DISCLAIMER:
 % 

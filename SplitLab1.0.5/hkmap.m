@@ -6,6 +6,7 @@ shift = 10;
 Moho = h1:0.1:h2;
 kappa = k1:0.01:k2;
 weight = [ 0.7, 0.2, 0.1 ] ;% weighting matrix
+linecolor=[0.94 0.27 0.2];
 
 if config.issac 
 %% read sac
@@ -113,7 +114,9 @@ TPsPs = tPsPs(besth, eta_s );
 h=figure(81);
 subplot(2,2,1)
 imagesc(Moho, kappa, stack(:,:,1)); hold on;
-plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
+load('cyan.mat','cyan');
+colormap(cyan);hold on;
+plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5,'Color',linecolor)
 axis square
 cb1 = colorbar('peer',gca);
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
@@ -124,7 +127,8 @@ title('Ps',  'fontname','Times new roman','FontSize',16)
 
 subplot(2,2,2)
 imagesc(Moho, kappa, stack(:,:,2)); hold on;
-plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
+colormap(cyan);hold on;
+plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5,'Color',linecolor)
 axis square
 cb2 = colorbar('peer',gca);
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
@@ -135,7 +139,8 @@ title('PpPs', 'fontname','Times new roman', 'FontSize',16)
 
 subplot(2,2,3)
 imagesc(Moho, kappa, stack(:,:,3)); hold on;
-plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
+colormap(cyan);hold on;
+plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5,'Color',linecolor)
 axis square
 cb3 = colorbar('peer',gca);
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
@@ -146,17 +151,18 @@ title('PsPs & PpSs', 'fontname','Times new roman', 'FontSize',16)
 
 subplot(2,2,4)
 imagesc(Moho, kappa, Normed_stack); hold on;
-plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',1.5)
+colormap(cyan);hold on;
+plot( besth, bestk, 'wx', 'MarkerSize',10,'LineWidth',0.8,'color', linecolor)
 axis square
 %contourf(Moho,kappa,stack_all,'LineStyle','none');hold on;%plot the 1-sigma contour
 %tempstr = num2str(onesigma);
 %onesigma = str2double(tempstr(1:5));
-[~, bb] = contour(Moho,kappa,Normed_stack,[cvalue],'ShowText','off','linestyle','-','linewidth',1.5,'linecolor','k');
+[~, bb] = contour(Moho,kappa,Normed_stack,[cvalue,1],'ShowText','off','linestyle','-','linewidth',1,'linecolor','k');
 cb4 = colorbar('peer',gca);
 %clabel(cc,bb,'fontsize',10,'FontName','Arial','color','k','rotation',0)
 set(gca,'YDir','normal','xlim',[h1 h2],'xminortick','on','yminortick','on')
 set(gca,'ticklength',[0.03,0.5],'linewidth',1.0,'fontsize',15);
-line([besth besth], ylim,'Color','w','LineWidth',1.5);line(xlim, [bestk bestk],'Color','w','LineWidth',1.5); 
+line([besth besth], ylim,'Color',linecolor,'linestyle','--','LineWidth',1);line(xlim, [bestk bestk],'Color',linecolor,'linestyle','--','LineWidth',1); 
 ylabel( 'Vp/Vs','FontSize',16 )
 xlabel( 'H (km)', 'FontSize',16 )
 title(['w1: ' num2str(weight(1)) ', w2: ' num2str(weight(2)) ', w3: ' num2str(weight(3))],  'fontname','Times new roman','FontSize',16)

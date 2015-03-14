@@ -1,7 +1,7 @@
 function config=SL_defaultconfig
 %set the main variables for spliting toolbox
 
-config.version ='SplitRFLab2.1.2';
+config.version ='SplitRFLab2.2.0';
 
  if ispc
     config.host= getenv('COMPUTERNAME');
@@ -12,7 +12,6 @@ else
     user= getenv('USER');
     home= getenv('HOME');
  end
-
 
 
 [p,f] = fileparts(mfilename('fullpath'));  % directory of Splitlab
@@ -80,6 +79,9 @@ config.extime_after=120;
 config.yy       = 1;
 config.ss       = 17;
 config.issac    = 0;
+config.rfformat = 2;
+config.iter     = 1;
+config.rfmethod = 1;
 config.weight1  = 0.7;
 config.weight2  = 0.2;
 config.weight3  = 0.1;

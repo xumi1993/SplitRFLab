@@ -148,7 +148,7 @@ switch option
 
             earth = findobj('Type','Figure','Tag','EarthView');
             close(earth)
-            SL_databaseViewer
+            if config.isoldver;SL_databaseViewer;else;SL_databaseViewer4old;end
         end
 
 end
