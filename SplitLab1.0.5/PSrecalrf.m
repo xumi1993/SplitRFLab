@@ -32,7 +32,7 @@ RadialRF = zeros(RFlength,EV_num);
 TransverseRF = zeros(RFlength,EV_num);
 for i=1:EV_num
     str  = ['Calculate ' char(event(i,:))];
-    head = [num2str(i) '/' num2str(EV_num)];
+    head = ['done...Calculating' num2str(i) 'th of' num2str(EV_num)];
     workbar(i/EV_num, str, head)
     
     disp(event(i,:));

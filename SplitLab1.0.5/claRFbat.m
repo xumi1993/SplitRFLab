@@ -7,7 +7,9 @@ rf = struct();
 for i=1:length(eq)
 %    fprintf(' %s -- analysing event  %s:%4.0f.%03.0f (%.0f/%.0f) --\n',...
 %     datestr(now,13) , config.stnname, thiseq.date(1), thiseq.date(7),config.db_index, length(eq)); 
-
+    str  = ['Calculate ' char(eq(i).seisfiles{1}(config.yy:config.ss))];
+    head = ['done... Do ' num2str(i) 'th of' num2str(length(eq))];
+    workbar(i/length(eq), str, head)
 
 efile = fullfile(config.datadir, eq(i).seisfiles{1});
 nfile = fullfile(config.datadir, eq(i).seisfiles{2});
