@@ -41,10 +41,10 @@ for i=1:EV_num
     [TransverseRF(:,i), RMS_T,it_num_T] = makeRFitdecon_la( datat(:,i), dataz(:,i), dt, RFlength, Shift, f0, ...
 				 niter, minderr);
 end
-OUT_path = fulfile(config.RFdatapath,config.stnname);
+OUT_path = fullfile(config.RFdatapath,config.stnname);
 if( ~exist( OUT_path , 'dir') )
      mkdir( OUT_path ); end
-fid_finallist = fopen(fullfile(OUT_path,[Station 'finallist.dat']),'a+');
+fid_finallist = fopen(fullfile(OUT_path,[config.stnname 'finallist.dat']),'a+');
 disp('Save RFs...') 
 for m=1:EV_num  
    %OUTPUT Radial RFs
