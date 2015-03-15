@@ -106,7 +106,7 @@ Z3 = seis3(:,3);
 niter = 400;  % number iterations
 minderr = 0.001;  % stop when error reaches limit
 
-fprintf([num2str(i) 'th---\n'])
+% fprintf([num2str(i) 'th---\n'])
 if config.iter == 1
 [RadialRF1, RMS_R,it_num_R] = makeRFitdecon_la( R1, Z1, out.dt, RFlength, config.extime_before, config.f0, ...
 				 niter, minderr);

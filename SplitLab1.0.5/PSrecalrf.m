@@ -7,7 +7,7 @@ if ~config.issac
 EV_num=length(evdep);
 %% read RF data
 m=1;
-disp('Read RF data...');
+workbar(0,'Read RF data...','done')
 while 1
     if m==EV_num+1
     break,end;
@@ -45,7 +45,8 @@ OUT_path = fullfile(config.RFdatapath,config.stnname);
 if( ~exist( OUT_path , 'dir') )
      mkdir( OUT_path ); end
 fid_finallist = fopen(fullfile(OUT_path,[config.stnname 'finallist.dat']),'a+');
-disp('Save RFs...') 
+
+workbar(1)
 for m=1:EV_num  
    %OUTPUT Radial RFs
         fidR = fopen(fullfile(OUT_path,[char(event(m,:)) '_P_R.dat']),'w+');        
