@@ -13,8 +13,13 @@ f1 = thiseq.filter(1);
 f2 = thiseq.filter(2);
 
 o         = thiseq.Amp.time(1);%common offset of all files after hypotime
-extbegin  = floor( (thiseq.a - config.extime_before - o) / thiseq.dt); %index of first element of amplitude verctor of the selected time window
-extfinish = floor( (thiseq.a + config.extime_after - o) / thiseq.dt); %index of last element
+if ~isfield(thiseq, 'a')
+    extbegin = floor( (thiseq.phase.ttimes(1) - config.extime_before - o) / thiseq.dt);
+    extfinish = floor( (thiseq.phase.ttimes(1) + config.extime_after - o) / thiseq.dt);
+else
+    extbegin  = floor( (thiseq.a - config.extime_before - o) / thiseq.dt); %index of first element of amplitude verctor of the selected time window
+    extfinish = floor( (thiseq.a + config.extime_after - o) / thiseq.dt); %index of last element
+end
 extIndex  = extbegin:extfinish;%create vector of indices to elements of extended selection window
 
 switch thiseq.system
@@ -136,7 +141,7 @@ else
      fclose(fiddataZ);
   
      fid_finallist = fopen(fullfile(OUT_path,[config.stnname 'finallist.dat']),'a+');
-     fprintf(fid_finallist,'%s %s %f %f %f %f %f %f %f %f\n',thiseq.seisfiles{1}(config.yy:config.ss),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw);
-   
+     fprintf(fid_finallist,'%s %s %f %f %f %f %f %f %f %f\n',thiseq.seisfiles{1}(config.yy:config.ss),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,config.f0);
+     fclose(fid_finallist);
 end
 disp(['Saving ' thiseq.seisfiles{1}(config.yy:config.ss) ' Succesful!!!'])
