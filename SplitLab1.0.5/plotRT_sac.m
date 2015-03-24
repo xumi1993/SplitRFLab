@@ -7,16 +7,16 @@ path = fullfile(config.RFdatapath,config.stnname);
 sac_all = dir(fullfile(path,'*R.sac'));
 dat = struct();
 for i = 1:length(sac_all)
-    sac_split = regexp(sac_all(i).name,'_','split');
-    sacname = sac_split(1);
+    sacname = regexpi(sac_all(i).name,'\d+^\w\d+^\w\d+^\w\d+^\w\d+','match');
     nowsac = rsac(fullfile(path,sac_all(i).name));
+    phase = strtrim(lh(nowsac,'KT1'));
     disp(char(sacname))
     dat(i).name = sacname;
     dat(i).R = nowsac(:,2);
-    nowsac = rsac(fullfile(path,[char(sacname) '_' char(sac_split(2)) '_T.sac']));
+    nowsac = rsac(fullfile(path,[char(sacname) '_' char(phase) '_T.sac']));
     dat(i).T = nowsac(:,2);
     dat(i).rayp = lh(nowsac,'USER0');
-    dat(i).bazi = lh(nowsac,'BAZ');    
+    dat(i).bazi = lh(nowsac,'BAZ');   
 end
 f0 = num2str(lh(nowsac,'USER1'),'%5.1f');
 %% sort by bazi
