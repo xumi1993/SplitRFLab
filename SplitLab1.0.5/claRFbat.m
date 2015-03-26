@@ -26,18 +26,19 @@ catch
 end
 
 
-o         =eq(i).offset(1);
+o         = eq(i).offset(1);
 extbegin  = floor( (eq(i).phase.ttimes(1) - config.extime_before - o) / out.dt);
 extfinish = floor( (eq(i).phase.ttimes(1) + config.extime_after - o) / out.dt); %index of last element
 extIndex  = extbegin:extfinish;%create vector of indices to elements of extended selection window
 RFlength  = length(extIndex);
 
+
 if length(out.Amp.East)<extfinish
     continue
 end
-E =  out.Amp.East(extIndex);
-N =  out.Amp.North(extIndex);
-Z =  out.Amp.Vert(extIndex);
+E =  out.Amp.East;
+N =  out.Amp.North;
+Z =  out.Amp.Vert;
 
 ny    = 1/(2*out.dt);%nyquist freqency of seismogramm
 n     = 3; %filter order
@@ -51,54 +52,69 @@ f4 = 0.03;
 [b2,a2]  = butter(n, [f3 f2]/ny);
 [b3,a3]  = butter(n, [f1 f2]/ny);
 
- E1 = filtfilt(b1,a1,E); 
- N1 = filtfilt(b1,a1,N);
- Z1 = filtfilt(b1,a1,Z);
  
- E2 = filtfilt(b2,a2,E); 
- N2 = filtfilt(b2,a2,N);
- Z2 = filtfilt(b2,a2,Z);
+    E = detrend(E,'constant');
+    E = detrend(E,'linear');
+    N = detrend(N,'constant');
+    N = detrend(N,'linear');
+    Z = detrend(Z,'constant');
+    Z = detrend(Z,'linear');
+        
+    E1 = filtfilt(b1,a1,E); 
+    N1 = filtfilt(b1,a1,N);
+    Z1 = filtfilt(b1,a1,Z);
  
- E3 = filtfilt(b3,a3,E); 
- N3 = filtfilt(b3,a3,N);
- Z3 = filtfilt(b3,a3,Z);
+    E2 = filtfilt(b2,a2,E); 
+    N2 = filtfilt(b2,a2,N);
+    Z2 = filtfilt(b2,a2,Z);
  
-    E1 = detrend(E1,'constant');
-    E1 = detrend(E1,'linear');
-    N1 = detrend(N1,'constant');
-    N1 = detrend(N1,'linear');
-    Z1 = detrend(Z1,'constant');
-    Z1 = detrend(Z1,'linear');
-    
-    E2 = detrend(E2,'constant');
-    E2 = detrend(E2,'linear');
-    N2 = detrend(N2,'constant');
-    N2 = detrend(N2,'linear');
-    Z2 = detrend(Z2,'constant');
-    Z2 = detrend(Z2,'linear');
-    
-    E3 = detrend(E3,'constant');
-    E3 = detrend(E3,'linear');
-    N3 = detrend(N3,'constant');
-    N3 = detrend(N3,'linear');
-    Z3 = detrend(Z3,'constant');
-    Z3 = detrend(Z3,'linear');
+    E3 = filtfilt(b3,a3,E); 
+    N3 = filtfilt(b3,a3,N);
+    Z3 = filtfilt(b3,a3,Z);
     
     seis1 = rotateSeisENZtoTRZ( [E1, N1, Z1] , eq(i).bazi );
     seis2 = rotateSeisENZtoTRZ( [E2, N2, Z2] , eq(i).bazi );
     seis3 = rotateSeisENZtoTRZ( [E3, N3, Z3] , eq(i).bazi );
+
     
-T1 = seis1(:,1);
-R1 = seis1(:,2);
-Z1 = seis1(:,3);
+    T1 = seis1(:,1);
+    T1 = T1(extIndex);
+    R1 = seis1(:,2);
+    R1 = R1(extIndex);
+    Z1 = seis1(:,3);
+    Z1 = Z1(extIndex);
 
-T2 = seis2(:,1);
-R2 = seis2(:,2);
-Z2 = seis2(:,3);
+     
+    snrbegin  = floor( (eq(i).phase.ttimes(1) - 100 - o) / out.dt);
+    snrfinish = floor( (eq(i).phase.ttimes(1) + 100 - o) / out.dt);
+    snro = floor( (eq(i).phase.ttimes(1) - o) / out.dt);
+    In  = snrbegin:snro;
+    I   = snro:snrfinish;
+    T = seis1(:,1);
+    R = seis1(:,2);
+    Z = seis1(:,3);
+    snrR = snr(R(I),R(In));
+    snrT = snr(T(I),T(In));
+    snrZ = snr(Z(I),Z(In));
+    
+    if snrR < 7 || snrZ < 7
+        continue
+    end
+    
+    T2 = seis2(:,1);
+    T2 = T2(extIndex);
+    R2 = seis2(:,2);
+    R2 = R2(extIndex);
+    Z2 = seis2(:,3);
+    Z2 = Z2(extIndex);
 
-T3 = seis3(:,1);
-R3 = seis3(:,2);
-Z3 = seis3(:,3);
+    T3 = seis3(:,1);
+    T3 = T3(extIndex);
+    R3 = seis3(:,2);
+    R3 = R3(extIndex);
+    Z3 = seis3(:,3);
+    Z3 = Z3(extIndex);
+   
 
 
 % Shift = 10; %RF starts at 10 s
@@ -174,6 +190,9 @@ rf(i).dis = eq(i).dis;
 rf(i).bazi = eq(i).bazi;
 rf(i).Mw = eq(i).Mw;
 rf(i).RFlength = RFlength;
+rf(i).snrR = snrR;
+rf(i).snrT = snrT;
+rf(i).snrZ = snrZ;
 end
 
 rfview = findobj('Tag','RFButton');

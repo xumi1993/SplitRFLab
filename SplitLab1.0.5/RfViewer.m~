@@ -28,7 +28,7 @@ if isempty(rf(idx).RadialRF_f1)
     titlestr = 'Broken SAC file or low SNR !!!';
     
 rffig = findobj('Tag','RFFigure');
-figname = sprintf(['Event: %s; Station: %s; (' num2str(idx) '/' num2str(length(rf)) ')'],eq(idx).dstr, config.stnname);
+figname = sprintf(['Event: %s; Station: %s; (' num2str(idx) '/' num2str(length(rf)) ')'],eq(idx).seisfile, config.stnname);
 if isempty(rffig)
     pos=get(0,'ScreenSize');
     width= pos(3)/2.5 ; height=pos(4);
@@ -54,8 +54,7 @@ else
         'WindowButtonDownFcn','',  'PaperOrientation','landscape')
 end
 rfseis(1) = subplot(1,1,1);
-axis off;
-title(gca,titlestr,'FontSize',14)
+titlle(titlestr,'FontSize',14)
 rffigbuttons(rffig);  
 set(rffig,'KeyPressFcn',{@rfKeyPress,rfseis});
 return

@@ -8,7 +8,7 @@ tmp = zeros(EV_num,length(tau_range));
 for j = 1:length(rayp_range)
     for i = 1:EV_num
         seis(:,i)=seis(:,i)./max(abs(seis(:,i)));
-        tps = tau_range + rayp_range(j) * (ref_dis - dis(i));
+        tps = tau_range - rayp_range(j) * (dis(i) - ref_dis);
         tmp(i,:) = interp1(timeaxis',seis(:,i),tps')';
     end
     nanidx = find(isnan(tmp));
@@ -18,7 +18,3 @@ for j = 1:length(rayp_range)
 end
 
 
-% % stack = mean(amp,3);
-% imagesc(tau,rayp_range,amp)
-% load('Slant_stack_color.mat');
-% colormap(mycmap)
