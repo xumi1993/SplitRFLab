@@ -22,6 +22,43 @@ end
 try
  out=readseis3D_forRF(config,i);
 catch
+rf(i).RadialRF_f1 = [];
+rf(i).TransverseRF_f1 = [];
+rf(i).RadialRF_f2 = [];
+rf(i).TransverseRF_f2 = [];
+rf(i).RadialRF_f3 = [];
+rf(i).TransverseRF_f3 = [];
+rf(i).RMS_R = [];
+rf(i).RMS_T = [];
+rf(i).it_num_R = [];
+rf(i).it_num_T = [];
+rf(i).a = [];
+rf(i).f1 = [];
+rf(i).f2 = [];
+rf(i).f3 = [];
+rf(i).f4 = [];
+rf(i).T1 = [];
+rf(i).R1 = [];
+rf(i).Z1 = [];
+rf(i).T2 = [];
+rf(i).R2 = [];
+rf(i).Z2 = [];
+rf(i).T3 = [];
+rf(i).R3 = [];
+rf(i).Z3 = [];
+rf(i).dt = [];
+rf(i).seisfile = [];
+rf(i).phase = [];
+rf(i).lat = [];
+rf(i).lon = [];
+rf(i).depth = [];
+rf(i).dis = [];
+rf(i).bazi = [];
+rf(i).Mw = [];
+rf(i).RFlength = [];
+rf(i).snrR = [];
+rf(i).snrT = [];
+rf(i).snrZ = [];
     continue
 end
 
@@ -98,6 +135,43 @@ f4 = 0.03;
     snrZ = snr(Z(I),Z(In));
     
     if snrR < 7 || snrZ < 7
+rf(i).RadialRF_f1 = [];
+rf(i).TransverseRF_f1 = [];
+rf(i).RadialRF_f2 = [];
+rf(i).TransverseRF_f2 = [];
+rf(i).RadialRF_f3 = [];
+rf(i).TransverseRF_f3 = [];
+rf(i).RMS_R = [];
+rf(i).RMS_T = [];
+rf(i).it_num_R = [];
+rf(i).it_num_T = [];
+rf(i).a = [];
+rf(i).f1 = [];
+rf(i).f2 = [];
+rf(i).f3 = [];
+rf(i).f4 = [];
+rf(i).T1 = [];
+rf(i).R1 = [];
+rf(i).Z1 = [];
+rf(i).T2 = [];
+rf(i).R2 = [];
+rf(i).Z2 = [];
+rf(i).T3 = [];
+rf(i).R3 = [];
+rf(i).Z3 = [];
+rf(i).dt = [];
+rf(i).seisfile = [];
+rf(i).phase = [];
+rf(i).lat = [];
+rf(i).lon = [];
+rf(i).depth = [];
+rf(i).dis = [];
+rf(i).bazi = [];
+rf(i).Mw = [];
+rf(i).RFlength = [];
+rf(i).snrR = [];
+rf(i).snrT = [];
+rf(i).snrZ = [];
         continue
     end
     
