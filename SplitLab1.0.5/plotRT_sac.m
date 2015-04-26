@@ -7,7 +7,7 @@ path = fullfile(config.RFdatapath,config.stnname);
 sac_all = dir(fullfile(path,'*R.sac'));
 dat = struct();
 for i = 1:length(sac_all)
-    sacname = regexpi(sac_all(i).name,'\d+^\w\d+^\w\d+^\w\d+^\w\d+','match');
+    sacname = regexpi(sac_all(i).name,'\d+\W\d+\W\d+\W\d+\W\d+','match');
     nowsac = rsac(fullfile(path,sac_all(i).name));
     phase = strtrim(lh(nowsac,'KT1'));
     disp(char(sacname))
@@ -132,7 +132,7 @@ text(-7,0,'Sum');
 
 %% figure beauty
 h3=subplot(2,3,6); evnum=(1:1:EV_num);
-plot(bazi,evnum,'o','Markersize',5.0);set(h3,'xtick',[0:60:360],'ytick',[],'ylim',[0 m],'xlim',[0 360]);box on;xlabel(h3,['Backazimuth (' '\circ' ')'],'FontSize',16);
+plot(bazi,evnum,'o','Markersize',5.0);set(h3,'xtick',[0:60:360],'ytick',[],'ylim',[0 m+2],'xlim',[0 360]);box on;xlabel(h3,['Backazimuth (' '\circ' ')'],'FontSize',16);
 set(h3, 'XGrid','on','lineWidth',1);title(h3,'Backazimuth of events','FontSize',18,'FontName','Times new roman');
 xlabel(h1,'Time after P (s)','FontSize',16);ylabel(h1,'Event','FontSize',16);title(h4,['R components' ' (' config.stnname ')'],'FontSize',18,'FontName','Times new roman');
 xlabel(h2,'Time after P (s)','FontSize',16);ylabel(h2,['Backazimuth (' '\circ' ')'],'FontSize',16);title(h5,['T components' ' (' config.stnname ')'],'FontSize',18,'FontName','Times new roman');
