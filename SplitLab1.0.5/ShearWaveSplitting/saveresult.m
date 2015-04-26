@@ -49,21 +49,21 @@ eq(num).results(n).timestamp  =  datestr(now);
 %change here, if you dont like the figure output (resolution etc)
 switch config.exportformat
     case '.ai'
-        option={ '-dill', '-noui'};
+        option={ '-dill'};
     case '.eps'
-        option={ '-depsc2', '-cmyk',   '-r300', '-noui','-tiff', '-loose','-painters'};
+        option={ '-depsc2', '-cmyk', '-r300', '-tiff', '-loose','-painters'};
     case '.fig'
         option={};
     case '.jpg'
-        option={ '-djpeg', '-r300', '-noui', '-painters'};
+        option={ '-djpeg', '-r300', '-painters'};
     case '.pdf'
-        option={ '-dpdf',  '-noui', '-cmyk', '-painters'};
+        option={ '-dpdf', '-cmyk', '-painters'};
     case '.png'
-        option={ '-dpng', '-r300', '-noui',  '-painters'};
+        option={ '-dpng', '-r300',  '-painters'};
     case '.ps'
-        option={ '-dps2',   '-adobecset','-r300', '-noui','-loose', '-painters'};
+        option={ '-dps2',   '-adobecset','-r300','-loose', '-painters'};
     case '.tiff'
-        option={ '-dtiff', '-r150', '-noui'};
+        option={ '-dtiff', '-r150'};
 end
 %% save results plots
 fname = sprintf('%4.0f.%03.0f.%02.0f_result_%s%s',...
@@ -142,7 +142,7 @@ fclose(fid);
 SL_SeismoViewer(thiseq.index)
 
 %% This program is part of SplitLab
-% © 2006 Andreas Wüstefeld, Université de Montpellier, France
+% ?2006 Andreas W?tefeld, Universit?de Montpellier, France
 %
 % DISCLAIMER:
 % 

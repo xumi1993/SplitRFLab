@@ -189,7 +189,11 @@ line([0 maxtime], [phiRC(2) phiRC(2)],'Color',[0 0 1])
 title('Map of Correlation Coefficient','FontSize',titlefontsize);
 %xlabel('dt [s]', 'Fontsize',fontsize-1);
 ylabel('fast axis', 'Fontsize',fontsize-1)
-label = ['0' sprintf('|%u',1:maxtime) 'sec'];
+timelabel = 0:1:maxtime;
+label = cell(1,length(timelabel));
+for i = 1:length(timelabel)
+label{i} = [sprintf('%u',timelabel(i)) ' sec'];
+end
 set(gca, 'Xtick',[0:1:maxtime], 'XtickLabel', label ,'Ytick',[-90:30:90],'xMinorTick','on','yminorTick','on')
 axis([ts(1) ts(end) -90 90])
 set(h,'FaceColor',[1 1 1]*.90,'EdgeColor','k','linestyle','-','linewidth',1)
