@@ -134,7 +134,7 @@ f4 = 0.03;
     snrT = snr(T(I),T(In));
     snrZ = snr(Z(I),Z(In));
     
-    if snrR < 7 || snrZ < 7
+    if snrR < config.snrgate || snrZ < config.snrgate
 rf(i).RadialRF_f1 = [];
 rf(i).TransverseRF_f1 = [];
 rf(i).RadialRF_f2 = [];

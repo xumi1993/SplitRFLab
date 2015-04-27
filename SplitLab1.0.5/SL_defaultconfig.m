@@ -1,7 +1,7 @@
 function config=SL_defaultconfig
 %set the main variables for spliting toolbox
 
-config.version ='SplitRFLab2.2.0';
+config.version ='SplitRFLab2.3.0';
 
  if ispc
     config.host= getenv('COMPUTERNAME');
@@ -85,6 +85,7 @@ config.rfmethod = 1;
 config.weight1  = 0.7;
 config.weight2  = 0.2;
 config.weight3  = 0.1;
+config.snrgate  = 7;
 
 config.request.label     = 'label'; 
 config.request.format    = 'NetDC';

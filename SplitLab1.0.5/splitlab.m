@@ -6,7 +6,7 @@ global config eq
 
 
 SL_checkversion
-config.version='SplitRFLab2.2.0';
+config.version='SplitRFLab2.3.0';
 
 matver = version;
 R2014b = 'R2014b';
