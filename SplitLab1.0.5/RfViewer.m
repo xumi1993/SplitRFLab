@@ -55,9 +55,16 @@ else
 end
 rfseis(1) = subplot(1,1,1);
 axis off;
-title(gca,titlestr,'FontSize',14)
+title(gca,titlestr,'FontSize',18,'color','r');
 rffigbuttons(rffig);  
 set(rffig,'KeyPressFcn',{@rfKeyPress,rfseis});
+
+earthfig= findobj('Type','Figure','Tag','EarthView');
+if ~isempty(earthfig)
+  SL_Earthview(thisrf.lat, thisrf.lon, thisrf.Mw, thisrf.depth, eq(idx).date(2))
+% set(0,'CurrentFigure',seisfig)
+%  set(seisfig,'Position',figpos);
+end    
 return
 end
 

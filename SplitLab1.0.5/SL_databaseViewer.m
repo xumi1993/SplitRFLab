@@ -69,8 +69,8 @@ uimenu(h.cmenu, 'Label', 'Delete','UserData',h.list,...
         'tmp3 =get(tmpobj,''String''); '...
         'set(tmpobj,''value'',[],''string'',tmp3(tmp2,:)); clear tmp*']);
 
-
-
+m4 = uimenu(h.dlg,'Label',   'File');
+uimenu(m4, 'Label', 'Save current list', 'Accelerator','s', 'Callback', 'savelist');
 %% result list
 header = '  Phase  \Phi_{SC}  \Phi_{RC}   \deltat_{SC}   \deltat_{RC}  Quality  Null     Filter       Remark';
 h.info(1)=uipanel('parent',h.dlg, 'units','pixel', 'Position',[40 40 ext(3)+17 100],'tag','ResultsPanel');

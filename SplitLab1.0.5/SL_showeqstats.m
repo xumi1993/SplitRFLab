@@ -43,7 +43,7 @@ else
 end
 orient landscape
         m4 = uimenu(eqfig,'Label',   'Figure');
-        uimenu(m4,'Label',  'Save current figure',  'Callback','if config.isoldver;exportfiguredlg4old(gcbf, [config.stnname ''_EQstats'' config.exportformat], config.savedir);else;exportfiguredlg(gcbf, [config.stnname ''_EQstats'' config.exportformat], config.savedir);end');
+uimenu(m4,'Label',  'Save current figure',  'Callback','if config.isoldver;exportfiguredlg4old(gcbf, [config.stnname ''_EQstats'' config.exportformat], config.savedir);else;exportfiguredlg(gcbf, [config.stnname ''_EQstats'' config.exportformat], config.savedir);end');
 uimenu(m4,'Label',  'Page setup',           'Callback','printpreview(gcbf)');
 uimenu(m4,'Label',  'Print preview',        'Callback','printpreview(gcbf)');
 uimenu(m4,'Label',  'Print current figure', 'Callback','printdlg(gcbf)');
