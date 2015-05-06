@@ -69,7 +69,7 @@ if( ~exist( OUT_path , 'dir') )
         Ev_para = taupTime('iasp91',rf(i).depth,rf(i).phase,'sta',[config.slat,config.slong],'evt',[rf(i).lat,rf(i).lon]);   
         Ev_para = srad2skm(Ev_para(1).rayParam);       
         fprintf(fid_finallist,'%s %s %f %f %f %f %f %f %f %f\n',rf(i).seisfile,rf(i).phase,rf(i).lat,rf(i).lon,rf(i).depth,rf(i).dis,rf(i).bazi,Ev_para,rf(i).Mw,config.f0);
-
+        flocse(fid_iter_R);fclose(fid_iter_T);fclose(fid_finallist);
         
      
      fiddataT = fopen(fullfile(OUT_path1,[rf(i).seisfile '_RFdata_T.dat']),'w+');
@@ -112,5 +112,6 @@ if( ~exist( OUT_path , 'dir') )
      fclose(fiddataZ);
      
      fprintf(fid_finallist1,'%s %s %f %f %f %f %f %f %f %f\n',rf(i).seisfile,rf(i).phase,rf(i).lat,rf(i).lon,rf(i).depth,rf(i).dis,rf(i).bazi,Ev_para,rf(i).Mw,config.f0);
+     fclose(fid_finallist1)
 
 return
