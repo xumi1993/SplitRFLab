@@ -12,7 +12,7 @@ hms   = ' %02.0f:%02.0f:%02.0f';
 fid = fopen(fullfile(pname,fname),'w+');
 fprintf(fid,'Date\tTime\tJulian day\tFilename\tEv_lat\tEv_lon\tEv_dep\tBazi\tDis\tMw\n');
 for i = 1:length(eq)
-    if eq(i).seisfiles{1} == ''
+    if isempty(eq(i).seisfiles{1})
         seisfile = 'No seisfiles';
     else
         seisfile = eq(i).seisfiles{1}(config.yy:config.ss);
