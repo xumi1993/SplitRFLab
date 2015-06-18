@@ -211,7 +211,7 @@ for m=1:2
         'USER1',  config.f0,...
         'KUSER0', 'G fator',...
         'NZMSEC', round((thiseq.date(6) - floor(thiseq.date(6)))*1000));
-    fname = [thiseq.seisfiles{1}(config.yy:config.ss) '_' thiseq.SplitPhase '_' cname(m) '.sac'];
+    fname = [dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_' thiseq.SplitPhase '_' cname(m) '.sac'];
     outname = fullfile(OUT_path,fname);
     wsac(outname, tmp)
 end
@@ -253,7 +253,7 @@ for m=1:3
         'USER0',  Ev_para,...
         'KUSER0', 'Ray parameter',...
         'NZMSEC', round((thiseq.date(6) - floor(thiseq.date(6)))*1000));
-    fname = [thiseq.seisfiles{1}(config.yy:config.ss) '_RFdata_' cname(m) '.sac'];
+    fname = [dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_RFdata_' cname(m) '.sac'];
     outname = fullfile(OUT_path1,fname);
     wsac(outname, tmp)
 end

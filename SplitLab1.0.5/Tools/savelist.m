@@ -15,7 +15,7 @@ for i = 1:length(eq)
     if isempty(eq(i).seisfiles{1})
         seisfile = 'No seisfiles';
     else
-        seisfile = eq(i).seisfiles{1}(config.yy:config.ss);
+        seisfile = dname(eq(i).date(1),eq(i).date(2),eq(i).date(3),eq(i).date(4),eq(i).date(5),eq(i).date(6));
     end
     fprintf(fid,'%s\t%s\t%s\t%s\t%f\t%f\t%f\t%f\t%f\t%f\n',...
         eq(i).dstr,...

@@ -5,62 +5,26 @@ rf = struct();
 
 
 for i=1:length(eq)
-%    fprintf(' %s -- analysing event  %s:%4.0f.%03.0f (%.0f/%.0f) --\n',...
-%     datestr(now,13) , config.stnname, thiseq.date(1), thiseq.date(7),config.db_index, length(eq)); 
-    str  = ['Calculate ' char(eq(i).seisfiles{1}(config.yy:config.ss))];
+    %    fprintf(' %s -- analysing event  %s:%4.0f.%03.0f (%.0f/%.0f) --\n',...
+    %     datestr(now,13) , config.stnname, thiseq.date(1), thiseq.date(7),config.db_index, length(eq));
+    str  = ['Calculate ' char(dname(eq(i).date(1), eq(i).date(2), eq(i).date(3), eq(i).date(4), eq(i).date(5), eq(i).date(6)))];
     head = ['done... Do ' num2str(i) 'th of' num2str(length(eq))];
     workbar(i/length(eq), str, head)
-
-efile = fullfile(config.datadir, eq(i).seisfiles{1});
-nfile = fullfile(config.datadir, eq(i).seisfiles{2});
-zfile = fullfile(config.datadir, eq(i).seisfiles{3});
-if ~exist(efile,'file')||~exist(nfile,'file')||~exist(zfile,'file')
-    errordlg({'Seismograms not found!','Please check data directory',efile,nfile,zfile},'File I/O Error')
-   continue
-end
-
-try
- out=readseis3D_forRF(config,i);
-catch
-rf(i).RadialRF_f1 = [];
-rf(i).TransverseRF_f1 = [];
-rf(i).RadialRF_f2 = [];
-rf(i).TransverseRF_f2 = [];
-rf(i).RadialRF_f3 = [];
-rf(i).TransverseRF_f3 = [];
-rf(i).RMS_R = [];
-rf(i).RMS_T = [];
-rf(i).it_num_R = [];
-rf(i).it_num_T = [];
-rf(i).a = [];
-rf(i).f1 = [];
-rf(i).f2 = [];
-rf(i).f3 = [];
-rf(i).f4 = [];
-rf(i).T1 = [];
-rf(i).R1 = [];
-rf(i).Z1 = [];
-rf(i).T2 = [];
-rf(i).R2 = [];
-rf(i).Z2 = [];
-rf(i).T3 = [];
-rf(i).R3 = [];
-rf(i).Z3 = [];
-rf(i).dt = [];
-rf(i).seisfile = [];
-rf(i).phase = [];
-rf(i).lat = [];
-rf(i).lon = [];
-rf(i).depth = [];
-rf(i).dis = [];
-rf(i).bazi = [];
-rf(i).Mw = [];
-rf(i).RFlength = [];
-rf(i).snrR = [];
-rf(i).snrT = [];
-rf(i).snrZ = [];
-    continue
-end
+    
+    efile = fullfile(config.datadir, eq(i).seisfiles{1});
+    nfile = fullfile(config.datadir, eq(i).seisfiles{2});
+    zfile = fullfile(config.datadir, eq(i).seisfiles{3});
+    if ~exist(efile,'file')||~exist(nfile,'file')||~exist(zfile,'file')
+        errordlg({'Seismograms not found!','Please check data directory',efile,nfile,zfile},'File I/O Error')
+        continue
+    end
+    
+    try
+        out=readseis3D_forRF(config,i);
+    catch
+        rf(i).RadialRF_f1 = [];
+        continue
+    end
 
 
 o         = eq(i).offset(1);
@@ -135,43 +99,7 @@ f4 = 0.03;
     snrZ = snr(Z(I),Z(In));
     
     if snrR < config.snrgate || snrZ < config.snrgate
-rf(i).RadialRF_f1 = [];
-rf(i).TransverseRF_f1 = [];
-rf(i).RadialRF_f2 = [];
-rf(i).TransverseRF_f2 = [];
-rf(i).RadialRF_f3 = [];
-rf(i).TransverseRF_f3 = [];
-rf(i).RMS_R = [];
-rf(i).RMS_T = [];
-rf(i).it_num_R = [];
-rf(i).it_num_T = [];
-rf(i).a = [];
-rf(i).f1 = [];
-rf(i).f2 = [];
-rf(i).f3 = [];
-rf(i).f4 = [];
-rf(i).T1 = [];
-rf(i).R1 = [];
-rf(i).Z1 = [];
-rf(i).T2 = [];
-rf(i).R2 = [];
-rf(i).Z2 = [];
-rf(i).T3 = [];
-rf(i).R3 = [];
-rf(i).Z3 = [];
-rf(i).dt = [];
-rf(i).seisfile = [];
-rf(i).phase = [];
-rf(i).lat = [];
-rf(i).lon = [];
-rf(i).depth = [];
-rf(i).dis = [];
-rf(i).bazi = [];
-rf(i).Mw = [];
-rf(i).RFlength = [];
-rf(i).snrR = [];
-rf(i).snrT = [];
-rf(i).snrZ = [];
+        rf(i).RadialRF_f1 = [];
         continue
     end
     
@@ -255,7 +183,7 @@ rf(i).T3 = T3;
 rf(i).R3 = R3;
 rf(i).Z3 = Z3;
 rf(i).dt = out.dt;
-rf(i).seisfile = eq(i).seisfiles{1}(config.yy:config.ss);
+rf(i).seisfile = dname(eq(i).date(1), eq(i).date(2), eq(i).date(3), eq(i).date(4), eq(i).date(5), eq(i).date(6));
 rf(i).phase = eq(i).phase.Names{1};
 rf(i).lat = eq(i).lat;
 rf(i).lon = eq(i).long;

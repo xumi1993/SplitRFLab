@@ -10,6 +10,8 @@ for n=1:length(filelist)
     fstr = char(filelist(n));
 
     switch config.FileNameConvention
+        case 'miniseed'
+            pos = 13;
         case 'YAFormat'
             pos = 37;
         case 'TibetFormat'

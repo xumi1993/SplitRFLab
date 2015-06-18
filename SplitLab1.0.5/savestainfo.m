@@ -2,13 +2,23 @@ function savestainfo(stnname)
 
 global  config 
 
-OUT_path= config.stapath;
-[st,la,lo,el]=textread(OUT_path,'%s %f %f %d',-1);
+OUT_path = config.stapath;
+fid_Stalist = fopen(OUT_path,'a+');
+[st,la,lo,el] = textread(OUT_path,'%s %f %f %d',-1);
 idx=find(strcmp(st,stnname));
-config.slat=la(idx);
-config.slong=lo(idx);
-config.sele=el(idx);
-fprintf('Stalat=%f;Stalon=%f;Staelev=%d\n',config.slat,config.slong,config.sele)
+if ~isempty(idx)
+    slat=la(idx);
+    slong=lo(idx);
+    sele=el(idx);
+    warndlg('You have saved this station!','warn Dialog Box','modal');
+else
+    slat=config.slat;
+    slong=config.slong;
+    sele=config.sele;
+    fprintf(fid_Stalist,'%s %6.3f %6.3f\n',stnname,slat,slong);
+    helpdlg('Saving succesful!!!', 'Info');   
+end
+% fprintf('Stalat=%f;Stalon=%f;Staelev=%d\n',config.slat,config.slong,config.sele)
 
 % % if( ~exist( fullfile(OUT_path,filename) , 'file') )
 % %   fid_Stalist = fopen(fullfile(OUT_path,filename),'a+');

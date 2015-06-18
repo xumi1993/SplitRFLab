@@ -121,27 +121,27 @@ for m=1:3
         'USER0',  Ev_para,...
         'KUSER0', 'Ray parameter',...
         'NZMSEC', round((thiseq.date(6) - floor(thiseq.date(6)))*1000));
-    fname = [thiseq.seisfiles{1}(config.yy:config.ss) '_' cname(m) '.sac'];
+    fname = [dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_' cname(m) '.sac'];
     outname = fullfile(OUT_path,fname);
     wsac(outname, tmp)
 end
 else
      if( ~exist( OUT_path , 'dir') )
          mkdir( OUT_path ); end
-     fiddataT = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(config.yy:config.ss) '_' nch1 '_' config.stnname '.dat']),'w+'); 
+     fiddataT = fopen(fullfile(OUT_path,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_' nch1 '_' config.stnname '.dat']),'w+'); 
      fprintf(fiddataT,'%20.19f\n',ch1);
      fclose(fiddataT);
      
-     fiddataR = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(config.yy:config.ss) '_' nch2 '_' config.stnname '.dat']),'w+'); 
+     fiddataR = fopen(fullfile(OUT_path,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_' nch2 '_' config.stnname '.dat']),'w+'); 
      fprintf(fiddataR,'%20.19f\n',ch2);
      fclose(fiddataR);
      
-     fiddataZ = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(config.yy:config.ss) '_' nch3 '_' config.stnname '.dat']),'w+'); 
+     fiddataZ = fopen(fullfile(OUT_path,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_' nch3 '_' config.stnname '.dat']),'w+'); 
      fprintf(fiddataZ,'%20.19f\n',ch3);
      fclose(fiddataZ);
   
      fid_finallist = fopen(fullfile(OUT_path,[config.stnname 'finallist.dat']),'a+');
-     fprintf(fid_finallist,'%s %s %f %f %f %f %f %f %f %f\n',thiseq.seisfiles{1}(config.yy:config.ss),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,config.f0);
+     fprintf(fid_finallist,'%s %s %f %f %f %f %f %f %f %f\n',dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,config.f0);
      fclose(fid_finallist);
 end
-disp(['Saving ' thiseq.seisfiles{1}(config.yy:config.ss) ' Succesful!!!'])
+disp(['Saving ' dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) ' Succesful!!!'])

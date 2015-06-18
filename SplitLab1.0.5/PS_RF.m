@@ -218,27 +218,27 @@ if strcmp(button, 'Yes')
      fid_iter_T = fopen(fullfile(OUT_path,[config.stnname 'iter_T.dat']),'a+');
      fid_finallist = fopen(fullfile(OUT_path,[config.stnname 'finallist.dat']),'a+');
       %OUTPUT Radial RFs
-        fidR = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(config.yy:config.ss) '_' thiseq.SplitPhase '_R.dat']),'w+');        
+        fidR = fopen(fullfile(OUT_path,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_' thiseq.SplitPhase '_R.dat']),'w+');        
         for ii = 1:RFlength
         fprintf(fidR,'%f\n',thiseq.RadialRF(ii));         
         end
         fclose(fidR);
         
         %OUTPUT Transverse RFs
-        fidT = fopen(fullfile(OUT_path,[thiseq.seisfiles{1}(config.yy:config.ss) '_' thiseq.SplitPhase '_T.dat']),'w+');       
+        fidT = fopen(fullfile(OUT_path,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_' thiseq.SplitPhase '_T.dat']),'w+');       
         for ii = 1:RFlength
         fprintf(fidT,'%f\n',thiseq.TransverseRF(ii));       
         end
         fclose(fidT);
         
         %OUTPUT iteration number
-        fprintf(fid_iter_R,'%s %s %u %f\n',thiseq.seisfiles{1}(config.yy:config.ss),thiseq.SplitPhase,thiseq.it_num_R,thiseq.RMS_R(thiseq.it_num_R));
-        fprintf(fid_iter_T,'%s %s %u %f\n',thiseq.seisfiles{1}(config.yy:config.ss),thiseq.SplitPhase,thiseq.it_num_T,thiseq.RMS_T(thiseq.it_num_T));
+        fprintf(fid_iter_R,'%s %s %u %f\n',dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)),thiseq.SplitPhase,thiseq.it_num_R,thiseq.RMS_R(thiseq.it_num_R));
+        fprintf(fid_iter_T,'%s %s %u %f\n',dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)),thiseq.SplitPhase,thiseq.it_num_T,thiseq.RMS_T(thiseq.it_num_T));
         
         %Add the current earthquake to the finallist:
         Ev_para = taupTime('iasp91',thiseq.depth,thiseq.SplitPhase,'sta',[config.slat,config.slong],'evt',[thiseq.lat,thiseq.long]);   
         Ev_para = srad2skm(Ev_para(1).rayParam);       
-        fprintf(fid_finallist,'%s %s %f %f %f %f %f %f %f %f\n',thiseq.seisfiles{1}(config.yy:config.ss),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,config.f0);
+        fprintf(fid_finallist,'%s %s %f %f %f %f %f %f %f %f\n',dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,config.f0);
      %idx = thiseq.index;
      %eq(idx).RadialRF = thiseq.RadialRF;
      %eq(idx).RMS_R = thiseq.RMS_R;
@@ -271,20 +271,20 @@ if strcmp(button, 'Yes')
 
      if( ~exist( OUT_path1 , 'dir') )
          mkdir( OUT_path1 ); end
-     fiddataT = fopen(fullfile(OUT_path1,[thiseq.seisfiles{1}(config.yy:config.ss) '_RFdata_T.dat']),'w+'); 
+     fiddataT = fopen(fullfile(OUT_path1,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_RFdata_T.dat']),'w+'); 
      fprintf(fiddataT,'%20.19f\n',T);
      fclose(fiddataT);
      
-     fiddataR = fopen(fullfile(OUT_path1,[thiseq.seisfiles{1}(config.yy:config.ss) '_RFdata_R.dat']),'w+'); 
+     fiddataR = fopen(fullfile(OUT_path1,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_RFdata_R.dat']),'w+'); 
      fprintf(fiddataR,'%20.19f\n',R);
      fclose(fiddataR);
      
-     fiddataZ = fopen(fullfile(OUT_path1,[thiseq.seisfiles{1}(config.yy:config.ss) '_RFdata_Z.dat']),'w+'); 
+     fiddataZ = fopen(fullfile(OUT_path1,[dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)) '_RFdata_Z.dat']),'w+'); 
      fprintf(fiddataZ,'%20.19f\n',Z);
      fclose(fiddataZ);
      
      fid_finallist1 = fopen(fullfile(OUT_path1,[config.stnname 'finallist.dat']),'a+');
-     fprintf(fid_finallist1,'%s %s %f %f %f %f %f %f %f %f\n',thiseq.seisfiles{1}(config.yy:config.ss),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,config.f0);
+     fprintf(fid_finallist1,'%s %s %f %f %f %f %f %f %f %f\n',dname(thiseq.date(1),thiseq.date(2),thiseq.date(3),thiseq.date(4),thiseq.date(5),thiseq.date(6)),thiseq.SplitPhase,thiseq.lat,thiseq.long,thiseq.depth,thiseq.dis,thiseq.bazi,Ev_para,thiseq.Mw,config.f0);
      
      fclose(fid_iter_R);fclose(fid_iter_T);fclose(fid_finallist);close(figure(10));     
 else
