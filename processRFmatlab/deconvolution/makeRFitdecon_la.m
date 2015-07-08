@@ -62,7 +62,7 @@ while( abs(d_error) > MINDERR  && it < ITMAX )
   it = it+1; % iteration advance
 
   % ligorria and ammon method
-  RW= correl(R, Wf, nfft);
+  RW= correl(R, W, nfft);
   RW = RW/sum(W.^2);
 
   [~,i1]=max( abs( RW(1:maxlag) ) );
@@ -74,13 +74,13 @@ while( abs(d_error) > MINDERR  && it < ITMAX )
   P = gfilter(P, nfft, Wf, DT); % convolve to predict U
 
   % Uncomment following to view progress
-%   clf;
+  % clf;
 %   subplot(3,1,1); plot(U,'-k'); hold on;
 %   subplot(3,1,1); plot(R,'-r'); hold on;
 %   subplot(3,1,2); plot(W,'-k'); hold on;
 %   subplot(3,1,3); plot(P,'-k'); hold on;% plot(i1,P(i1),'rx');
-% %   tmp = input('Press a key to continue');
-% %   close(gcf);
+%   tmp = input('Press a key to continue');
+
   % compute residual with filtered numerator
   R = U - P;
   sumsq = sum( R.^2 )/powerU;
@@ -154,11 +154,10 @@ x = real( ifft(Xf, nfft) )/cos(2*pi*shift_i/nfft);
 return;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function x = correl( R, Wf, nfft )
+function x = correl( R, W, nfft )
 %
 
 %Rf = fft(R,nfft); % convert to freq domain
 
 % Do cross correlation with W in freq
-x = real(ifft( fft(R,nfft).*conj(Wf), nfft));
-
+x = real(ifft( fft(R,nfft).*conj(fft(W,nfft)), nfft));

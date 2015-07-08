@@ -18,6 +18,7 @@ else
     fprintf(fid_Stalist,'%s %6.3f %6.3f\n',stnname,slat,slong);
     helpdlg('Saving succesful!!!', 'Info');   
 end
+fclose(fid_Stalist);
 % fprintf('Stalat=%f;Stalon=%f;Staelev=%d\n',config.slat,config.slong,config.sele)
 
 % % if( ~exist( fullfile(OUT_path,filename) , 'file') )

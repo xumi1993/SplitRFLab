@@ -94,7 +94,6 @@ if( ~exist( OUT_path , 'dir') )
      fprintf(fiddataR,'%20.19f\n',rf(i).R3);  
      else
        error('This RF is not exist!')
-        
      end
      fclose(fiddataR);
      
@@ -106,12 +105,11 @@ if( ~exist( OUT_path , 'dir') )
      elseif para==3
      fprintf(fiddataZ,'%20.19f\n',rf(i).Z3);
      else
-       error('This RF is not exist!')
-        
+       error('This RF is not exist!')        
      end
      fclose(fiddataZ);
      
      fprintf(fid_finallist1,'%s %s %f %f %f %f %f %f %f %f\n',rf(i).seisfile,rf(i).phase,rf(i).lat,rf(i).lon,rf(i).depth,rf(i).dis,rf(i).bazi,Ev_para,rf(i).Mw,config.f0);
-     fclose(fid_finallist1)
+     fclose(fid_finallist1);
 
 return
