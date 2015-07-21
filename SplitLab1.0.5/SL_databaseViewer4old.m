@@ -1,4 +1,4 @@
-function  SL_databaseViewer
+function  SL_databaseViewer4old
 % navigate within the SplitLab database
 
 global eq config rf

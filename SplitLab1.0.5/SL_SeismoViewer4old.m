@@ -1,4 +1,4 @@
-function seis=SL_SeismoViewer(idx)
+function seis=SL_SeismoViewer4old(idx)
 % plot seismograms and provide user interaction
 if nargin<1|isempty(idx)
     idx=1;

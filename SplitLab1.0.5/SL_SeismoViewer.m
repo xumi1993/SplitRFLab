@@ -1,6 +1,6 @@
 function seis=SL_SeismoViewer(idx)
 % plot seismograms and provide user interaction
-if nargin<1|isempty(idx)
+if nargin<1||isempty(idx)
     idx=1;
 end
 
@@ -249,9 +249,9 @@ hold off
 set(phaseMenu, 'Callback', {@RotatePhaseSelect,seis},'KeyPressFcn', '' )
 seisfigbuttons(seisfig,seis);
 set(subax,'Xlim',[thiseq.Amp.time(1) thiseq.Amp.time(end)])
- s = findobj('Tag','Statusbar');
- set(s,'String', 'Status: ');
- drawnow
+s = findobj('Tag','Statusbar');
+set(s,'String', 'Status: ');
+drawnow;
 
 
 
@@ -294,7 +294,7 @@ if Pt1(1) < xxx(1) || Pt1(1) > xxx(2)
 else
     split.x = [Pt1(:,1); Pt1(:,1)];
     set(split.hfill,'Xdata',split.x,'Visible','on');
-    split.hfill.FaceAlpha = 0.5;
+%    split.hfill.FaceAlpha = 0.5;
     drawnow expose
 %    animatedline(split.x(1:2),split.x(3:4),'Color','r');
     set(src,'pointer','left','WindowButtonMotionFcn',{@buttonMotion, split, ax, seis});

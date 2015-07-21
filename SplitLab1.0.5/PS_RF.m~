@@ -71,7 +71,7 @@ else
     elseif f1==0 &&  f2 < inf
         %lowpass
         [b,a]  = butter(n, [f2]/ny,'low');
-        
+
     elseif f1>0 &&  f2 == inf
         %highpass
         [b,a]  = butter(n, [f1]/ny, 'high');
@@ -80,27 +80,27 @@ else
     T = filtfilt(b,a,T); %Transverse (T) component in extended time window
     L = filtfilt(b,a,L); %Vertical   (L) component in extended time window
     
-    E = filtfilt(b,a,E);
+    E = filtfilt(b,a,E); 
     N = filtfilt(b,a,N);
     Z = filtfilt(b,a,Z);
 end
 
 %% do some detrending of extended time window
-E = detrend(E,'constant');
-E = detrend(E,'linear');
-N = detrend(N,'constant');
-N = detrend(N,'linear');
-Z = detrend(Z,'constant');
-Z = detrend(Z,'linear');
-
-Q = detrend(Q,'constant');
-Q = detrend(Q,'linear');
-T = detrend(T,'constant');
-T = detrend(T,'linear');
-L = detrend(L,'constant');
-L = detrend(L,'linear');
-
-seis = rotateSeisENZtoTRZ( [E, N, Z] , thiseq.bazi );
+    E = detrend(E,'constant');
+    E = detrend(E,'linear');
+    N = detrend(N,'constant');
+    N = detrend(N,'linear');
+    Z = detrend(Z,'constant');
+    Z = detrend(Z,'linear');
+    
+    Q = detrend(Q,'constant');
+    Q = detrend(Q,'linear');
+    T = detrend(T,'constant');
+    T = detrend(T,'linear');
+    L = detrend(L,'constant');
+    L = detrend(L,'linear');
+    
+    seis = rotateSeisENZtoTRZ( [E, N, Z] , thiseq.bazi );
 T = seis(:,1);
 R = seis(:,2);
 Z = seis(:,3);
@@ -158,7 +158,10 @@ niter = 400;  % number iterations
 minderr = 0.001;  % stop when error reaches limit
 
 % Make receiver function
-
+% seis = rotateSeisENZtoTRZ( [E, N, Z] , thiseq.bazi );
+% T = seis(:,1);
+% R = seis(:,2);
+% Z = seis(:,3);
 [thiseq.RadialRF, thiseq.RMS_R,thiseq.it_num_R] = makeRFitdecon_la( R, Z, thiseq.dt, RFlength, config.extime_before, config.f0, ...
 				 niter, minderr);
 [thiseq.TransverseRF, thiseq.RMS_T,thiseq.it_num_T] = makeRFitdecon_la( T, Z, thiseq.dt, RFlength, config.extime_before, config.f0, ...
@@ -166,21 +169,15 @@ minderr = 0.001;  % stop when error reaches limit
 %plot RF
 time = - config.extime_before  + thiseq.dt*(0:1:RFlength-1);
 figure(10);
-pos=get(0,'ScreenSize');
-width= pos(3)/3 ; height=pos(4)/2;
-xpos = pos(1)+pos(3)/3;  ypos = height - 100 ;
-figpos =[xpos ypos width height];
-set(figure(10),'position',figpos);
+% set(figure(10),'position',[200 400 1000 800]);
 %pause
 plot(time,thiseq.RadialRF,'k','LineWidth',2.0);hold on;
 plot(time,thiseq.TransverseRF);hold on
-legend('Radial','Transverse');
 plot(xlim,[0 0],'g--');
 set(gca,'xlim',[-5 30],'xtick',(0:2:30),'Xgrid','on')
 xlabel(gca, 'Time after P (s)');
-ylabel(gca, 'Amplitude');
-set(gcf,'name', 'Receiver Function','NumberTitle','off','ToolBar','none',...
-        'Menubar','none');
+ylabel(gca, Amplitude);
+set(gcf,'name', );
 %% XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 %%              R E S U L T   S A V E   T E M P L A T E
 %% XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -194,11 +191,11 @@ set(gcf,'name', 'Receiver Function','NumberTitle','off','ToolBar','none',...
 %OUT_path = ['/Volumes/LaCie/YN.RFunction/RFresult/' config.stnname];%path of PRFs
 %OUT_path1 = ['/Volumes/LaCie/YN.RFunction/RFcutoutdata/' config.stnname];%path of cut out data
 if ispc
-    OUT_path = [config.RFdatapath '\' config.stnname];%path of PRFs
-    OUT_path1 = [config.cutdir '\' config.stnname];%path of cut out data
+OUT_path = [config.RFdatapath '\' config.stnname];%path of PRFs
+OUT_path1 = [config.cutdir '\' config.stnname];%path of cut out data
 else
-    OUT_path = [config.RFdatapath '/' config.stnname];%path of PRFs
-    OUT_path1 = [config.cutdir '/' config.stnname];%path of cut out data
+OUT_path = [config.RFdatapath '/' config.stnname];%path of PRFs
+OUT_path1 = [config.cutdir '/' config.stnname];%path of cut out data
 end
 
 
