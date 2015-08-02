@@ -144,8 +144,13 @@ figure(10);
 %pause
 plot(time,thiseq.RadialRF,'k','LineWidth',2.0);hold on;
 plot(time,thiseq.TransverseRF);hold on
+legend('Radial','Transverse');
 plot(xlim,[0 0],'g--');
-set(gca,'xlim',[-5 30],'xtick',(0:2:30),'Xgrid','on')
+set(gca,'xlim',[-5 config.timeafterp],'Xgrid','on')
+xlabel(gca, 'Time after P (s)');
+ylabel(gca, 'Amplitude');
+set(gcf,'name', 'Receiver Function','NumberTitle','off','ToolBar','none',...
+        'Menubar','none');
 %% XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 %%              R E S U L T   S A V E   T E M P L A T E
 %% XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

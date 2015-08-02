@@ -307,7 +307,7 @@ Pt2 = [Pt2(:,1)];
 split.x(3:4) = Pt2;
 split.x      = sort(split.x);
 set(split.hfill,'Xdata',split.x);
-split.hfill.FaceAlpha = 0.5;
+%split.hfill.FaceAlpha = 0.5;
 drawnow expose
 set(src,'WindowButtonupFcn',{@buttonUp, split, ax, seis})
 status = findobj('Tag','Statusbar');
