@@ -29,7 +29,11 @@ R = 6371 - Depths;
 
 %% 1D ray tracing:
 %--------------------------------------------------------------------------
-
+x_s=zeros(length(YAxisRange),EV_num);
+x_p=zeros(length(YAxisRange),EV_num);
+raylength_s=zeros(length(YAxisRange),EV_num);
+raylength_p=zeros(length(YAxisRange),EV_num);
+Tpds=zeros(length(YAxisRange),EV_num);
 for i = 1:EV_num
     
 x_s(:,i) = cumsum((dz./R) ./ sqrt((1./(rayp(i)^2.* (R./Vs).^-2)) - 1));%Pds piercing distance from station in rad
