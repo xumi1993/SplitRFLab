@@ -172,7 +172,7 @@ h2 = subplot(3,1,2);
     box on;
  plot(h2,time,receiver+1,'color',[0.5 0.5 0.5],'lineWidth',0.2)
  p2ylim=[min(receiver+1)-min(receiver+1)/10 max(receiver+1)+max(receiver+1)/10];
- text(-3,(p2ylim(1)+p2ylim(2))/2,'sum','FontSize',14)
+ text(-4,(p2ylim(1)+p2ylim(2))/2,'sum','FontSize',14)
  
 %% H-k maps
 h3=subplot(3,1,3);box on
@@ -187,7 +187,7 @@ colormap(cyan);hold on;
 [cc bb] = contour(Moho,kappa,Normed_stack,[cvalue],'ShowText','off','linestyle','-','linewidth',0.7,'linecolor',[.2 .2 .2]);
 % cb4 = colorbar('peer',gca);
 %clabel(cc,bb,'fontsize',10,'FontName','Arial','color','k','rotation',0)
-set(h3,'position',[0.2 0.78 0.75 0.18])
+set(h3,'position',[0.2 0.78 0.75 0.16])
 set(h3,'YDir','normal','xlim',[min(Moho) max(Moho)],'ylim',[min(kappa) max(kappa)],...
     'xtick',[min(Moho):10:max(Moho)],'xticklabel',[min(Moho):10:max(Moho)],'FontSize',14,...
     'xminortick','on','yminortick','on','tickdir','out')
@@ -197,8 +197,9 @@ line([besth besth],ylim, 'LineStyle','--','Color',linecolor,'LineWidth',0.8);lin
 plot(besth, bestk,'color', linecolor,'Marker','square', 'MarkerSize',5,'LineWidth',1)
 H=num2str(besth);
 K=num2str(bestk);
-text(Moho(270),1.95,strcat('H=',H,' km'),'FontSize',15);
-text(Moho(270),1.88,strcat('Vp/Vs=',K),'FontSize',15);
+txtloca = floor(length(Moho)/3*2);
+text(Moho(txtloca),1.95,strcat('H=',H,' km'),'FontSize',15);
+text(Moho(txtloca),1.88,strcat('Vp/Vs=',K),'FontSize',15);
 ylabel(h3, 'Vp/Vs','FontSize',15 )
 xlabel(h3, 'Depth (km)', 'FontSize',15 )
 %% figure configurations
