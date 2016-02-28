@@ -1,4 +1,4 @@
-function claRFbat
+function calRFbat
 global  config eq rf
 
 rf = struct();

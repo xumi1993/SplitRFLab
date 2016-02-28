@@ -9,7 +9,7 @@ dat = struct();
 for i = 1:length(sac_all)
     sacname = regexpi(sac_all(i).name,'\d+\W\d+\W\d+\W\d+\W\d+','match');
     nowsac = rsac(fullfile(path,sac_all(i).name));
-    phase = strtrim(lh(nowsac,'KT1'));
+    phase = strtrim(lh(nowsac,'Ka'));
     disp(char(sacname))
     dat(i).name = sacname;
     dat(i).R = nowsac(:,2);
