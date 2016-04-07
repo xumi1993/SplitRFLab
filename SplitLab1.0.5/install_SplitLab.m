@@ -208,41 +208,41 @@ if all([installMatTaup, ~(exist(matpath,'dir')==7)])
 end
 
 
-processRFmatlab_root='../processRFmatlab';
-
-
-% Check the directory exists
-if ~exist(processRFmatlab_root, 'dir'),
-    error('You need to edit this script to point to your directory')
-    return;
-end
-
-% Now add the paths for all the functions individually
-fprintf('Adding deconvolution functions to path\n');
-addpath(fullfile(processRFmatlab_root,'deconvolution'));
-
-fprintf('Adding depthmapping functions to path\n');
-addpath(fullfile(processRFmatlab_root,'depthmapping'));
-
-fprintf('Adding getinfo functions to path\n');
-addpath(fullfile(processRFmatlab_root,'getinfo'));
-
-fprintf('Adding inout functions to path\n');
-addpath(fullfile(processRFmatlab_root,'inout'));
-
-fprintf('Adding plotting functions to path\n');
-addpath(fullfile(processRFmatlab_root,'plotting'));
-
-fprintf('Adding signalprocessing functions to path\n');
-addpath(fullfile(processRFmatlab_root,'signalprocessing'));
-
-fprintf('Adding velocity models to path\n');
-addpath(fullfile(processRFmatlab_root,'velmodels1D'));
-
-fprintf('Adding some useful tiny codes to path\n');
-addpath(fullfile(processRFmatlab_root,'Tinycodes'));
-
-savepath;
+% processRFmatlab_root='../processRFmatlab';
+% 
+% 
+% % Check the directory exists
+% if ~exist(processRFmatlab_root, 'dir'),
+%     error('You need to edit this script to point to your directory')
+%     return;
+% end
+% 
+% % Now add the paths for all the functions individually
+% fprintf('Adding deconvolution functions to path\n');
+% addpath(fullfile(processRFmatlab_root,'deconvolution'));
+% 
+% fprintf('Adding depthmapping functions to path\n');
+% addpath(fullfile(processRFmatlab_root,'depthmapping'));
+% 
+% fprintf('Adding getinfo functions to path\n');
+% addpath(fullfile(processRFmatlab_root,'getinfo'));
+% 
+% fprintf('Adding inout functions to path\n');
+% addpath(fullfile(processRFmatlab_root,'inout'));
+% 
+% fprintf('Adding plotting functions to path\n');
+% addpath(fullfile(processRFmatlab_root,'plotting'));
+% 
+% fprintf('Adding signalprocessing functions to path\n');
+% addpath(fullfile(processRFmatlab_root,'signalprocessing'));
+% 
+% fprintf('Adding velocity models to path\n');
+% addpath(fullfile(processRFmatlab_root,'velmodels1D'));
+% 
+% fprintf('Adding some useful tiny codes to path\n');
+% addpath(fullfile(processRFmatlab_root,'Tinycodes'));
+% 
+% savepath;
 
 disp(' ')
 disp('*******************************************')

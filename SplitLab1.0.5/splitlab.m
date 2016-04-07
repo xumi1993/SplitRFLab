@@ -2,7 +2,7 @@
 function splitlab
 % Main window of the SplitLab toolbox, configure the parameters and projects
 % creating the configuration figure of Splitlab
-global config  
+global config  eq
 
 
 SL_checkversion
