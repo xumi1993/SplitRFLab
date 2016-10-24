@@ -8,7 +8,7 @@ Notes: This toolbox CANNOT run at Windows with 64-bit MATLAB. Mac OS and Linux a
 
 Installation
 ------------------
-1. Install Splitlab run script of install_SplitLab.m
+1. Install Splitlab with running script of install_SplitLab.m
 
 2. Add all path of processRFmatlab to MATLAB
 
