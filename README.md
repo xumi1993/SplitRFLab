@@ -13,8 +13,10 @@ Installation
 2. Add all path of processRFmatlab to MATLAB
 
 
-Release history 
+Citations
 ---------------------
-2014-11-13 2.1.2 repairing bugs
+* To cite this tool box
 
-2014-11-23 2.1.3 adding support for MATLAB 2014b
+Xu M, Huang H, Huang Z, et al. SplitRFLab: A MATLAB GUI toolbox for receiver function analysis based on SplitLab[J]. Earthquake Science, 2016, 29(1): 17-26.
+
+http://link.springer.com/article/10.1007/s11589-016-0141-8
