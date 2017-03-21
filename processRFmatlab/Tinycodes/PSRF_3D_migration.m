@@ -1,4 +1,4 @@
-function [TimeCorrections, newTpds]=PSRF_3D_migration(pplat_s, pplon_s, pplat_p, pplon_p, raylength_s, raylength_p, Tpds, YAxisRange, model_path)
+function [TimeCorrections, newTpds]=PSRF_3D_migration(pplat_s, pplon_s, pplat_p, pplon_p, raylength_s, raylength_p, Tpds, YAxisRange, model_path,velmod)
 
 RFdepth=size(raylength_p,1);  EV_num=size(raylength_p,2);
 
@@ -14,7 +14,7 @@ TLats(:,1) = model_3D.lat(1,:,1);
 
 % Load and setup the 1D velocity model
 %--------------------------------------------------------------------------
-Velocity1D='/Users/xumj/Documents/MATLAB/ccp/VEL_models/IASP91.vel';
+Velocity1D=velmod;
 VelocityModel = load(Velocity1D,'-ascii');
 VDepths = VelocityModel(:,1);
 Vp = VelocityModel(:,3);

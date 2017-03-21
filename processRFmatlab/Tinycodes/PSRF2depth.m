@@ -1,9 +1,9 @@
-function [PS_RFdepth, EndIndex, x_s, x_p] = PSRF2depth(datar, rayp, YAxisRange, sampling, shift)
+function [PS_RFdepth, EndIndex, x_s, x_p] = PSRF2depth(datar, rayp, YAxisRange, sampling, shift,velmod)
 
 RFlength = size(datar,1); EV_num = size(datar, 2);
 
 %% Model information
-Velocity1D='/Users/xumj/Documents/MATLAB/ccp/VEL_models/IASP91.vel';
+Velocity1D=velmod;
 VelocityModel = load(Velocity1D,'-ascii');
 
 

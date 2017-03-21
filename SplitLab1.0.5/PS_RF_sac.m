@@ -21,8 +21,7 @@ fprintf(' %s -- analysing event  %s:%4.0f.%03.0f (%.0f/%.0f) --\n',...
 %% extend selection window
 %some calculations require an extended tim window to perferm properly
 % so this is what we do here
-% extime_before    = 10 ; 
-% extime_after    = 120 ; 
+
 o         = thiseq.Amp.time(1);%common offset of all files after hypotime
 
 if ~isfield(thiseq, 'a')
@@ -38,9 +37,6 @@ extIndex  = extbegin:extfinish;%create vector of indices to elements of extended
 RFlength = length(extIndex);
 % now find indices of selected window, but this time 
 % relative to extended window, defined above
-
-%ex = floor(extime/thiseq.dt) ;
-%w  = (ex+1):(length(extIndex)-ex);
 
 
 %% OK, now we can define our seismogram components windows
@@ -126,10 +122,7 @@ niter = 400;  % number iterations
 minderr = 0.001;  % stop when error reaches limit
 
 % Make receiver function
-% seis = rotateSeisENZtoTRZ( [E, N, Z] , thiseq.bazi );
-% T = seis(:,1);
-% R = seis(:,2);
-% Z = seis(:,3);
+
 [thiseq.RadialRF, thiseq.RMS_R,thiseq.it_num_R] = makeRFitdecon_la( R, Z, thiseq.dt, RFlength, config.extime_before, config.f0, ...
 				 niter, minderr);
 [thiseq.TransverseRF, thiseq.RMS_T,thiseq.it_num_T] = makeRFitdecon_la( T, Z, thiseq.dt, RFlength, config.extime_before, config.f0, ...
@@ -137,11 +130,7 @@ minderr = 0.001;  % stop when error reaches limit
 %plot RF
 time = - config.extime_before  + thiseq.dt*(0:1:RFlength-1);
 figure(10);
-% set(figure(10),'position',[200 400 1000 800]);
-%subplot(3,1,1);plot(time,E,'k');
-%subplot(3,1,2);plot(time,N,'k');
-%subplot(3,1,3);plot(time,Z,'k');
-%pause
+
 plot(time,thiseq.RadialRF,'k','LineWidth',2.0);hold on;
 plot(time,thiseq.TransverseRF);hold on
 legend('Radial','Transverse');
@@ -161,8 +150,6 @@ set(gcf,'name', 'Receiver Function','NumberTitle','off','ToolBar','none',...
 % the index of thiseq in the permanent eq structure is given by the varible
 % thiseq.index (very smart...)
 %
-%OUT_path = ['/Volumes/LaCie/YN.RFunction/RFresult/' config.stnname];%path of PRFs
-%OUT_path1 = ['/Volumes/LaCie/YN.RFunction/RFcutoutdata/' config.stnname];%path of cut out data
 if ispc
 OUT_path = [config.RFdatapath '\' config.stnname];%path of PRFs
 OUT_path1 = [config.cutdir '\' config.stnname];%path of cut out data

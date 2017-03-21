@@ -1,9 +1,9 @@
-function [x_s, x_p, raylength_s, raylength_p, Tpds]=PSRF_1D_raytracing(datar, rayp, YAxisRange)
+function [x_s, x_p, raylength_s, raylength_p, Tpds]=PSRF_1D_raytracing(datar, rayp, YAxisRange,velmod)
 
 RFlength = size(datar,1); EV_num = size(datar, 2);
 
 %% Model information
-Velocity1D='/Users/xumj/Documents/MATLAB/ccp/VEL_models/AK135.vel';
+Velocity1D=velmod;
 VelocityModel = load(Velocity1D,'-ascii');
 
 
@@ -12,8 +12,8 @@ VelocityModel = load(Velocity1D,'-ascii');
 Depths = VelocityModel(:,1);
 % Velocities
 %--------------------------------------------------------------------------
-Vp = VelocityModel(:,2);
-Vs = VelocityModel(:,3);
+Vp = VelocityModel(:,3);
+Vs = VelocityModel(:,2);
 % Interpolate velocity model to match depth range and increments
 %--------------------------------------------------------------------------
 Vp = interp1(Depths,Vp,YAxisRange)';

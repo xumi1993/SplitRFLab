@@ -10,14 +10,14 @@ for n=1:length(filelist)
     fstr = char(filelist(n));
 
     switch config.FileNameConvention
+        case 'YN2Format'
+            pos = length(fstr)-4;
         case 'miniseed'
             pos = 13;
         case 'YAFormat'
             pos = 37;
         case 'TibetFormat'
             pos = 21;
-        case 'CNSFormat2'
-            pos = 38;
         case 'CNSFormat'
             pos = 36;
         case 'YNFormat'

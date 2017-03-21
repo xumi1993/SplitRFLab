@@ -35,6 +35,22 @@ if config.UseHeaderTimes | strcmp(config.FileNameConvention, '*.e; *.n; *.z')
 
 else % USE FILENAME
     switch config.FileNameConvention
+        case 'YN2Format'
+            if length(config.stnname) == 4
+                FIyyyy = str2num(F(:,9:12));
+                FIddd  = str2num(F(:,13:15));
+                FIHH   = str2num(F(:,16:17));
+                FIMM   = str2num(F(:,18:19));
+                FISS   = str2num(F(:,20:21));
+            else
+                FIyyyy = str2num(F(:,10:13));
+                FIddd  = str2num(F(:,14:16));
+                FIHH   = str2num(F(:,17:18));
+                FIMM   = str2num(F(:,19:20));
+                FISS   = str2num(F(:,21:22));
+            end
+            FIsec  = FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;                
+            
         case 'miniseed'
             FIyyyy = str2num(F(:,17:20));
             FIddd  = str2num(F(:,22:24));
@@ -57,13 +73,7 @@ else % USE FILENAME
             FIMM   = str2num(F(:,13:14));
             FISS   = str2num(F(:,16:17));
             FIsec  = FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;
-        case 'CNSFormat2'
-            FIyyyy = str2num(F(:,3:6));
-            FIddd  = str2num(F(:,8:10));
-            FIHH   = str2num(F(:,12:13));
-            FIMM   = str2num(F(:,15:16));
-            FISS   = str2num(F(:,18:20));
-            FIsec  = FISS + FIMM*60 + FIHH*3600 + (FIddd)*86400;
+       
         %2010.012.22.25.19.8500.SC.PZH.00.BHE.D.SAC
         case 'CNSFormat'
             FIyyyy = str2num(F(:,1:4));
