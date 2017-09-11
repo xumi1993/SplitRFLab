@@ -5,7 +5,7 @@ global config
 shift = 10;
 Moho = h1:0.1:h2;
 kappa = k1:0.01:k2;
-weight = [ 0.7, 0.2, 0.1 ] ;% weighting matrix
+weight = [ config.weight1, config.weight2, config.weight3 ] ;% weighting matrix
 linecolor=[0.94 0.27 0.2];
 
 if config.issac 
