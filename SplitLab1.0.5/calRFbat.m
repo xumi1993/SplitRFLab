@@ -86,8 +86,8 @@ f4 = 0.03;
     Z1 = Z1(extIndex);
 
      
-    snrbegin  = floor( (eq(i).phase.ttimes(1) - 100 - o) / out.dt);
-    snrfinish = floor( (eq(i).phase.ttimes(1) + 100 - o) / out.dt);
+    snrbegin  = floor( (eq(i).phase.ttimes(1) - 50 - o) / out.dt);
+    snrfinish = floor( (eq(i).phase.ttimes(1) + 50 - o) / out.dt);
     snro = floor( (eq(i).phase.ttimes(1) - o) / out.dt);
     In  = snrbegin:snro;
     I   = snro:snrfinish;
