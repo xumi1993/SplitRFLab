@@ -11,12 +11,19 @@ config.version='SplitRFLab2.3.0';
 matver = version;
 R2014b = 'R2014b';
 nowver = regexp(matver, '[()]', 'split');
-isver = char(nowver(2)) < R2014b;
-if isempty(find(isver,1))
+ver = char(nowver(2));
+yearver = ver(1:end-1);
+subver = ver(end);
+if find(yearver > R2014b(1:end-1))
     config.isoldver = 0;
+elseif find(yearver == R2014b(1:end-1))
+    if subver > R2014b(end)
+        config.isoldver = 0;
+    end
 else
     config.isoldver = 1;
 end
+
 
 [p,f] = fileparts(mfilename('fullpath'));  % directory of Splitlab
 set(0,'DefaultFigurecolor', [224   223   227]/255 ,...
